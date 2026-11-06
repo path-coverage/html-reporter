@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/path-coverage/html-reporter/schema.json",
+  "title": "Path coverage page data",
+  "description": "The data of one page of a path coverage HTML report, as a port writes it and render.js draws it. A port computes; the renderer draws. Every number the page shows that is not a plain count is computed by the port, so the page and the port's console never disagree.",
+  "oneOf": [
+    { "$ref": "#/$defs/indexPage" },
+    { "$ref": "#/$defs/filePage" }
+  ],
+  "$defs": {
+    "code": {
+      "description": "A fragment of code, coloured: its text, and the [from, to, class] of each coloured range, columns counting characters (code points), ranges in order and not overlapping. The classes are k keyword, n number, s string, c comment, t constant, v instance variable, o an operator that decides a path.",
+      "type": "object",
+      "required": ["text", "tokens"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "integer", "minimum": 0 },
+              { "type": "integer", "minimum": 0 },
+              { "enum": ["k", "n", "s", "c", "t", "v", "o"] }
+            ],
+            "items": false
+          }
+        }
+      }
+    },
+    "status": { "enum": ["gaps", "covered"] },
+    "at": {
+      "description": "[line, column, end line, end column] of code in its file, columns counting characters, the end exclusive.",
+      "type": "array",
+      "items": { "type": "integer", "minimum": 0 },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "totals": {
+      "description": "A row of the index: its sites, its [taken, possible] paths within each method, and their percent, rounded, null when possible is 0.",
+      "type": "object",
+      "required": ["sites", "methods", "percent"],
+      "additionalProperties": false,
+      "properties": {
+        "sites": { "type": "integer", "minimum": 0 },
+        "methods": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "percent": { "type": ["integer", "null"] }
+      }
+    },
+    "indexPage": {
+      "type": "object",
+      "required": ["schema", "page", "tables", "ignored"],
+      "additionalProperties": false,
+      "properties": {
+        "schema": { "const": 1 },
+        "page": { "const": "index" },
+        "tables": {
+          "description": "All files first, then a table per group. With more than one, the page has a tab per table.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "rows", "total"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "allOf": [{ "$ref": "#/$defs/totals" }],
+                  "type": "object",
+                  "required": ["path"],
+                  "properties": {
+                    "path": { "type": "string" },
+                    "sites": true, "methods": true, "percent": true
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "total": { "$ref": "#/$defs/totals" }
+            }
+          }
+        },
+        "ignored": {
+          "description": "The operators the configuration ignores, eg &&=.",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "filePage": {
+      "type": "object",
+      "required": ["schema", "page", "path", "lines", "cards"],
+      "additionalProperties": false,
+      "properties": {
+        "schema": { "const": 1 },
+        "page": { "const": "file" },
+        "path": { "description": "The file's path, relative to the project root.", "type": "string" },
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "tokens", "status", "span"],
+            "additionalProperties": false,
+            "properties": {
+              "text": { "type": "string" },
+              "tokens": { "$ref": "#/$defs/code/properties/tokens" },
+              "status": {
+                "description": "The status of the sites on the line, null for a line with none.",
+                "oneOf": [{ "$ref": "#/$defs/status" }, { "type": "null" }]
+              },
+              "span": {
+                "description": "[first, last] lines of the merged span of sites the line is in, null for a line in none.",
+                "oneOf": [
+                  { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+                  { "type": "null" }
+                ]
+              }
+            }
+          }
+        },
+        "cards": {
+          "description": "The methods' cards, then the top cards, of sites outside every method.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/card" }
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "required": ["first", "last", "column", "status", "top", "sites", "title", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "first": { "type": "integer" },
+        "last": { "type": "integer" },
+        "column": { "type": "integer" },
+        "status": { "$ref": "#/$defs/status" },
+        "top": { "description": "True for a top card.", "type": "boolean" },
+        "sites": { "description": "A top card's count of sites, null for a method's.", "type": ["integer", "null"] },
+        "title": {
+          "type": "object",
+          "required": ["name", "calls", "ways", "notTaken", "taken"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "calls": { "description": "How many times the method was called; null for a top card, or when not known.", "type": ["integer", "null"] },
+            "ways": { "type": "integer" },
+            "notTaken": { "type": "integer" },
+            "taken": { "type": "integer" }
+          }
+        },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/cardRow" } }
+      }
+    },
+    "cardRow": {
+      "type": "object",
+      "required": ["at", "site", "top", "paths", "taken", "fold"],
+      "additionalProperties": false,
+      "properties": {
+        "at": { "description": "line:column, the column two digits, eg 19:04.", "type": "string" },
+        "site": { "description": "The site's name, path:line:column, null for a row that is no site.", "type": ["string", "null"] },
+        "top": { "$ref": "#/$defs/code" },
+        "paths": { "type": "integer" },
+        "taken": { "description": "How many of its paths were taken, null when not known.", "type": ["integer", "null"] },
+        "fold": {
+          "description": "The rows of the site's tree, folded under the card row; null for a row with no tree.",
+          "oneOf": [
+            { "type": "array", "items": { "$ref": "#/$defs/foldRow" } },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "cell": {
+      "description": "One path's cell of a fold row: [text, mark, hover], mark and hover null when it has none.",
+      "type": "array",
+      "prefixItems": [
+        { "type": "string" },
+        { "type": ["string", "null"] },
+        { "type": ["string", "null"] }
+      ],
+      "items": false
+    },
+    "foldRow": {
+      "description": "One row of a fold, laid out by the port: its kind, the branch joining it to the row it hangs from (one letter per cell: t tee, l ell, v bar, h dash, s space), its label, and a cell per path. The first row, of kind site, has counts instead of cells.",
+      "type": "object",
+      "required": ["kind", "branch", "label", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["site", "subtree", "operand", "arm", "leaves"] },
+        "branch": { "type": "string", "pattern": "^[tlvhs]*$" },
+        "label": { "$ref": "#/$defs/code" },
+        "at": { "oneOf": [{ "$ref": "#/$defs/at" }, { "type": "null" }] },
+        "else": {
+          "description": "A site row's: where its else keyword is, so hovering it opens the fold; null for none.",
+          "oneOf": [{ "$ref": "#/$defs/at" }, { "type": "null" }]
+        },
+        "counts": {
+          "description": "A site row's: how many times each path was taken.",
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "cells": { "type": "array", "items": { "$ref": "#/$defs/cell" } }
+      }
+    }
+  }
+}
