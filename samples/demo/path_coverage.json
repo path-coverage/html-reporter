@@ -1,0 +1,2726 @@
+{
+  "sites": {
+    "source/archive.rb:5:24": [
+      {
+        "truthy": 0,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/fee.rb:5:2": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/fee.rb:5:5": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/fee.rb:8:2": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/group.rb:4:26": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/kata.rb:4:21": [
+      {
+        "truthy": 4,
+        "falsy": 1
+      },
+      {
+        "truthy": 3,
+        "falsy": 1
+      }
+    ],
+    "source/kata.rb:8:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/kata.rb:14:5": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/kata.rb:14:29": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:5:10": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:8:0": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:8:3": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:14:28": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:17:27": [
+      {
+        "truthy": 4,
+        "falsy": 3
+      },
+      {
+        "truthy": 3,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:18:24": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:23:38": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.rb:27:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:27:7": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:31:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:33:4": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:33:10": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:37:45": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:37:15": [
+      {
+        "truthy": 0,
+        "falsy": 2
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:39:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:43:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:43:7": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:47:17": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:50:17": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:57:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:63:6": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.rb:63:9": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:66:6": [
+      {
+        "truthy": 0,
+        "falsy": 3
+      }
+    ],
+    "source/shop.rb:72:4": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:72:7": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:80:6": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:80:9": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.rb:82:6": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.rb:92:4": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.rb:92:7": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/team.rb:5:4": [
+      {
+        "truthy": 3,
+        "falsy": 0
+      },
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/team.rb:12:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/team.rb:17:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/team.rb:17:12": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/team.rb:17:23": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ]
+  },
+  "paths": {
+    "source/archive.rb:5:24": {
+      "leaves": [
+        [
+          "5:24",
+          "5:38"
+        ],
+        [
+          "5:42",
+          "5:54"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/fee.rb:5:2": {
+      "leaves": [
+        [
+          "5:5",
+          "5:32"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/fee.rb:5:5": {
+      "leaves": [
+        [
+          "5:5",
+          "5:17"
+        ],
+        [
+          "5:21",
+          "5:32"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/fee.rb:8:2": {
+      "leaves": [
+        [
+          "8:5",
+          "8:15"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/group.rb:4:26": {
+      "leaves": [
+        [
+          "4:26",
+          "4:42"
+        ],
+        [
+          "4:46",
+          "4:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.rb:4:21": {
+      "leaves": [
+        [
+          "4:21",
+          "4:37"
+        ],
+        [
+          "4:41",
+          "4:53"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 3
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.rb:8:4": {
+      "leaves": [
+        [
+          "8:4",
+          "8:16"
+        ],
+        [
+          "9:6",
+          "9:20"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.rb:14:5": {
+      "leaves": [
+        [
+          "14:5",
+          "14:13"
+        ],
+        [
+          "14:17",
+          "14:27"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/kata.rb:14:29": {
+      "leaves": [
+        [
+          "14:29",
+          "14:41"
+        ],
+        [
+          "14:45",
+          "14:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:5:10": {
+      "leaves": [
+        [
+          "5:10",
+          "5:41"
+        ],
+        [
+          "5:45",
+          "5:62"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:8:0": {
+      "leaves": [
+        [
+          "8:3",
+          "8:26"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:8:3": {
+      "leaves": [
+        [
+          "8:3",
+          "8:10"
+        ],
+        [
+          "8:14",
+          "8:26"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:14:28": {
+      "leaves": [
+        [
+          "14:10",
+          "14:27"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:17:27": {
+      "leaves": [
+        [
+          "17:27",
+          "17:40"
+        ],
+        [
+          "17:44",
+          "17:58"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 3
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 3
+        }
+      ]
+    },
+    "source/shop.rb:18:24": {
+      "leaves": [
+        [
+          "18:24",
+          "18:37"
+        ],
+        [
+          "18:42",
+          "18:61"
+        ],
+        [
+          "18:65",
+          "18:79"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:23:38": {
+      "leaves": [
+        [
+          "23:41",
+          "23:53"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.rb:27:4": {
+      "leaves": [
+        [
+          "27:7",
+          "27:34"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:27:7": {
+      "leaves": [
+        [
+          "27:7",
+          "27:20"
+        ],
+        [
+          "27:24",
+          "27:34"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:31:4": {
+      "leaves": [
+        [
+          "31:7",
+          "31:17"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:33:4": {
+      "leaves": [
+        [
+          "33:10",
+          "33:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.rb:33:10": {
+      "leaves": [
+        [
+          "33:10",
+          "33:23"
+        ],
+        [
+          "33:27",
+          "33:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.rb:37:45": {
+      "leaves": [
+        [
+          "37:15",
+          "37:44"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:37:15": {
+      "leaves": [
+        [
+          "37:15",
+          "37:26"
+        ],
+        [
+          "37:30",
+          "37:44"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:39:4": {
+      "leaves": [
+        [
+          "39:11",
+          "39:26"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:43:4": {
+      "leaves": [
+        [
+          "43:7",
+          "44:38"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:43:7": {
+      "leaves": [
+        [
+          "43:7",
+          "43:19"
+        ],
+        [
+          "44:8",
+          "44:20"
+        ],
+        [
+          "44:24",
+          "44:37"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:47:17": {
+      "leaves": [
+        [
+          "47:20",
+          "47:32"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:50:17": {
+      "leaves": [
+        [
+          "50:20",
+          "50:34"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:57:4": {
+      "leaves": [
+        [
+          "57:7",
+          "57:19"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:63:6": {
+      "leaves": [
+        [
+          "63:9",
+          "63:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.rb:63:9": {
+      "leaves": [
+        [
+          "63:9",
+          "63:23"
+        ],
+        [
+          "63:27",
+          "63:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:66:6": {
+      "leaves": [
+        [
+          "66:9",
+          "66:17"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 3
+        }
+      ]
+    },
+    "source/shop.rb:72:4": {
+      "leaves": [
+        [
+          "72:7",
+          "72:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.rb:72:7": {
+      "leaves": [
+        [
+          "72:7",
+          "72:21"
+        ],
+        [
+          "72:25",
+          "72:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.rb:80:6": {
+      "leaves": [
+        [
+          "80:9",
+          "80:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:80:9": {
+      "leaves": [
+        [
+          "80:9",
+          "80:20"
+        ],
+        [
+          "80:24",
+          "80:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:82:6": {
+      "leaves": [
+        [
+          "82:12",
+          "82:23"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.rb:92:4": {
+      "leaves": [
+        [
+          "92:7",
+          "92:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.rb:92:7": {
+      "leaves": [
+        [
+          "92:7",
+          "92:18"
+        ],
+        [
+          "92:22",
+          "92:41"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/team.rb:5:4": {
+      "leaves": [
+        [
+          "5:4",
+          "5:17"
+        ],
+        [
+          "5:21",
+          "5:46"
+        ],
+        [
+          "6:6",
+          "6:27"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.rb:12:4": {
+      "leaves": [
+        [
+          "12:4",
+          "12:16"
+        ],
+        [
+          "12:21",
+          "12:34"
+        ],
+        [
+          "12:38",
+          "12:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.rb:17:4": {
+      "leaves": [
+        [
+          "17:4",
+          "17:44"
+        ],
+        [
+          "17:48",
+          "17:62"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.rb:17:12": {
+      "leaves": [
+        [
+          "17:4",
+          "17:11"
+        ],
+        [
+          "17:23",
+          "17:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            "0 items",
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            "1 item",
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            "1 item",
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            "2+ items",
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            "2+ items",
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.rb:17:23": {
+      "leaves": [
+        [
+          "17:23",
+          "17:30"
+        ],
+        [
+          "17:34",
+          "17:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    }
+  },
+  "reached": {
+    "source/kata.rb:4:2": 5,
+    "source/kata.rb:7:2": 2,
+    "source/kata.rb:13:2": 1,
+    "source/group.rb:4:2": 3,
+    "source/team.rb:4:2": 3,
+    "source/team.rb:11:2": 2,
+    "source/team.rb:16:2": 2,
+    "source/shop.rb:17:2": 7,
+    "source/shop.rb:21:2": 3,
+    "source/shop.rb:18:2": 2,
+    "source/shop.rb:56:2": 2,
+    "source/shop.rb:58:6": 1,
+    "source/shop.rb:61:4": 3,
+    "source/shop.rb:78:2": 1,
+    "source/shop.rb:91:2": 3,
+    "source/fee.rb:3:0": 2
+  },
+  "totals": {
+    "decisions": [
+      78,
+      118
+    ],
+    "methods": [
+      79,
+      119
+    ]
+  },
+  "cards": {
+    "source/archive.rb:5:2": {
+      "name": "old?",
+      "first": 5,
+      "last": 5,
+      "ways": 3,
+      "calls": 0,
+      "rows": [
+        {
+          "at": "5:24",
+          "top": "&&",
+          "paths": 3,
+          "taken": 0,
+          "site": "source/archive.rb:5:24"
+        }
+      ]
+    },
+    "source/fee.rb:3:0": {
+      "name": "fee",
+      "first": 3,
+      "last": 12,
+      "ways": 6,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "5:02",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/fee.rb:5:2"
+        },
+        {
+          "at": "5:05",
+          "top": "&&",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/fee.rb:5:5"
+        },
+        {
+          "at": "8:02",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/fee.rb:8:2"
+        }
+      ]
+    },
+    "source/group.rb:4:2": {
+      "name": "full?",
+      "first": 4,
+      "last": 4,
+      "ways": 3,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "4:26",
+          "top": "&&",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/group.rb:4:26"
+        }
+      ]
+    },
+    "source/kata.rb:4:2": {
+      "name": "id?",
+      "first": 4,
+      "last": 4,
+      "ways": 3,
+      "calls": 5,
+      "rows": [
+        {
+          "at": "4:21",
+          "top": "&&",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/kata.rb:4:21"
+        }
+      ]
+    },
+    "source/kata.rb:7:2": {
+      "name": "runnable?",
+      "first": 7,
+      "last": 10,
+      "ways": 3,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "8:04",
+          "top": "&&",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/kata.rb:8:4"
+        }
+      ]
+    },
+    "source/kata.rb:13:2": {
+      "name": "pair_checks",
+      "first": 13,
+      "last": 15,
+      "ways": 9,
+      "calls": 1,
+      "rows": [
+        {
+          "at": "14:05",
+          "top": "&&",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/kata.rb:14:5"
+        },
+        {
+          "at": "14:29",
+          "top": "&&",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/kata.rb:14:29"
+        }
+      ]
+    },
+    "source/shop.rb:17:2": {
+      "name": "member?",
+      "first": 17,
+      "last": 17,
+      "ways": 3,
+      "calls": 7,
+      "rows": [
+        {
+          "at": "17:27",
+          "top": "&&",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.rb:17:27"
+        }
+      ]
+    },
+    "source/shop.rb:18:2": {
+      "name": "vip?",
+      "first": 18,
+      "last": 18,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "18:24",
+          "top": "&&",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/shop.rb:18:24"
+        }
+      ]
+    },
+    "source/shop.rb:21:2": {
+      "name": "price",
+      "first": 21,
+      "last": 53,
+      "ways": 1728,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "23:38",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:23:38"
+        },
+        {
+          "at": "27:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:27:4"
+        },
+        {
+          "at": "27:07",
+          "top": "&&",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.rb:27:7"
+        },
+        {
+          "at": "31:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:31:4"
+        },
+        {
+          "at": "33:04",
+          "top": "elsif",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:33:4"
+        },
+        {
+          "at": "33:10",
+          "top": "||",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.rb:33:10"
+        },
+        {
+          "at": "37:15",
+          "top": "||",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.rb:37:15"
+        },
+        {
+          "at": "37:45",
+          "top": "?:",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:37:45"
+        },
+        {
+          "at": "39:04",
+          "top": "unless",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:39:4"
+        },
+        {
+          "at": "43:04",
+          "top": "if/else",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:43:4"
+        },
+        {
+          "at": "43:07",
+          "top": "&&",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/shop.rb:43:7"
+        },
+        {
+          "at": "47:17",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:47:17"
+        },
+        {
+          "at": "50:17",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:50:17"
+        }
+      ]
+    },
+    "source/shop.rb:56:2": {
+      "name": "install_discounts",
+      "first": 56,
+      "last": 75,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "57:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:57:4"
+        },
+        {
+          "at": "58:06",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "72:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:72:4"
+        },
+        {
+          "at": "72:07",
+          "top": "||",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.rb:72:7"
+        }
+      ]
+    },
+    "source/shop.rb:61:4": {
+      "name": "discount",
+      "first": 61,
+      "last": 70,
+      "ways": 6,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "63:06",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:63:6"
+        },
+        {
+          "at": "63:09",
+          "top": "&&",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.rb:63:9"
+        },
+        {
+          "at": "66:06",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:66:6"
+        }
+      ]
+    },
+    "source/shop.rb:78:2": {
+      "name": "labels",
+      "first": 78,
+      "last": 88,
+      "ways": 5,
+      "calls": 1,
+      "rows": [
+        {
+          "at": "80:06",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:80:6"
+        },
+        {
+          "at": "80:09",
+          "top": "&&",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.rb:80:9"
+        },
+        {
+          "at": "82:06",
+          "top": "elsif",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:82:6"
+        }
+      ]
+    },
+    "source/shop.rb:91:2": {
+      "name": "greeting",
+      "first": 91,
+      "last": 97,
+      "ways": 3,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "92:04",
+          "top": "if/else",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.rb:92:4"
+        },
+        {
+          "at": "92:07",
+          "top": "&&",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.rb:92:7"
+        }
+      ]
+    },
+    "source/shop.rb:5:0": {
+      "name": "file",
+      "first": 5,
+      "last": 5,
+      "ways": 3,
+      "calls": null,
+      "rows": [
+        {
+          "at": "5:10",
+          "top": "||",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.rb:5:10"
+        }
+      ]
+    },
+    "source/shop.rb:8:0": {
+      "name": "file",
+      "first": 8,
+      "last": 8,
+      "ways": 3,
+      "calls": null,
+      "rows": [
+        {
+          "at": "8:00",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:8:0"
+        },
+        {
+          "at": "8:03",
+          "top": "&&",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.rb:8:3"
+        }
+      ]
+    },
+    "source/shop.rb:14:0": {
+      "name": "Shop",
+      "first": 14,
+      "last": 14,
+      "ways": 2,
+      "calls": null,
+      "rows": [
+        {
+          "at": "14:28",
+          "top": "?:",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.rb:14:28"
+        }
+      ]
+    },
+    "source/team.rb:4:2": {
+      "name": "name?",
+      "first": 4,
+      "last": 7,
+      "ways": 4,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "5:04",
+          "top": "&&",
+          "paths": 4,
+          "taken": 3,
+          "site": "source/team.rb:5:4"
+        }
+      ]
+    },
+    "source/team.rb:11:2": {
+      "name": "can_edit?",
+      "first": 11,
+      "last": 13,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "12:04",
+          "top": "||",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/team.rb:12:4"
+        }
+      ]
+    },
+    "source/team.rb:16:2": {
+      "name": "led?",
+      "first": 16,
+      "last": 18,
+      "ways": 12,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "17:04",
+          "top": "||",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/team.rb:17:4"
+        },
+        {
+          "at": "17:12",
+          "top": "any?",
+          "paths": 5,
+          "taken": 2,
+          "site": "source/team.rb:17:12"
+        },
+        {
+          "at": "17:23",
+          "top": "&&",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/team.rb:17:23"
+        }
+      ]
+    }
+  },
+  "tree": {
+    "source/archive.rb": {
+      "5:2": {
+        "5:24": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/fee.rb": {
+      "3:0": {
+        "5:2": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "5:5": {
+          "parent": "5:2",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "8:2": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/group.rb": {
+      "4:2": {
+        "4:26": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/kata.rb": {
+      "4:2": {
+        "4:21": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "7:2": {
+        "8:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "13:2": {
+        "14:5": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "14:29": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/shop.rb": {
+      "17:2": {
+        "17:27": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "18:2": {
+        "18:24": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "21:2": {
+        "23:38": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "27:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "27:7": {
+          "parent": "27:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "31:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "33:4": {
+          "parent": "31:4",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "33:10": {
+          "parent": "33:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false
+          ]
+        },
+        "37:15": {
+          "parent": "37:45",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false
+          ]
+        },
+        "37:45": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "39:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "43:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "43:7": {
+          "parent": "43:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        "47:17": {
+          "parent": "43:4",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "50:17": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "56:2": {
+        "57:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "58:6": {
+          "parent": "57:4",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "72:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "72:7": {
+          "parent": "72:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false
+          ]
+        }
+      },
+      "61:4": {
+        "63:6": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "63:9": {
+          "parent": "63:6",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "66:6": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "78:2": {
+        "80:6": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "80:9": {
+          "parent": "80:6",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "82:6": {
+          "parent": "80:6",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "91:2": {
+        "92:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "92:7": {
+          "parent": "92:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      "5:0": {
+        "5:10": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "8:0": {
+        "8:0": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "8:3": {
+          "parent": "8:0",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      "14:0": {
+        "14:28": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/team.rb": {
+      "4:2": {
+        "5:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "11:2": {
+        "12:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "16:2": {
+        "17:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "17:12": {
+          "parent": "17:4",
+          "in": null,
+          "on": [
+            0,
+            1,
+            2
+          ],
+          "leaf": 0,
+          "gives": [
+            false,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        "17:23": {
+          "parent": "17:12",
+          "in": null,
+          "on": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "leaf": 1,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        }
+      }
+    }
+  },
+  "kinds": [
+    "block",
+    "case",
+    "chain",
+    "choice",
+    "contains",
+    "safe",
+    "write"
+  ]
+}

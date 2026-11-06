@@ -1,15 +1,29 @@
 # html-reporter
 
 The HTML report of path coverage, shared by every port (Ruby, Python).
-A port computes; this draws.
+A port measures; this draws.
 
-A port writes one data object per page, as `schema.json` has it, and
-fills `page.html` with it. In the browser, `render.js` draws the page
-from the data, then the page's other scripts run on what it drew.
+A port writes two JSON files and no HTML:
 
-## Writing a page
+- `path_coverage.json`: the counts, as AIs and other tools read them.
+- `path_coverage.source.json`: what drawing each file's code needs and
+  only a parser of its language can work out: each line's text and
+  coloured tokens, where each site is, its fold's rows, and each card
+  row's top coloured.
 
-`pages.json` says how a port fills `page.html`:
+`report.js` reads the two and writes the report: `index.html`, and
+`files/<path>.html` for each covered file. It needs no package, only
+node. The image runs it:
+
+```sh
+docker run --rm -v "$PWD/coverage:/paths" ghcr.io/path-coverage/html-reporter /paths
+```
+
+Given a second dir, it writes the pages there instead.
+
+## A page
+
+Each page is `page.html` filled as `pages.json` says:
 
 - `{{style}}`: the text of `style.css`.
 - `{{data}}`: the page's data as JSON, every `</` written `<\/`, so
@@ -18,30 +32,21 @@ from the data, then the page's other scripts run on what it drew.
   index, `render.js sort.js tabs.js settings.js theme.js`; for a file's
   page, `render.js side.js settings.js theme.js`.
 
-Each page is one self-contained file, so it opens from `file://`.
-
-## The data
-
-`schema.json` is the contract. Its rule: any number a page shows that
-is not a plain count, eg a percent, a card's paths not taken, is
-computed by the port, so the page and the port's console never
-disagree. Syntax colouring stays in each port, as only it can lex its
-language: every fragment of code is `{text, tokens}`, each token
-`[from, to, class]`, columns counting characters. A fold's rows come
-laid out: the port gives each row's branch, label and cells.
-
-`render.js` refuses data of another schema, so a stale copy of it in a
-port fails loudly.
+Each page is one self-contained file, so it opens from `file://`. In
+the browser, `render.js` draws the page from its data, as `schema.json`
+has it, then the page's other scripts run on what it drew. It refuses
+data of another schema.
 
 ## Testing
 
-`bin/test.sh` draws every sample under `samples/` and checks it has
-the same title and `<main>` as the page its port wrote whole, once
-every script has run. `samples/demo` is the Ruby gem's demo,
-`samples/index` an index with groups and a file of no method paths,
-and `samples/safe` a page with `&.` chains.
+`bin/test.sh`, in Docker, first writes the report of each sample run
+under `samples/` holding the two JSON files, and checks each page's
+data is the sample's `.data.json`: `samples/demo` is the Ruby gem's
+demo, `samples/python-demo` the Python package's. Then it draws every
+sample page written whole beside its `.data.json` and checks it has the
+same title and `<main>`, once every script has run: `samples/index` is
+an index with groups and a file of no method paths, `samples/safe` a
+page with `&.` chains.
 
-## Ports
-
-Each port keeps a copy of these files in its own tree, so a gem or a
-wheel needs nothing at install time.
+A push to main tests, then publishes the image, tagged `latest` and
+with the commit.

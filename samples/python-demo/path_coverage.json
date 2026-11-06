@@ -1,0 +1,3017 @@
+{
+  "sites": {
+    "source/archive.py:7:26": [
+      {
+        "truthy": 0,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/fee.py:8:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/fee.py:8:19": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/fee.py:10:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/group.py:6:28": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/kata.py:6:36": [
+      {
+        "truthy": 4,
+        "falsy": 1
+      },
+      {
+        "truthy": 3,
+        "falsy": 1
+      }
+    ],
+    "source/kata.py:12:12": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/kata.py:18:23": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/kata.py:18:54": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:7:47": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:10:0": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:10:11": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:18:37": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:23:30": [
+      {
+        "truthy": 4,
+        "falsy": 3
+      },
+      {
+        "truthy": 3,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:28:27": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:35:4": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.py:38:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:38:23": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:40:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:42:4": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:42:28": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:44:17": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:44:32": [
+      {
+        "truthy": 0,
+        "falsy": 2
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:45:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:47:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:47:25": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:52:19": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:53:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:61:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:66:27": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.py:66:39": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:67:8": [
+      {
+        "truthy": 0,
+        "falsy": 3
+      }
+    ],
+    "source/shop.py:78:18": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:78:34": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/shop.py:78:69": [
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:85:35": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/shop.py:90:4": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0,
+        "only": "truthy"
+      },
+      {
+        "truthy": 0,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 0,
+        "only": "truthy"
+      }
+    ],
+    "source/shop.py:104:4": [
+      {
+        "truthy": 1,
+        "falsy": 2
+      }
+    ],
+    "source/shop.py:104:24": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      }
+    ],
+    "source/team.py:7:26": [
+      {
+        "truthy": 2,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/team.py:14:24": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 0,
+        "falsy": 1
+      }
+    ],
+    "source/team.py:20:69": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/team.py:20:11": [
+      {
+        "truthy": 1,
+        "falsy": 1
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ],
+    "source/team.py:20:28": [
+      {
+        "truthy": 1,
+        "falsy": 0
+      },
+      {
+        "truthy": 1,
+        "falsy": 0
+      }
+    ]
+  },
+  "paths": {
+    "source/archive.py:7:26": {
+      "leaves": [
+        [
+          "7:11",
+          "7:25"
+        ],
+        [
+          "7:30",
+          "7:45"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/fee.py:8:4": {
+      "leaves": [
+        [
+          "8:7",
+          "8:33"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/fee.py:8:19": {
+      "leaves": [
+        [
+          "8:7",
+          "8:18"
+        ],
+        [
+          "8:23",
+          "8:33"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/fee.py:10:4": {
+      "leaves": [
+        [
+          "10:7",
+          "10:16"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/group.py:6:28": {
+      "leaves": [
+        [
+          "6:11",
+          "6:27"
+        ],
+        [
+          "6:32",
+          "6:42"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.py:6:36": {
+      "leaves": [
+        [
+          "6:11",
+          "6:35"
+        ],
+        [
+          "6:40",
+          "6:57"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 3
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.py:12:12": {
+      "leaves": [
+        [
+          "11:12",
+          "11:25"
+        ],
+        [
+          "12:16",
+          "12:34"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/kata.py:18:23": {
+      "leaves": [
+        [
+          "18:12",
+          "18:22"
+        ],
+        [
+          "18:27",
+          "18:39"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/kata.py:18:54": {
+      "leaves": [
+        [
+          "18:41",
+          "18:53"
+        ],
+        [
+          "18:57",
+          "18:70"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.py:7:47": {
+      "leaves": [
+        [
+          "7:10",
+          "7:46"
+        ],
+        [
+          "7:50",
+          "7:71"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:10:0": {
+      "leaves": [
+        [
+          "10:3",
+          "10:27"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:10:11": {
+      "leaves": [
+        [
+          "10:3",
+          "10:10"
+        ],
+        [
+          "10:15",
+          "10:27"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:18:37": {
+      "leaves": [
+        [
+          "18:40",
+          "18:61"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:23:30": {
+      "leaves": [
+        [
+          "23:11",
+          "23:29"
+        ],
+        [
+          "23:34",
+          "23:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 3
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 3
+        }
+      ]
+    },
+    "source/shop.py:28:27": {
+      "leaves": [
+        [
+          "28:11",
+          "28:26"
+        ],
+        [
+          "28:32",
+          "28:59"
+        ],
+        [
+          "28:63",
+          "28:82"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:35:4": {
+      "leaves": [
+        [
+          "35:7",
+          "35:16"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.py:38:4": {
+      "leaves": [
+        [
+          "38:7",
+          "38:37"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:38:23": {
+      "leaves": [
+        [
+          "38:7",
+          "38:22"
+        ],
+        [
+          "38:27",
+          "38:37"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:40:4": {
+      "leaves": [
+        [
+          "40:7",
+          "40:19"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:42:4": {
+      "leaves": [
+        [
+          "42:9",
+          "42:50"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.py:42:28": {
+      "leaves": [
+        [
+          "42:9",
+          "42:27"
+        ],
+        [
+          "42:31",
+          "42:50"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.py:44:17": {
+      "leaves": [
+        [
+          "44:20",
+          "44:54"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:44:32": {
+      "leaves": [
+        [
+          "44:20",
+          "44:31"
+        ],
+        [
+          "44:35",
+          "44:54"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:45:4": {
+      "leaves": [
+        [
+          "45:7",
+          "45:31"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:47:4": {
+      "leaves": [
+        [
+          "47:7",
+          "49:5"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:47:25": {
+      "leaves": [
+        [
+          "47:7",
+          "47:24"
+        ],
+        [
+          "48:8",
+          "48:25"
+        ],
+        [
+          "48:29",
+          "48:47"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:52:19": {
+      "leaves": [
+        [
+          "52:22",
+          "52:39"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:53:4": {
+      "leaves": [
+        [
+          "53:7",
+          "53:26"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:61:4": {
+      "leaves": [
+        [
+          "61:7",
+          "61:16"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:66:27": {
+      "leaves": [
+        [
+          "66:30",
+          "66:52"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.py:66:39": {
+      "leaves": [
+        [
+          "66:30",
+          "66:38"
+        ],
+        [
+          "66:43",
+          "66:52"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:67:8": {
+      "leaves": [
+        [
+          "67:11",
+          "67:19"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 3
+        }
+      ]
+    },
+    "source/shop.py:78:18": {
+      "leaves": [
+        [
+          "78:21",
+          "78:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:78:34": {
+      "leaves": [
+        [
+          "78:21",
+          "78:33"
+        ],
+        [
+          "78:38",
+          "78:56"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:78:69": {
+      "leaves": [
+        [
+          "78:72",
+          "78:84"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:85:35": {
+      "leaves": [
+        [
+          "85:38",
+          "85:50"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/shop.py:90:4": {
+      "leaves": [
+        [
+          "91:13",
+          "91:14"
+        ],
+        [
+          "93:13",
+          "93:18"
+        ],
+        [
+          "95:13",
+          "95:18"
+        ],
+        [
+          "95:22",
+          "95:32"
+        ],
+        [
+          "97:13",
+          "97:14"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null,
+            null,
+            null,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true,
+            null,
+            null,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false,
+            true,
+            true,
+            null
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            false,
+            true,
+            false,
+            true
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/shop.py:104:4": {
+      "leaves": [
+        [
+          "104:7",
+          "104:48"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false
+          ],
+          "count": 2
+        }
+      ]
+    },
+    "source/shop.py:104:24": {
+      "leaves": [
+        [
+          "104:7",
+          "104:23"
+        ],
+        [
+          "104:28",
+          "104:48"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/team.py:7:26": {
+      "leaves": [
+        [
+          "7:12",
+          "7:25"
+        ],
+        [
+          "7:30",
+          "7:47"
+        ],
+        [
+          "8:16",
+          "8:30"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            true,
+            false,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            null,
+            null
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "source/team.py:14:24": {
+      "leaves": [
+        [
+          "14:11",
+          "14:23"
+        ],
+        [
+          "14:28",
+          "14:41"
+        ],
+        [
+          "14:46",
+          "14:64"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true,
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            true,
+            false
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.py:20:69": {
+      "leaves": [
+        [
+          "20:11",
+          "20:68"
+        ],
+        [
+          "20:72",
+          "20:83"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            false,
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.py:20:11": {
+      "leaves": [
+        [
+          "20:60",
+          "20:67"
+        ],
+        [
+          "20:15",
+          "20:45"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            "0 items",
+            null
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            "1 item",
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            "1 item",
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            "2+ items",
+            true
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            "2+ items",
+            false
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "source/team.py:20:28": {
+      "leaves": [
+        [
+          "20:15",
+          "20:27"
+        ],
+        [
+          "20:32",
+          "20:45"
+        ]
+      ],
+      "taken": [
+        {
+          "path": [
+            true,
+            true
+          ],
+          "count": 1
+        },
+        {
+          "path": [
+            true,
+            false
+          ],
+          "count": 0
+        },
+        {
+          "path": [
+            false,
+            null
+          ],
+          "count": 0
+        }
+      ]
+    }
+  },
+  "kinds": [
+    "block",
+    "case",
+    "chain",
+    "choice"
+  ],
+  "reached": {
+    "source/kata.py:4:0": 5,
+    "source/kata.py:9:0": 2,
+    "source/kata.py:15:0": 1,
+    "source/group.py:4:0": 3,
+    "source/team.py:4:0": 3,
+    "source/team.py:11:0": 2,
+    "source/team.py:17:0": 2,
+    "source/shop.py:21:0": 7,
+    "source/shop.py:31:0": 3,
+    "source/shop.py:26:0": 2,
+    "source/shop.py:55:4": 1,
+    "source/shop.py:54:8": 1,
+    "source/shop.py:36:8": 1,
+    "source/shop.py:58:0": 2,
+    "source/shop.py:62:8": 1,
+    "source/shop.py:71:4": 1,
+    "source/shop.py:64:4": 3,
+    "source/shop.py:69:8": 3,
+    "source/shop.py:74:0": 1,
+    "source/shop.py:77:4": 1,
+    "source/shop.py:83:0": 1,
+    "source/shop.py:85:4": 1,
+    "source/shop.py:88:0": 2,
+    "source/shop.py:92:12": 1,
+    "source/shop.py:94:12": 1,
+    "source/shop.py:101:0": 3,
+    "source/shop.py:105:8": 1,
+    "source/shop.py:107:8": 2,
+    "source/fee.py:5:0": 2,
+    "source/fee.py:12:4": 2
+  },
+  "totals": {
+    "decisions": [
+      80,
+      119
+    ],
+    "methods": [
+      93,
+      135
+    ]
+  },
+  "cards": {
+    "source/archive.py:5:0": {
+      "name": "is_old",
+      "first": 5,
+      "last": 7,
+      "ways": 3,
+      "calls": 0,
+      "rows": [
+        {
+          "at": "7:26",
+          "top": "and",
+          "paths": 3,
+          "taken": 0,
+          "site": "source/archive.py:7:26"
+        }
+      ]
+    },
+    "source/fee.py:5:0": {
+      "name": "fee",
+      "first": 5,
+      "last": 12,
+      "ways": 6,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "8:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/fee.py:8:4"
+        },
+        {
+          "at": "8:19",
+          "top": "and",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/fee.py:8:19"
+        },
+        {
+          "at": "10:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/fee.py:10:4"
+        },
+        {
+          "at": "12:04",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        }
+      ]
+    },
+    "source/group.py:4:0": {
+      "name": "is_full",
+      "first": 4,
+      "last": 6,
+      "ways": 3,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "6:28",
+          "top": "and",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/group.py:6:28"
+        }
+      ]
+    },
+    "source/kata.py:4:0": {
+      "name": "is_id",
+      "first": 4,
+      "last": 6,
+      "ways": 3,
+      "calls": 5,
+      "rows": [
+        {
+          "at": "6:36",
+          "top": "and",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/kata.py:6:36"
+        }
+      ]
+    },
+    "source/kata.py:9:0": {
+      "name": "is_runnable",
+      "first": 9,
+      "last": 12,
+      "ways": 3,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "12:12",
+          "top": "and",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/kata.py:12:12"
+        }
+      ]
+    },
+    "source/kata.py:15:0": {
+      "name": "pair_checks",
+      "first": 15,
+      "last": 18,
+      "ways": 9,
+      "calls": 1,
+      "rows": [
+        {
+          "at": "18:23",
+          "top": "and",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/kata.py:18:23"
+        },
+        {
+          "at": "18:54",
+          "top": "or",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/kata.py:18:54"
+        }
+      ]
+    },
+    "source/shop.py:21:0": {
+      "name": "is_member",
+      "first": 21,
+      "last": 23,
+      "ways": 3,
+      "calls": 7,
+      "rows": [
+        {
+          "at": "23:30",
+          "top": "and",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.py:23:30"
+        }
+      ]
+    },
+    "source/shop.py:26:0": {
+      "name": "is_vip",
+      "first": 26,
+      "last": 28,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "28:27",
+          "top": "and",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/shop.py:28:27"
+        }
+      ]
+    },
+    "source/shop.py:31:0": {
+      "name": "price",
+      "first": 31,
+      "last": 55,
+      "ways": 865,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "35:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:35:4"
+        },
+        {
+          "at": "36:08",
+          "top": "raise",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "38:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:38:4"
+        },
+        {
+          "at": "38:23",
+          "top": "and",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.py:38:23"
+        },
+        {
+          "at": "40:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:40:4"
+        },
+        {
+          "at": "42:04",
+          "top": "elif",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:42:4"
+        },
+        {
+          "at": "42:28",
+          "top": "or",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.py:42:28"
+        },
+        {
+          "at": "44:17",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:44:17"
+        },
+        {
+          "at": "44:32",
+          "top": "or",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.py:44:32"
+        },
+        {
+          "at": "45:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:45:4"
+        },
+        {
+          "at": "47:04",
+          "top": "if/else",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:47:4"
+        },
+        {
+          "at": "47:25",
+          "top": "and",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/shop.py:47:25"
+        },
+        {
+          "at": "52:19",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:52:19"
+        },
+        {
+          "at": "53:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:53:4"
+        },
+        {
+          "at": "54:08",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "55:04",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        }
+      ]
+    },
+    "source/shop.py:58:0": {
+      "name": "discounts",
+      "first": 58,
+      "last": 71,
+      "ways": 2,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "61:04",
+          "top": "if",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:61:4"
+        },
+        {
+          "at": "62:08",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "71:04",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        }
+      ]
+    },
+    "source/shop.py:64:4": {
+      "name": "discount",
+      "first": 64,
+      "last": 69,
+      "ways": 6,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "66:27",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:66:27"
+        },
+        {
+          "at": "66:39",
+          "top": "and",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.py:66:39"
+        },
+        {
+          "at": "67:08",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:67:8"
+        },
+        {
+          "at": "68:12",
+          "top": "return",
+          "paths": 1,
+          "taken": 0,
+          "site": null
+        },
+        {
+          "at": "69:08",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        }
+      ]
+    },
+    "source/shop.py:74:0": {
+      "name": "labels",
+      "first": 74,
+      "last": 80,
+      "ways": 1,
+      "calls": 1,
+      "rows": [
+        {
+          "at": "77:04",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "78:18",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:78:18"
+        },
+        {
+          "at": "78:34",
+          "top": "and",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/shop.py:78:34"
+        },
+        {
+          "at": "78:69",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:78:69"
+        }
+      ]
+    },
+    "source/shop.py:83:0": {
+      "name": "on_sale",
+      "first": 83,
+      "last": 85,
+      "ways": 1,
+      "calls": 1,
+      "rows": [
+        {
+          "at": "85:04",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "85:35",
+          "top": "filter",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:85:35"
+        }
+      ]
+    },
+    "source/shop.py:88:0": {
+      "name": "size",
+      "first": 88,
+      "last": 98,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "90:04",
+          "top": "match",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/shop.py:90:4"
+        },
+        {
+          "at": "92:12",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "94:12",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "96:12",
+          "top": "return",
+          "paths": 1,
+          "taken": 0,
+          "site": null
+        },
+        {
+          "at": "98:12",
+          "top": "return",
+          "paths": 1,
+          "taken": 0,
+          "site": null
+        }
+      ]
+    },
+    "source/shop.py:101:0": {
+      "name": "greeting",
+      "first": 101,
+      "last": 107,
+      "ways": 3,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "104:04",
+          "top": "if/else",
+          "paths": 2,
+          "taken": 2,
+          "site": "source/shop.py:104:4"
+        },
+        {
+          "at": "104:24",
+          "top": "and",
+          "paths": 3,
+          "taken": 3,
+          "site": "source/shop.py:104:24"
+        },
+        {
+          "at": "105:08",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        },
+        {
+          "at": "107:08",
+          "top": "return",
+          "paths": 1,
+          "taken": 1,
+          "site": null
+        }
+      ]
+    },
+    "source/shop.py:7:0": {
+      "name": "file",
+      "first": 7,
+      "last": 7,
+      "ways": 3,
+      "calls": null,
+      "rows": [
+        {
+          "at": "7:47",
+          "top": "or",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.py:7:47"
+        }
+      ]
+    },
+    "source/shop.py:10:0": {
+      "name": "file",
+      "first": 10,
+      "last": 10,
+      "ways": 3,
+      "calls": null,
+      "rows": [
+        {
+          "at": "10:00",
+          "top": "if",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:10:0"
+        },
+        {
+          "at": "10:11",
+          "top": "and",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/shop.py:10:11"
+        }
+      ]
+    },
+    "source/shop.py:18:0": {
+      "name": "Shop",
+      "first": 18,
+      "last": 18,
+      "ways": 2,
+      "calls": null,
+      "rows": [
+        {
+          "at": "18:37",
+          "top": "ternary",
+          "paths": 2,
+          "taken": 1,
+          "site": "source/shop.py:18:37"
+        }
+      ]
+    },
+    "source/team.py:4:0": {
+      "name": "is_name",
+      "first": 4,
+      "last": 8,
+      "ways": 4,
+      "calls": 3,
+      "rows": [
+        {
+          "at": "7:26",
+          "top": "and",
+          "paths": 4,
+          "taken": 3,
+          "site": "source/team.py:7:26"
+        }
+      ]
+    },
+    "source/team.py:11:0": {
+      "name": "can_edit",
+      "first": 11,
+      "last": 14,
+      "ways": 4,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "14:24",
+          "top": "or",
+          "paths": 4,
+          "taken": 2,
+          "site": "source/team.py:14:24"
+        }
+      ]
+    },
+    "source/team.py:17:0": {
+      "name": "is_led",
+      "first": 17,
+      "last": 20,
+      "ways": 12,
+      "calls": 2,
+      "rows": [
+        {
+          "at": "20:11",
+          "top": "any",
+          "paths": 5,
+          "taken": 2,
+          "site": "source/team.py:20:11"
+        },
+        {
+          "at": "20:69",
+          "top": "or",
+          "paths": 3,
+          "taken": 2,
+          "site": "source/team.py:20:69"
+        },
+        {
+          "at": "20:28",
+          "top": "and",
+          "paths": 3,
+          "taken": 1,
+          "site": "source/team.py:20:28"
+        }
+      ]
+    }
+  },
+  "tree": {
+    "source/archive.py": {
+      "5:0": {
+        "7:26": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/fee.py": {
+      "5:0": {
+        "8:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "8:19": {
+          "parent": "8:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "10:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "12:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/group.py": {
+      "4:0": {
+        "6:28": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/kata.py": {
+      "4:0": {
+        "6:36": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "9:0": {
+        "12:12": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "15:0": {
+        "18:23": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "18:54": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/shop.py": {
+      "21:0": {
+        "23:30": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "26:0": {
+        "28:27": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "31:0": {
+        "35:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "36:8": {
+          "parent": "35:4",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "38:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "38:23": {
+          "parent": "38:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "40:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "42:4": {
+          "parent": "40:4",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "42:28": {
+          "parent": "42:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false
+          ]
+        },
+        "44:17": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "44:32": {
+          "parent": "44:17",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false
+          ]
+        },
+        "45:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "47:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "47:25": {
+          "parent": "47:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        "52:19": {
+          "parent": "47:4",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "53:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "54:8": {
+          "parent": "53:4",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "55:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "58:0": {
+        "61:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "62:8": {
+          "parent": "61:4",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "71:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "64:4": {
+        "66:27": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "66:39": {
+          "parent": "66:27",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "67:8": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "68:12": {
+          "parent": "67:8",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "69:8": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "74:0": {
+        "77:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "78:18": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "78:34": {
+          "parent": "78:18",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "78:69": {
+          "parent": "78:18",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "83:0": {
+        "85:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "85:35": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "88:0": {
+        "90:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "92:12": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "94:12": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "96:12": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "98:12": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "101:0": {
+        "104:4": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "104:24": {
+          "parent": "104:4",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        },
+        "105:8": {
+          "parent": "104:4",
+          "in": "then",
+          "on": [
+            0
+          ],
+          "leaf": null,
+          "gives": null
+        },
+        "107:8": {
+          "parent": "104:4",
+          "in": "else",
+          "on": [
+            1
+          ],
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "7:0": {
+        "7:47": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "10:0": {
+        "10:0": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "10:11": {
+          "parent": "10:0",
+          "in": null,
+          "on": [
+            0,
+            1
+          ],
+          "leaf": 0,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      "18:0": {
+        "18:37": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      }
+    },
+    "source/team.py": {
+      "4:0": {
+        "7:26": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "11:0": {
+        "14:24": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        }
+      },
+      "17:0": {
+        "20:11": {
+          "parent": "20:69",
+          "in": null,
+          "on": [
+            0,
+            1,
+            2
+          ],
+          "leaf": 0,
+          "gives": [
+            false,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        "20:69": {
+          "parent": null,
+          "in": null,
+          "on": null,
+          "leaf": null,
+          "gives": null
+        },
+        "20:28": {
+          "parent": "20:11",
+          "in": null,
+          "on": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "leaf": 1,
+          "gives": [
+            true,
+            false,
+            false
+          ]
+        }
+      }
+    }
+  }
+}

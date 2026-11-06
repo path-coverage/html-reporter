@@ -1,0 +1,25 @@
+# Tests the reporter, then publishes its image, the report.js
+# command with the renderer beside it, to the GitHub container
+# registry on each push to main, tagged latest and with the commit.
+name: Image
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: bin/test.sh
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username "${{ github.actor }}" --password-stdin
+      - run: |
+          image=ghcr.io/path-coverage/html-reporter
+          docker build --tag "${image}:latest" --tag "${image}:${GITHUB_SHA::7}" .
+          docker push --all-tags "${image}"
