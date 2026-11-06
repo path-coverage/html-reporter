@@ -1752,11 +1752,11 @@
     "source/fee.rb:3:0": 2
   },
   "totals": {
-    "decisions": [
+    "alone": [
       78,
       118
     ],
-    "methods": [
+    "combined": [
       79,
       119
     ]

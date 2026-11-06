@@ -99,15 +99,15 @@ function indexData(report, source) {
   }
   const rows = [...byFile.keys()].sort().map((file) => {
     const own = cards.filter(([key]) => fileOf(key) === file)
-    const methods = add(own.map(([, card]) => cardPaths(card)))
-    return { path: file, sites: byFile.get(file), methods }
+    const combined = add(own.map(([, card]) => cardPaths(card)))
+    return { path: file, sites: byFile.get(file), combined }
   })
   const table = (name, own) => ({
     name,
     rows: own.map((row) => ({ path: row.path, ...totals(row) })),
     total: totals({
       sites: own.reduce((sum, row) => sum + row.sites, 0),
-      methods: add(own.map((row) => row.methods))
+      combined: add(own.map((row) => row.combined))
     })
   })
   const tables = [table('All files', rows)]
@@ -123,10 +123,10 @@ function indexData(report, source) {
   return { schema: SCHEMA, page: 'index', tables, ignored: source.ignored }
 }
 
-// A row's sites, its [taken, possible] paths within each method, and
-// their percent.
+// A row's sites, its [taken, possible] paths combined, and their
+// percent.
 function totals(row) {
-  return { sites: row.sites, methods: row.methods, percent: percent(row.methods) }
+  return { sites: row.sites, combined: row.combined, percent: percent(row.combined) }
 }
 
 // True when an operand's counts leave it a gap: never evaluated, or,

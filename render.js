@@ -49,11 +49,11 @@
   // Why a total of no paths shows no percent.
   var NONE = 'no method with two or more decisions';
 
-  // The cells after a row's file: its sites, then its taken, / of and
-  // percent within each method.
+  // The cells after a row's file: its sites, then its paths combined
+  // taken, / of and percent.
   function counts(row) {
-    var taken = row.methods[0];
-    var possible = row.methods[1];
+    var taken = row.combined[0];
+    var possible = row.combined[1];
     var percent = row.percent === null
       ? td('', '-', NONE, 'percent')
       : td(row.percent, row.percent + '%', null, 'percent');

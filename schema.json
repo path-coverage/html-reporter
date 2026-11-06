@@ -38,13 +38,13 @@
       "maxItems": 4
     },
     "totals": {
-      "description": "A row of the index: its sites, its [taken, possible] paths within each method, and their percent, rounded, null when possible is 0.",
+      "description": "A row of the index: its sites, its [taken, possible] paths combined, and their percent, rounded, null when possible is 0.",
       "type": "object",
-      "required": ["sites", "methods", "percent"],
+      "required": ["sites", "combined", "percent"],
       "additionalProperties": false,
       "properties": {
         "sites": { "type": "integer", "minimum": 0 },
-        "methods": {
+        "combined": {
           "type": "array",
           "items": { "type": "integer", "minimum": 0 },
           "minItems": 2,
@@ -78,7 +78,7 @@
                   "required": ["path"],
                   "properties": {
                     "path": { "type": "string" },
-                    "sites": true, "methods": true, "percent": true
+                    "sites": true, "combined": true, "percent": true
                   },
                   "additionalProperties": false
                 }

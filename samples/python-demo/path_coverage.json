@@ -1817,11 +1817,11 @@
     "source/fee.py:12:4": 2
   },
   "totals": {
-    "decisions": [
+    "alone": [
       80,
       119
     ],
-    "methods": [
+    "combined": [
       93,
       135
     ]
