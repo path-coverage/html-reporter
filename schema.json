@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/path-coverage/html-reporter/schema.json",
   "title": "Path coverage page data",
-  "description": "The data of one page of a path coverage HTML report, as a port writes it and render.js draws it. A port computes; the renderer draws. Every number the page shows that is not a plain count is computed by the port, so the page and the port's console never disagree.",
+  "description": "The data of one page of a path coverage HTML report, as report.js writes it, from the two JSON files, and render.js draws it. report.js computes; the renderer draws: every number the page shows that is not a plain count is in the data.",
   "oneOf": [
     { "$ref": "#/$defs/indexPage" },
     { "$ref": "#/$defs/filePage" }
@@ -188,7 +188,7 @@
       "items": false
     },
     "foldRow": {
-      "description": "One row of a fold, laid out by the port: its kind, the branch joining it to the row it hangs from (one letter per cell: t tee, l ell, v bar, h dash, s space), its label, and a cell per path. The first row, of kind decision, has counts instead of cells.",
+      "description": "One row of a fold, laid out by the language's tool: its kind, the branch joining it to the row it hangs from (one letter per cell: t tee, l ell, v bar, h dash, s space), its label, and a cell per path. The first row, of kind decision, has counts instead of cells.",
       "type": "object",
       "required": ["kind", "branch", "label", "at"],
       "additionalProperties": false,

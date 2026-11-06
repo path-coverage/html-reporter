@@ -1,9 +1,9 @@
 # <img src="https://avatars.githubusercontent.com/u/353243247?v=4" alt="" width="32" height="32"> path-coverage/html-reporter
 
-The HTML report of path coverage, shared by every port (Ruby, Python).
-A port measures; this draws.
+The HTML report of path coverage, shared by every language's tool (Ruby,
+Python). They measure; this draws.
 
-A port writes two JSON files and no HTML:
+Each tool writes two JSON files and no HTML:
 
 - `path_coverage.json`: the counts, as AIs and other tools read them.
 - `path_coverage.source.json`: what drawing each file's code needs and

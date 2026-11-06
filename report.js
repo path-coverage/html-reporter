@@ -3,8 +3,8 @@
 // files: path_coverage.json, the counts, and
 // path_coverage.source.json, what drawing the code needs of each
 // file's source. Every page is page.html with its data inline,
-// drawn in the browser by render.js, so a port of path coverage to
-// another language writes the two JSON files and nothing more.
+// drawn in the browser by render.js, so path coverage for another
+// language writes the two JSON files and nothing more.
 
 'use strict'
 

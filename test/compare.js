@@ -1,5 +1,5 @@
-// For every page under samples/, a .data.json beside the .html a port
-// wrote whole: fills page.html with the data, loads both pages in
+// For every page under samples/, a .data.json beside the .html written
+// whole: fills page.html with the data, loads both pages in
 // headless Chrome, and checks the drawn page has the same title and
 // the same <main>, after every script has run, as the whole one.
 // Prints a line per page, and the first difference of each that
@@ -15,7 +15,7 @@ const OUT = process.env.OUT || '/tmp/drawn';
 // The text of the reporter's file named name.
 const asset = (name) => fs.readFileSync(path.join(ROOT, name), 'utf8');
 
-// The page drawn from data, as a port writes it: page.html, its style
+// The page drawn from data, as report.js writes it: page.html, its style
 // the style sheet, its data the data, its script the page's scripts.
 function shell(data) {
   const pages = JSON.parse(asset('pages.json'));

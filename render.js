@@ -1,7 +1,7 @@
 // Draws a path coverage page from its data, window.pathCoverage, as
 // schema.json has it, into the page's <main>. It runs before the
 // page's other scripts, which then find the page as they would had
-// it been written whole. A port computes; this only draws.
+// it been written whole. report.js computes; this only draws.
 (function () {
   'use strict';
 
