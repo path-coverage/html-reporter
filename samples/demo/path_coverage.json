@@ -1,4 +1,5 @@
 {
+  "$schema": "https://path-coverage.github.io/schemas/v1/path_coverage.schema.json",
   "decisions": {
     "source/archive.rb:5:24": [
       {

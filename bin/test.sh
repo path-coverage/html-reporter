@@ -10,9 +10,10 @@ if [ "${1:-}" = '-h' ]; then
   cat <<EOF
 Usage: bin/test.sh
 
-In Docker, first, for every sample under samples/ holding a run's
-path_coverage.json and path_coverage.source.json, writes its report
-with report.js and checks each page's data is the sample's
+In Docker, first, checks every sample under samples/ holding a run's
+path_coverage.json and path_coverage.source.json against their
+schemas, with the schemas image. Then writes each such sample's
+report with report.js and checks each page's data is the sample's
 .data.json. Then, for every page under samples/, a .html written
 whole with its .data.json beside it, fills page.html with the data,
 loads both pages in headless Chrome, and checks the drawn page has
@@ -28,6 +29,14 @@ Example:
 EOF
   exit 0
 fi
+
+runs=()
+for source in "${ROOT}"/samples/*/path_coverage.source.json; do
+  runs+=("/samples/$(basename "$(dirname "${source}")")")
+done
+docker run --rm \
+  --volume "${ROOT}/samples:/samples:ro" \
+  ghcr.io/path-coverage/schemas "${runs[@]}"
 
 docker run --rm --platform linux/amd64 --user root \
   --env NODE_PATH=/home/pptruser/node_modules \

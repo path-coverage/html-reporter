@@ -1,4 +1,4 @@
-# html-reporter
+# <img src="https://avatars.githubusercontent.com/u/353243247?v=4" alt="" width="32" height="32"> path-coverage/html-reporter
 
 The HTML report of path coverage, shared by every port (Ruby, Python).
 A port measures; this draws.
