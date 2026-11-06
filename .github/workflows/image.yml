@@ -1,6 +1,7 @@
 # Tests the reporter, then publishes its image, the report.js
 # command with the renderer beside it, to the GitHub container
-# registry on each push to main, tagged latest and with the commit.
+# registry on each push to main, tagged latest and with the commit,
+# for amd64, eg CI runners, and arm64, eg Apple silicon Macs.
 name: Image
 
 on:
@@ -18,8 +19,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - run: bin/test.sh
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
       - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username "${{ github.actor }}" --password-stdin
       - run: |
           image=ghcr.io/path-coverage/html-reporter
-          docker build --tag "${image}:latest" --tag "${image}:${GITHUB_SHA::7}" .
-          docker push --all-tags "${image}"
+          docker buildx build --platform linux/amd64,linux/arm64 --push \
+            --tag "${image}:latest" --tag "${image}:${GITHUB_SHA::7}" .
