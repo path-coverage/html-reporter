@@ -1,5 +1,5 @@
 {
-  "sites": {
+  "decisions": {
     "source/archive.py:7:26": [
       {
         "truthy": 0,
@@ -1839,7 +1839,7 @@
           "top": "and",
           "paths": 3,
           "taken": 0,
-          "site": "source/archive.py:7:26"
+          "decision": "source/archive.py:7:26"
         }
       ]
     },
@@ -1855,28 +1855,28 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/fee.py:8:4"
+          "decision": "source/fee.py:8:4"
         },
         {
           "at": "8:19",
           "top": "and",
           "paths": 3,
           "taken": 2,
-          "site": "source/fee.py:8:19"
+          "decision": "source/fee.py:8:19"
         },
         {
           "at": "10:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/fee.py:10:4"
+          "decision": "source/fee.py:10:4"
         },
         {
           "at": "12:04",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -1892,7 +1892,7 @@
           "top": "and",
           "paths": 3,
           "taken": 3,
-          "site": "source/group.py:6:28"
+          "decision": "source/group.py:6:28"
         }
       ]
     },
@@ -1908,7 +1908,7 @@
           "top": "and",
           "paths": 3,
           "taken": 3,
-          "site": "source/kata.py:6:36"
+          "decision": "source/kata.py:6:36"
         }
       ]
     },
@@ -1924,7 +1924,7 @@
           "top": "and",
           "paths": 3,
           "taken": 2,
-          "site": "source/kata.py:12:12"
+          "decision": "source/kata.py:12:12"
         }
       ]
     },
@@ -1940,14 +1940,14 @@
           "top": "and",
           "paths": 3,
           "taken": 1,
-          "site": "source/kata.py:18:23"
+          "decision": "source/kata.py:18:23"
         },
         {
           "at": "18:54",
           "top": "or",
           "paths": 3,
           "taken": 1,
-          "site": "source/kata.py:18:54"
+          "decision": "source/kata.py:18:54"
         }
       ]
     },
@@ -1963,7 +1963,7 @@
           "top": "and",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.py:23:30"
+          "decision": "source/shop.py:23:30"
         }
       ]
     },
@@ -1979,7 +1979,7 @@
           "top": "and",
           "paths": 4,
           "taken": 2,
-          "site": "source/shop.py:28:27"
+          "decision": "source/shop.py:28:27"
         }
       ]
     },
@@ -1995,112 +1995,112 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:35:4"
+          "decision": "source/shop.py:35:4"
         },
         {
           "at": "36:08",
           "top": "raise",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "38:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:38:4"
+          "decision": "source/shop.py:38:4"
         },
         {
           "at": "38:23",
           "top": "and",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.py:38:23"
+          "decision": "source/shop.py:38:23"
         },
         {
           "at": "40:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:40:4"
+          "decision": "source/shop.py:40:4"
         },
         {
           "at": "42:04",
           "top": "elif",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:42:4"
+          "decision": "source/shop.py:42:4"
         },
         {
           "at": "42:28",
           "top": "or",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.py:42:28"
+          "decision": "source/shop.py:42:28"
         },
         {
           "at": "44:17",
           "top": "ternary",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:44:17"
+          "decision": "source/shop.py:44:17"
         },
         {
           "at": "44:32",
           "top": "or",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.py:44:32"
+          "decision": "source/shop.py:44:32"
         },
         {
           "at": "45:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:45:4"
+          "decision": "source/shop.py:45:4"
         },
         {
           "at": "47:04",
           "top": "if/else",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:47:4"
+          "decision": "source/shop.py:47:4"
         },
         {
           "at": "47:25",
           "top": "and",
           "paths": 4,
           "taken": 2,
-          "site": "source/shop.py:47:25"
+          "decision": "source/shop.py:47:25"
         },
         {
           "at": "52:19",
           "top": "ternary",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:52:19"
+          "decision": "source/shop.py:52:19"
         },
         {
           "at": "53:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:53:4"
+          "decision": "source/shop.py:53:4"
         },
         {
           "at": "54:08",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "55:04",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -2116,21 +2116,21 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:61:4"
+          "decision": "source/shop.py:61:4"
         },
         {
           "at": "62:08",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "71:04",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -2146,35 +2146,35 @@
           "top": "ternary",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:66:27"
+          "decision": "source/shop.py:66:27"
         },
         {
           "at": "66:39",
           "top": "and",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.py:66:39"
+          "decision": "source/shop.py:66:39"
         },
         {
           "at": "67:08",
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:67:8"
+          "decision": "source/shop.py:67:8"
         },
         {
           "at": "68:12",
           "top": "return",
           "paths": 1,
           "taken": 0,
-          "site": null
+          "decision": null
         },
         {
           "at": "69:08",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -2190,28 +2190,28 @@
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "78:18",
           "top": "ternary",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:78:18"
+          "decision": "source/shop.py:78:18"
         },
         {
           "at": "78:34",
           "top": "and",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.py:78:34"
+          "decision": "source/shop.py:78:34"
         },
         {
           "at": "78:69",
           "top": "ternary",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:78:69"
+          "decision": "source/shop.py:78:69"
         }
       ]
     },
@@ -2227,14 +2227,14 @@
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "85:35",
           "top": "filter",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:85:35"
+          "decision": "source/shop.py:85:35"
         }
       ]
     },
@@ -2250,35 +2250,35 @@
           "top": "match",
           "paths": 4,
           "taken": 2,
-          "site": "source/shop.py:90:4"
+          "decision": "source/shop.py:90:4"
         },
         {
           "at": "92:12",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "94:12",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "96:12",
           "top": "return",
           "paths": 1,
           "taken": 0,
-          "site": null
+          "decision": null
         },
         {
           "at": "98:12",
           "top": "return",
           "paths": 1,
           "taken": 0,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -2294,28 +2294,28 @@
           "top": "if/else",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.py:104:4"
+          "decision": "source/shop.py:104:4"
         },
         {
           "at": "104:24",
           "top": "and",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.py:104:24"
+          "decision": "source/shop.py:104:24"
         },
         {
           "at": "105:08",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "107:08",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         }
       ]
     },
@@ -2331,7 +2331,7 @@
           "top": "or",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.py:7:47"
+          "decision": "source/shop.py:7:47"
         }
       ]
     },
@@ -2347,14 +2347,14 @@
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:10:0"
+          "decision": "source/shop.py:10:0"
         },
         {
           "at": "10:11",
           "top": "and",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.py:10:11"
+          "decision": "source/shop.py:10:11"
         }
       ]
     },
@@ -2370,7 +2370,7 @@
           "top": "ternary",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.py:18:37"
+          "decision": "source/shop.py:18:37"
         }
       ]
     },
@@ -2386,7 +2386,7 @@
           "top": "and",
           "paths": 4,
           "taken": 3,
-          "site": "source/team.py:7:26"
+          "decision": "source/team.py:7:26"
         }
       ]
     },
@@ -2402,7 +2402,7 @@
           "top": "or",
           "paths": 4,
           "taken": 2,
-          "site": "source/team.py:14:24"
+          "decision": "source/team.py:14:24"
         }
       ]
     },
@@ -2418,21 +2418,21 @@
           "top": "any",
           "paths": 5,
           "taken": 2,
-          "site": "source/team.py:20:11"
+          "decision": "source/team.py:20:11"
         },
         {
           "at": "20:69",
           "top": "or",
           "paths": 3,
           "taken": 2,
-          "site": "source/team.py:20:69"
+          "decision": "source/team.py:20:69"
         },
         {
           "at": "20:28",
           "top": "and",
           "paths": 3,
           "taken": 1,
-          "site": "source/team.py:20:28"
+          "decision": "source/team.py:20:28"
         }
       ]
     }

@@ -49,7 +49,7 @@
   // Why a total of no paths shows no percent.
   var NONE = 'no method with two or more decisions';
 
-  // The cells after a row's file: its sites, then its paths combined
+  // The cells after a row's file: its decisions, then its paths combined
   // taken, / of and percent.
   function counts(row) {
     var taken = row.combined[0];
@@ -57,7 +57,7 @@
     var percent = row.percent === null
       ? td('', '-', NONE, 'percent')
       : td(row.percent, row.percent + '%', null, 'percent');
-    return td(row.sites, row.sites) +
+    return td(row.decisions, row.decisions) +
       td(taken, taken, null, 'taken') +
       td(possible, '/ ' + possible, null, 'of') + percent;
   }
@@ -71,7 +71,7 @@
     };
     var parts = [['taken', 'taken'], ['of', '/ of'], ['percent', '%']];
     var cells = [heading('', 0, 'text', 'File'),
-      heading(' class="num"', 1, 'number', 'Sites')].concat(
+      heading(' class="num"', 1, 'number', 'Decisions')].concat(
       parts.map(function (part, i) {
         return heading(' class="' + part[0] + '"', 2 + i, 'number', part[1]);
       }));
@@ -151,7 +151,7 @@
     return digits + (count === 1 ? ' time' : ' times');
   }
 
-  // A site row's count cells, 0 for a path never taken, else *.
+  // A decision row's count cells, 0 for a path never taken, else *.
   function countCells(counts) {
     return counts.map(function (count) {
       var never = count === 0;
@@ -174,7 +174,7 @@
   // The attribute marking each kind of fold row, and the class and
   // attribute of its label's span.
   var KINDS = {
-    site: ['', 'operator" data-operator="'],
+    decision: ['', 'operator" data-operator="'],
     subtree: [' data-subtree=""', 'operator" data-operator="'],
     operand: [' data-operand=""', 'text" data-text="'],
     arm: [' data-arm=""', 'arm" data-label="'],
@@ -227,7 +227,7 @@
     var counts = count === null ? ['?', '?'] :
       [String(row.paths - count), String(count)];
     var cells = [painted(row.top)].concat(counts);
-    var css = row.site ? 'prow site' : 'prow';
+    var css = row.decision ? 'prow decision' : 'prow';
     var attrs = 'class="' + css + '" data-line="' +
       parseInt(row.at.match(/\d+/)[0], 10) + '"';
     var fold = row.fold ? row.fold.map(foldRow).join('') : null;
@@ -235,8 +235,8 @@
       '<button type="button" class="fold-arrow" aria-expanded="false"' +
       ' aria-label="Paths of ' + row.at + '"></button>';
     var folded = fold === null ? '' :
-      '<div class="fold" data-site="' + row.site + '" hidden="hidden">' +
-      '<div class="site" data-site="">' + fold + '</div></div>';
+      '<div class="fold" data-decision="' + row.decision + '" hidden="hidden">' +
+      '<div class="decision" data-decision="">' + fold + '</div></div>';
     return cardRow(attrs, row.at, cells, lead) + folded;
   }
 
@@ -347,7 +347,7 @@
   }
 
   // The source listing: a row per line, but one row over all the
-  // lines of a site outside every method.
+  // lines of a decision outside every method.
   function listing(lines, cards) {
     var methods = cards.filter(function (card) { return !card.top; });
     var tops = {};
@@ -380,9 +380,9 @@
       }
       var first = row.numbers[0];
       var top = tops[first];
-      var sites = top ? top.sites : 0;
-      var count = sites < 2 ? '' :
-        '<span class="site-count" data-site-count="">' + sites + '</span>';
+      var decisions = top ? top.decisions : 0;
+      var count = decisions < 2 ? '' :
+        '<span class="decision-count" data-decision-count="">' + decisions + '</span>';
       var spans = row.numbers.map(function (n) { return lineNumber(n, []); }).join('');
       var status = top ? top.status : (lines[first - 1].status || '');
       var button = '<button type="button" class="lnum loose" data-status="' +

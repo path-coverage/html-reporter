@@ -58,12 +58,12 @@ function fill(template, values) {
   })
 }
 
-// The file a site or card is in: its name minus :line:column.
+// The file a decision or card is in: its name minus :line:column.
 function fileOf(name) {
   return name.replace(/:\d+:\d+$/, '')
 }
 
-// [line, column] of a site's or card's name.
+// [line, column] of a decision's or card's name.
 function placeOf(name) {
   const [, line, column] = name.match(/:(\d+):(\d+)$/)
   return [Number(line), Number(column)]
@@ -88,25 +88,25 @@ function cardPaths(card) {
   return [taken, rows.reduce((sum, row) => sum + row.paths, 0)]
 }
 
-// The index page's data: a table of every file with a site, then one
+// The index page's data: a table of every file with a decision, then one
 // per group, and one of the files no group holds, if any.
 function indexData(report, source) {
   const cards = Object.entries(report.cards || {})
   const byFile = new Map()
-  for (const site of Object.keys(report.paths || {})) {
-    const file = fileOf(site)
+  for (const decision of Object.keys(report.paths || {})) {
+    const file = fileOf(decision)
     byFile.set(file, (byFile.get(file) || 0) + 1)
   }
   const rows = [...byFile.keys()].sort().map((file) => {
     const own = cards.filter(([key]) => fileOf(key) === file)
     const combined = add(own.map(([, card]) => cardPaths(card)))
-    return { path: file, sites: byFile.get(file), combined }
+    return { path: file, decisions: byFile.get(file), combined }
   })
   const table = (name, own) => ({
     name,
     rows: own.map((row) => ({ path: row.path, ...totals(row) })),
     total: totals({
-      sites: own.reduce((sum, row) => sum + row.sites, 0),
+      decisions: own.reduce((sum, row) => sum + row.decisions, 0),
       combined: add(own.map((row) => row.combined))
     })
   })
@@ -123,10 +123,10 @@ function indexData(report, source) {
   return { schema: SCHEMA, page: 'index', tables, ignored: source.ignored }
 }
 
-// A row's sites, its [taken, possible] paths combined, and their
+// A row's decisions, its [taken, possible] paths combined, and their
 // percent.
 function totals(row) {
-  return { sites: row.sites, combined: row.combined, percent: percent(row.combined) }
+  return { decisions: row.decisions, combined: row.combined, percent: percent(row.combined) }
 }
 
 // True when an operand's counts leave it a gap: never evaluated, or,
@@ -137,13 +137,13 @@ function operandGap(counts) {
   return counts.truthy === 0 || counts.falsy === 0
 }
 
-// { line => {status, span} } of each line a site of the file covers,
-// spans that overlap merged, a merged span gaps if any of its sites
+// { line => {status, span} } of each line a decision of the file covers,
+// spans that overlap merged, a merged span gaps if any of its decisions
 // has gaps.
-function marks(sites, operands) {
-  const spans = Object.entries(sites).map(([name, site]) => {
+function marks(decisions, operands) {
+  const spans = Object.entries(decisions).map(([name, decision]) => {
     const gaps = (operands[name] || []).some(operandGap)
-    return [site.span, gaps ? 'gaps' : 'covered']
+    return [decision.span, gaps ? 'gaps' : 'covered']
   })
   spans.sort((a, b) => a[0][0] - b[0][0])
   const blocks = []
@@ -165,14 +165,14 @@ function marks(sites, operands) {
   return byLine
 }
 
-// The rows of a site's fold, its columns the site's paths, never taken
+// The rows of a decision's fold, its columns the decision's paths, never taken
 // first, its own row given each column's count.
-function fold(site, taken) {
+function fold(decision, taken) {
   const order = taken
     .map((each, i) => [each.count === 0 ? 0 : 1, i])
     .sort((a, b) => a[0] - b[0] || a[1] - b[1])
     .map(([, i]) => i)
-  return site.fold.map((row, i) => {
+  return decision.fold.map((row, i) => {
     if (i === 0) return { ...row, counts: order.map((j) => taken[j].count) }
     if (!row.cells) return row
     return { ...row, cells: order.map((j) => row.cells[j]) }
@@ -187,14 +187,14 @@ function status(card) {
 }
 
 // The data of one card, as its file's page draws it.
-function cardData(key, card, report, source, sites) {
+function cardData(key, card, report, source, decisions) {
   const isTop = card.calls === null || card.calls === undefined
   const [first, column] = placeOf(key)
   const place = isTop
     ? { first: card.first, last: card.last, column: 0, status: status(card),
-        top: true, sites: card.rows.length }
+        top: true, decisions: card.rows.length }
     : { first, last: card.last, column, status: status(card),
-        top: false, sites: null }
+        top: false, decisions: null }
   const [taken, size] = cardPaths(card)
   const title = {
     name: card.name === null || card.name === undefined ? '' : String(card.name),
@@ -202,11 +202,11 @@ function cardData(key, card, report, source, sites) {
   }
   const rows = card.rows.map((row) => ({
     at: row.at,
-    site: row.site,
+    decision: row.decision,
     top: source.labels[row.top],
     paths: row.paths,
     taken: row.taken,
-    fold: row.site ? fold(sites[row.site], report.paths[row.site].taken) : null
+    fold: row.decision ? fold(decisions[row.decision], report.paths[row.decision].taken) : null
   }))
   return { ...place, title, rows }
 }
@@ -214,7 +214,7 @@ function cardData(key, card, report, source, sites) {
 // The file page's data of the file at file.
 function fileData(file, report, source) {
   const own = source.files[file]
-  const byLine = marks(own.sites, report.sites || {})
+  const byLine = marks(own.decisions, report.decisions || {})
   const lines = own.lines.map((line, i) => {
     const mark = byLine.get(i + 1)
     return {
@@ -226,7 +226,7 @@ function fileData(file, report, source) {
   })
   const cards = Object.entries(report.cards || {})
     .filter(([key]) => fileOf(key) === file)
-    .map(([key, card]) => cardData(key, card, report, source, own.sites))
+    .map(([key, card]) => cardData(key, card, report, source, own.decisions))
   return { schema: SCHEMA, page: 'file', path: file, lines, cards }
 }
 

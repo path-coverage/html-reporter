@@ -1,7 +1,7 @@
 // The behaviour of a file's page: its cards sit in the rail left
 // of the code, one open at a time, level with its first line. A
 // method's def number opens its card, unfolding its body; a loose
-// site's button, outside every method, opens its lines' top card.
+// decision's button, outside every method, opens its lines' top card.
 // The page's markup, from the Ruby, already marks every method's
 // lines, numbers and rows; this only opens, closes and places.
 (function () {
@@ -12,7 +12,7 @@
   var divider = document.querySelector('.divider');
   var grids = Array.prototype.slice.call(document.querySelectorAll('.pathgrid'));
 
-  // True for a top card, of sites outside every method.
+  // True for a top card, of decisions outside every method.
   function isTop(grid) {
     return grid.classList.contains('top-level');
   }
@@ -26,13 +26,13 @@
     return document.getElementById('L' + n);
   }
 
-  // The row, a line or a loose site's block, holding line n.
+  // The row, a line or a loose decision's block, holding line n.
   function rowOf(n) {
     return lineno(n).closest('.line, .block');
   }
 
   // The code span of line n, whether a line's own or one of a
-  // loose site's lines.
+  // loose decision's lines.
   function srcOf(n) {
     var number = lineno(n);
     if (!number) { return null; }
@@ -67,7 +67,7 @@
   });
 
   // The def number of each method's card, which opens it; null for
-  // a top card, which its site's button opens.
+  // a top card, which its decision's button opens.
   var defs = grids.map(function (grid) {
     return isTop(grid) ? null : lineno(firstOf(grid));
   });
@@ -86,7 +86,7 @@
 
   // Opens grid alone, null closing all: a method's card opens its
   // body, every other method's folded; its def number, or its
-  // site's button, says it is open.
+  // decision's button, says it is open.
   function openOnly(open) {
     clear();
     grids.forEach(function (grid, i) {
@@ -358,20 +358,20 @@
   });
   rail.addEventListener('mouseleave', function () { litRow = null; });
 
-  // A click on a site's row in a card unfolds that site's tree in
+  // A click on a decision's row in a card unfolds that decision's tree in
   // the row's place, folding up any other open; a click on the row
   // of the one open, or on its fold's first row, which stands in
   // the row's place, folds it back.
   rail.addEventListener('click', function (event) {
-    if (event.target.closest('.fold .site > .row:first-child')) { unfold(null); return; }
-    var row = event.target.closest('.statements .prow.site');
+    if (event.target.closest('.fold .decision > .row:first-child')) { unfold(null); return; }
+    var row = event.target.closest('.statements .prow.decision');
     var fold = row && row.nextElementSibling;
     if (!fold || !fold.classList.contains('fold')) { return; }
     unfold(fold.hidden ? fold : null);
   });
 
   // Shows fold alone, null folding them all up, the arrow of each
-  // site's row pointing up while its fold shows; then places the
+  // decision's row pointing up while its fold shows; then places the
   // open card again, as its height has changed.
   function unfold(fold) {
     rail.querySelectorAll('.fold').forEach(function (each) {
@@ -464,7 +464,7 @@
   }
 
   // The number of the line whose code is src, a line's own or one of
-  // a loose site's lines.
+  // a loose decision's lines.
   function lineOf(src) {
     var block = src.closest('.block');
     if (!block) { return Number(src.parentElement.querySelector('.lineno').id.slice(1)); }
@@ -513,7 +513,7 @@
 
   // Opening one card closes the others, and a click never closes
   // the one open, so the rail always shows one. A click on a def
-  // line opens its method's card; one on a loose site's lines opens
+  // line opens its method's card; one on a loose decision's lines opens
   // their top card; a gutter arrow or a header jump opens the card
   // at the line it jumps to.
   document.addEventListener('click', function (event) {

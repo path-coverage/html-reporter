@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>source/kata.rb · Path coverage</title>
+<title>Path coverage</title>
 <style>
 /*<![CDATA[*/
 /* Blue (seen both ways) and orange (missing) stay distinct for
@@ -42,7 +42,7 @@
   --syn-k: #7E3BA0; --syn-s: #3B7550; --syn-c: #77808F;
   --syn-n: #9E4A78; --syn-t: #4B52A0; --syn-v: #2A7570; --syn-o: #7A6600;
 }
-/* The same colours in the code and in a site's tree, its fold, and
+/* The same colours in the code and in a decision's tree, its fold, and
    a card's rows, which quote the code. */
 :is(.src, .fold, .statements .prow) .k { color: var(--syn-k); }
 :is(.src, .fold, .statements .prow) .s { color: var(--syn-s); }
@@ -51,7 +51,7 @@
 :is(.src, .fold, .statements .prow) .t { color: var(--syn-t); }
 :is(.src, .fold, .statements .prow) .v { color: var(--syn-v); }
 :is(.src, .fold, .statements .prow) .o { color: var(--syn-o); font-weight: 700; }
-/* Everything a site's tree or a method's grid draws has this one
+/* Everything a decision's tree or a method's grid draws has this one
    tint, in either mode; status is only ever the orange or blue of
    an edge. A lit line, on a path being shown, is yellow. */
 :root { --cond-tint: #E2F2D3; --lit: #FFE98A; }
@@ -118,7 +118,7 @@ th button:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
    line numbers are one button. Every number has the same box, so
    digits stay aligned whether or not they are on a button. */
 h1.path { font-family: var(--font-code); font-size: 18px; }
-/* The top line, and on a file's page its path and site lists,
+/* The top line, and on a file's page its path and decision lists,
    stick together as one header. */
 .head {
   position: sticky; top: 0; z-index: 5;
@@ -142,7 +142,7 @@ a.jump {
   font: 600 12px/22px var(--font-code); padding: 0 9px; border-radius: 999px;
   text-decoration: none; border: 1px solid; font-variant-numeric: tabular-nums;
 }
-/* A site's jump wears the condition tint, edged in its status
+/* A decision's jump wears the condition tint, edged in its status
    colour on the top and left only, as its line's button is. */
 a.jump[data-status] { background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 a.jump[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
@@ -184,7 +184,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   display: grid; grid-template-columns: minmax(max-content, 1fr); align-content: start;
 }
 .line, .block { display: flex; align-items: flex-start; }
-/* A loose site's whole block, its lines' code included, opens its
+/* A loose decision's whole block, its lines' code included, opens its
    top card. */
 .block { cursor: pointer; border-radius: 6px; }
 .block:hover { filter: brightness(0.97); }
@@ -205,7 +205,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0;
   scroll-margin-top: 190px;
 }
-/* A loose site's button, its 9px right margin included, takes the
+/* A loose decision's button, its 9px right margin included, takes the
    72px a plain number takes, so its lines' code starts where every
    other line's does. Its 63px includes its borders, so at any zoom,
    where a border is rounded to whole screen pixels, its width
@@ -217,7 +217,7 @@ button.lnum {
   border: 1px solid transparent; border-radius: 6px; cursor: pointer;
   font: 600 13px/24px var(--font-code); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
-/* A loose site's top card opens in the left rail: a closed button
+/* A loose decision's top card opens in the left rail: a closed button
    points left, where its card will open; an open one has no arrow,
    as a click leaves it open. */
 button.lnum::before {
@@ -225,25 +225,25 @@ button.lnum::before {
   font-size: 11px; line-height: 24px;
 }
 button.lnum[aria-expanded="true"]::before { content: none; }
-/* With a site count the count and the triangle share the
+/* With a decision count the count and the triangle share the
    button's height, one 11px line each. */
-button.lnum:has(.site-count)::before { top: 12px; line-height: 11px; }
+button.lnum:has(.decision-count)::before { top: 12px; line-height: 11px; }
 /* On a button over two or more lines the triangle sits at the
    very bottom. */
 button.lnum:has(.lineno + .lineno)::before { top: auto; bottom: 2px; line-height: 11px; }
-.site-count {
+.decision-count {
   position: absolute; left: 7px; top: 1px;
   font-size: 9px; line-height: 11px; font-weight: 700;
 }
 button.lnum .lineno { width: 50px; padding-right: 11px; color: inherit; line-height: 32px; margin: -4px 0; }
-/* A site's button wears the condition tint, edged in its
+/* A decision's button wears the condition tint, edged in its
    status colour on the top and left only. */
 button.lnum[data-status] { box-shadow: none; background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 button.lnum[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
 button.lnum[data-status="gaps"] { color: var(--bad); border-top-color: var(--bad); border-left-color: var(--bad); }
 button.lnum:hover { filter: brightness(1.1); }
 button.lnum:focus-visible { outline: 3px solid var(--link); outline-offset: 1px; }
-/* An open loose site has its button's status edges, top and left,
+/* An open loose decision has its button's status edges, top and left,
    doubled to 2px. A jump to it opens its card, so its button has
    no outline of the jump to it. */
 button.lnum[aria-expanded="true"][data-status="gaps"] { box-shadow: inset 1px 1px 0 var(--bad); }
@@ -253,16 +253,16 @@ button.lnum:has(.lineno:target) { outline: none; }
 body[data-open] button.lnum:focus-visible { outline: none; }
 .rail { position: relative; min-width: 0; }
 /* Each row lays its branch and label out at their own width, the
-   label pushing its cells to the row's right edge, so a site's
+   label pushing its cells to the row's right edge, so a decision's
    cells line up in columns however long or deep its labels. */
 .row { display: flex; align-items: center; gap: 8px; }
 .row > :is(.text, .arm, .operator) { margin-right: auto; padding-right: 8px; }
 /* An explicit width, not just a flex basis, so a row's natural
    width counts each cell as 26px, not as its one letter. */
 .row > :is(.cell, .count) { flex: none; width: 26px; }
-/* A thin rule under each site's counts row, across the tree's
+/* A thin rule under each decision's counts row, across the tree's
    full width through its 16px side padding. */
-.site > .row:first-child {
+.decision > .row:first-child {
   border-bottom: 1px solid var(--rule); margin: 0 -16px 6px; padding: 0 16px 4px;
 }
 .operator { font-weight: 600; }
@@ -383,11 +383,11 @@ body.dragging { cursor: col-resize; user-select: none; }
    it down. */
 .statements { padding: 10px 0; }
 .statements .prow { position: static; padding: 0 16px; margin-bottom: 2px; }
-/* A site's fold draws the site's tree in the code's font, its
+/* A decision's fold draws the decision's tree in the code's font, its
    rows as tall as the card's. Open, it takes its row's
    place right of the row's arrow and line:col, 88px in (the card's
    16px padding, the arrow's 16px, the label's 52px and two 2px
-   gaps): its first row, the site's operator and its count on each
+   gaps): its first row, the decision's operator and its count on each
    path, stands where the row's top and counts were, which hide,
    and its other rows are indented as far, so they stay aligned
    with the operator. The rows it reveals, below its first row
@@ -405,13 +405,13 @@ body.dragging { cursor: col-resize; user-select: none; }
     color-mix(in srgb, var(--cond-tint), var(--fg) 6%) 26px);
 }
 .fold:last-child { margin-bottom: 0; }
-.fold .site { pointer-events: auto; }
+.fold .decision { pointer-events: auto; }
 .fold .bx { height: 24px; }
-.fold .site > .row:first-child {
+.fold .decision > .row:first-child {
   border-bottom: 0; margin: 0 0 4px; padding: 0 0 2px; cursor: pointer;
 }
-.statements .prow.site:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
-/* A site row's arrow, left of its line:col, points down while its
+.statements .prow.decision:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
+/* A decision row's arrow, left of its line:col, points down while its
    fold is shut and up while it is open; every other row's label
    is indented by the arrow's width and the gap after it, so the
    labels line up. */
@@ -421,7 +421,7 @@ body.dragging { cursor: col-resize; user-select: none; }
 }
 .fold-arrow::before { content: "\25BC"; }
 .fold-arrow[aria-expanded="true"]::before { content: "\25B2"; }
-.prow.site:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
+.prow.decision:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
 .fold-arrow:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
 .statements .prow > .plabel:first-child { margin-left: 18px; }
 /* A grid's line labels sit at its left padding, as a tree's labels
@@ -436,8 +436,8 @@ body.dragging { cursor: col-resize; user-select: none; }
 .statements .plabel { width: 44px; padding-right: 8px; overflow: visible; }
 .statements .prow.calls .plabel { width: auto; }
 .statements .plabel + .pcell { flex: 1; min-width: 56px; text-align: left; }
-.statements .prow.site, .statements .prow.site .pcell { cursor: pointer; }
-.statements .prow.site:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.site:hover .plabel { color: var(--link); }
+.statements .prow.decision, .statements .prow.decision .pcell { cursor: pointer; }
+.statements .prow.decision:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.decision:hover .plabel { color: var(--link); }
 .statements .prow.columns .plabel, .statements .prow.columns .pcell { color: var(--muted); }
 /* A card's paths not taken are orange and those taken blue, as a
    status always is; its column titles are too, as their key. None
@@ -464,12 +464,12 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 /* A row of jumps with none keeps its height, though hidden, so the
    sticky header, and the code below it, never move. */
 .jump-list[data-empty] { visibility: hidden; }
-/* The number of each method's def line wears a loose site's
+/* The number of each method's def line wears a loose decision's
    button's look: the one tint, edged on the top and left in its
    status colour, orange for gaps and blue for covered, with an
    arrow pointing left while its card is closed, and none while it
    is open. Its 63px and its 9px right margin take the 72px a plain
-   number takes, as a loose site's button does, so its line's code
+   number takes, as a loose decision's button does, so its line's code
    starts where every other line's does and its digits end where
    theirs do. */
 .lineno.mdef {
@@ -495,44 +495,440 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 </style>
 </head>
 <body>
-<main class="page">
-<header class="head" data-head="">
-<div class="top"><p class="title"><a data-index="" href="../../index.html">Path coverage</a></p><h1 class="path"><a data-row="" href="../../index.html#row-source/kata.rb">source/kata.rb</a></h1><button type="button" class="theme" aria-label="Light or dark"></button></div>
-<nav class="jumps" aria-label="Cards"><div class="jump-list"><span class="jump-label">Gaps</span><a class="jump" data-status="gaps" href="#L7">7</a><a class="jump" data-status="gaps" href="#L13">13</a></div></nav>
-</header>
-<div class="box">
-<div class="rail">
-<div class="pathgrid statements" id="paths-4" data-first="4" data-col="2" data-last="4" data-status="covered" hidden="hidden"><div class="prow calls" data-line="4"><span class="plabel">id?<span class="call-count">&times;5</span></span><span class="pcell">*3</span><span class="pcell not-taken none">0</span><span class="pcell was-taken">3</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="4"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 4:21"></button><span class="plabel">4:21</span><span class="pcell"><span class="o">&amp;&amp;</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">3</span></div><div class="fold" data-site="source/kata.rb:4:21" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="4,21,4,53"><span class="operator" data-operator=""><span class="o">&amp;&amp;</span></span><span class="count" data-count="" data-hover="3 times">*</span><span class="count" data-count="" data-hover="1 time">*</span><span class="count" data-count="" data-hover="1 time">*</span></div><div class="row" data-operand="" data-at="4,21,4,37"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">id.is_a?(<span class="t">String</span>)</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-operand="" data-at="4,41,4,53"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">id.size == <span class="n">6</span></span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span><span class="cell" data-cell=""></span></div></div></div></div>
-<div class="pathgrid statements" id="paths-7" data-first="7" data-col="2" data-last="10" data-status="gaps" hidden="hidden"><div class="prow calls" data-line="7"><span class="plabel">runnable?<span class="call-count">&times;2</span></span><span class="pcell">*3</span><span class="pcell not-taken">1</span><span class="pcell was-taken">2</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="8"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 8:04"></button><span class="plabel">8:04</span><span class="pcell"><span class="o">&amp;&amp;</span></span><span class="pcell not-taken">1</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="source/kata.rb:8:4" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="8,4,9,20"><span class="operator" data-operator=""><span class="o">&amp;&amp;</span></span><span class="count never" data-count="" data-hover="0 times">0</span><span class="count" data-count="" data-hover="1 time">*</span><span class="count" data-count="" data-hover="1 time">*</span></div><div class="row" data-operand="" data-at="8,4,8,16"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">kata.started</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-operand="" data-at="9,6,9,20"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">!kata.finished</span><span class="cell" data-cell="">F</span><span class="cell" data-cell="">T</span><span class="cell" data-cell=""></span></div></div></div></div>
-<div class="pathgrid statements" id="paths-13" data-first="13" data-col="2" data-last="15" data-status="gaps" hidden="hidden"><div class="prow calls" data-line="13"><span class="plabel">pair_checks<span class="call-count">&times;1</span></span><span class="pcell">*9</span><span class="pcell not-taken">4</span><span class="pcell was-taken">2</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="14"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 14:05"></button><span class="plabel">14:05</span><span class="pcell"><span class="o">&amp;&amp;</span></span><span class="pcell not-taken">2</span><span class="pcell was-taken">1</span></div><div class="fold" data-site="source/kata.rb:14:5" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="14,5,14,27"><span class="operator" data-operator=""><span class="o">&amp;&amp;</span></span><span class="count never" data-count="" data-hover="0 times">0</span><span class="count never" data-count="" data-hover="0 times">0</span><span class="count" data-count="" data-hover="1 time">*</span></div><div class="row" data-operand="" data-at="14,5,14,13"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">id?(one)</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span><span class="cell" data-cell="">T</span></div><div class="row" data-operand="" data-at="14,17,14,27"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">id?(other)</span><span class="cell" data-cell="">F</span><span class="cell" data-cell=""></span><span class="cell" data-cell="">T</span></div></div></div><div class="prow site" data-line="14"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 14:29"></button><span class="plabel">14:29</span><span class="pcell"><span class="o">&amp;&amp;</span></span><span class="pcell not-taken">2</span><span class="pcell was-taken">1</span></div><div class="fold" data-site="source/kata.rb:14:29" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="14,29,14,56"><span class="operator" data-operator=""><span class="o">&amp;&amp;</span></span><span class="count never" data-count="" data-hover="0 times">0</span><span class="count never" data-count="" data-hover="0 times">0</span><span class="count" data-count="" data-hover="1 time">*</span></div><div class="row" data-operand="" data-at="14,29,14,41"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">one != other</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-operand="" data-at="14,45,14,56"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">other != <span class="s">&#39;&#39;</span></span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span><span class="cell" data-cell=""></span></div></div></div></div>
-</div>
-<div class="code">
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L1" data-line="1">1</span><span class="src" data-src=""><span class="c"># Rules about one practice session.</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L2" data-line="2">2</span><span class="src" data-src=""><span class="k">module</span> <span class="t">Kata</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L3" data-line="3">3</span><span class="src" data-src="">  <span class="c"># True for a six-character id.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="covered" href="#L4" aria-label="Previous card covered, line 4"></a><a data-next="" data-status="covered" href="#L4" aria-label="Next card covered, line 4"></a></span><span class="lineno mdef" data-status="covered" aria-expanded="false" id="L4" data-line="4">4</span><span class="src in-method def-line method-end" data-method-status="covered" style="--def-col: 2; --def-end: 53" data-src="">  <span class="k">def</span> <span class="k">self</span>.id?(id) = id.is_a?(<span class="t">String</span>) <span class="o">&amp;&amp;</span> id.size == <span class="n">6</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L5" data-line="5">5</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L6" data-line="6">6</span><span class="src" data-src="">  <span class="c"># True for a kata started and not yet finished.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="gaps" href="#L13" aria-label="Previous card with gaps, line 13"></a><a data-next="" data-status="gaps" href="#L13" aria-label="Next card with gaps, line 13"></a></span><span class="lineno mdef" data-status="gaps" aria-expanded="false" id="L7" data-line="7">7</span><span class="src in-method def-line" data-method-status="gaps" style="--def-col: 2; --def-end: 26" data-src="">  <span class="k">def</span> <span class="k">self</span>.runnable?(kata)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L8" data-line="8">8</span><span class="src in-method" data-method-status="gaps" style="--def-col: 2" data-src="">    kata.started <span class="o">&amp;&amp;</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L9" data-line="9">9</span><span class="src in-method" data-method-status="gaps" style="--def-col: 2" data-src="">      !kata.finished</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L10" data-line="10">10</span><span class="src in-method method-end" data-method-status="gaps" style="--def-col: 2" data-src="">  <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L11" data-line="11">11</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L12" data-line="12">12</span><span class="src" data-src="">  <span class="c"># [both ids valid, the two ids different].</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="gaps" href="#L7" aria-label="Previous card with gaps, line 7"></a><a data-next="" data-status="gaps" href="#L7" aria-label="Next card with gaps, line 7"></a></span><span class="lineno mdef" data-status="gaps" aria-expanded="false" id="L13" data-line="13">13</span><span class="src in-method def-line" data-method-status="gaps" style="--def-col: 2; --def-end: 34" data-src="">  <span class="k">def</span> <span class="k">self</span>.pair_checks(one, other)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L14" data-line="14">14</span><span class="src in-method" data-method-status="gaps" style="--def-col: 2" data-src="">    [id?(one) <span class="o">&amp;&amp;</span> id?(other), one != other <span class="o">&amp;&amp;</span> other != <span class="s">&#39;&#39;</span>]</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L15" data-line="15">15</span><span class="src in-method method-end" data-method-status="gaps" style="--def-col: 2" data-src="">  <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L16" data-line="16">16</span><span class="src" data-src=""><span class="k">end</span></span></div>
-</div>
-<div class="divider" role="separator" aria-orientation="vertical" title="Drag to share the width between paths and code"></div>
-</div>
-</main>
+<main class="page"></main>
 <script>
 //<![CDATA[
+window.pathCoverage = {"schema":1,"page":"file","path":"source/kata.rb","lines":[{"text":"# Rules about one practice session.","tokens":[[0,35,"c"]],"status":null,"span":null},{"text":"module Kata","tokens":[[0,6,"k"],[7,11,"t"]],"status":null,"span":null},{"text":"  # True for a six-character id.","tokens":[[2,32,"c"]],"status":null,"span":null},{"text":"  def self.id?(id) = id.is_a?(String) && id.size == 6","tokens":[[2,5,"k"],[6,10,"k"],[30,36,"t"],[38,40,"o"],[52,53,"n"]],"status":"covered","span":[4,4]},{"text":"","tokens":[],"status":null,"span":null},{"text":"  # True for a kata started and not yet finished.","tokens":[[2,49,"c"]],"status":null,"span":null},{"text":"  def self.runnable?(kata)","tokens":[[2,5,"k"],[6,10,"k"]],"status":null,"span":null},{"text":"    kata.started &&","tokens":[[17,19,"o"]],"status":"gaps","span":[8,9]},{"text":"      !kata.finished","tokens":[],"status":"gaps","span":[8,9]},{"text":"  end","tokens":[[2,5,"k"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"  # [both ids valid, the two ids different].","tokens":[[2,44,"c"]],"status":null,"span":null},{"text":"  def self.pair_checks(one, other)","tokens":[[2,5,"k"],[6,10,"k"]],"status":null,"span":null},{"text":"    [id?(one) && id?(other), one != other && other != '']","tokens":[[14,16,"o"],[42,44,"o"],[54,56,"s"]],"status":"gaps","span":[14,14]},{"text":"  end","tokens":[[2,5,"k"]],"status":null,"span":null},{"text":"end","tokens":[[0,3,"k"]],"status":null,"span":null}],"cards":[{"first":4,"last":4,"column":2,"status":"covered","top":false,"decisions":null,"title":{"name":"id?","calls":5,"ways":3,"notTaken":0,"taken":3},"rows":[{"at":"4:21","decision":"source/kata.rb:4:21","top":{"text":"&&","tokens":[[0,2,"o"]]},"paths":3,"taken":3,"fold":[{"kind":"decision","branch":"","label":{"text":"&&","tokens":[[0,2,"o"]]},"at":[4,21,4,53],"else":null,"counts":[3,1,1]},{"kind":"operand","branch":"ths","label":{"text":"id.is_a?(String)","tokens":[[9,15,"t"]]},"at":[4,21,4,37],"cells":[["T",null,null],["T",null,null],["F",null,null]]},{"kind":"operand","branch":"lhs","label":{"text":"id.size == 6","tokens":[[11,12,"n"]]},"at":[4,41,4,53],"cells":[["T",null,null],["F",null,null],["",null,null]]}]}]},{"first":7,"last":10,"column":2,"status":"gaps","top":false,"decisions":null,"title":{"name":"runnable?","calls":2,"ways":3,"notTaken":1,"taken":2},"rows":[{"at":"8:04","decision":"source/kata.rb:8:4","top":{"text":"&&","tokens":[[0,2,"o"]]},"paths":3,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"&&","tokens":[[0,2,"o"]]},"at":[8,4,9,20],"else":null,"counts":[0,1,1]},{"kind":"operand","branch":"ths","label":{"text":"kata.started","tokens":[]},"at":[8,4,8,16],"cells":[["T",null,null],["T",null,null],["F",null,null]]},{"kind":"operand","branch":"lhs","label":{"text":"!kata.finished","tokens":[]},"at":[9,6,9,20],"cells":[["F",null,null],["T",null,null],["",null,null]]}]}]},{"first":13,"last":15,"column":2,"status":"gaps","top":false,"decisions":null,"title":{"name":"pair_checks","calls":1,"ways":9,"notTaken":4,"taken":2},"rows":[{"at":"14:05","decision":"source/kata.rb:14:5","top":{"text":"&&","tokens":[[0,2,"o"]]},"paths":3,"taken":1,"fold":[{"kind":"decision","branch":"","label":{"text":"&&","tokens":[[0,2,"o"]]},"at":[14,5,14,27],"else":null,"counts":[0,0,1]},{"kind":"operand","branch":"ths","label":{"text":"id?(one)","tokens":[]},"at":[14,5,14,13],"cells":[["T",null,null],["F",null,null],["T",null,null]]},{"kind":"operand","branch":"lhs","label":{"text":"id?(other)","tokens":[]},"at":[14,17,14,27],"cells":[["F",null,null],["",null,null],["T",null,null]]}]},{"at":"14:29","decision":"source/kata.rb:14:29","top":{"text":"&&","tokens":[[0,2,"o"]]},"paths":3,"taken":1,"fold":[{"kind":"decision","branch":"","label":{"text":"&&","tokens":[[0,2,"o"]]},"at":[14,29,14,56],"else":null,"counts":[0,0,1]},{"kind":"operand","branch":"ths","label":{"text":"one != other","tokens":[]},"at":[14,29,14,41],"cells":[["T",null,null],["T",null,null],["F",null,null]]},{"kind":"operand","branch":"lhs","label":{"text":"other != ''","tokens":[[9,11,"s"]]},"at":[14,45,14,56],"cells":[["T",null,null],["F",null,null],["",null,null]]}]}]}]};
+// Draws a path coverage page from its data, window.pathCoverage, as
+// schema.json has it, into the page's <main>. It runs before the
+// page's other scripts, which then find the page as they would had
+// it been written whole. A port computes; this only draws.
+(function () {
+  'use strict';
+
+  var SCHEMA = 1;
+  var data = window.pathCoverage;
+  if (!data || data.schema !== SCHEMA) {
+    throw new Error('path coverage: page data of schema ' +
+      (data && data.schema) + ', but render.js draws schema ' + SCHEMA);
+  }
+
+  // text, escaped for HTML.
+  function esc(text) {
+    return String(text)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // code, {text, tokens}, escaped, each token's range, its columns
+  // counting characters, in a span of its class.
+  function painted(code) {
+    var chars = Array.from(code.text);
+    var at = 0;
+    var out = '';
+    code.tokens.forEach(function (token) {
+      out += esc(chars.slice(at, token[0]).join('')) +
+        '<span class="' + token[2] + '">' +
+        esc(chars.slice(token[0], token[1]).join('')) + '</span>';
+      at = token[1];
+    });
+    return out + esc(chars.slice(at).join(''));
+  }
+
+  // ---------------------------------------------------------------
+  // The index page.
+
+  // A table cell, sorted by sort, showing content, with title as its
+  // hover and css as its class, each when given.
+  function td(sort, content, title, css) {
+    var klass = css ? ' class="' + css + '"' : '';
+    var hover = title ? ' title="' + title + '"' : '';
+    return '<td' + klass + ' data-sort="' + esc(sort) + '"' + hover + '>' +
+      content + '</td>';
+  }
+
+  // Why a total of no paths shows no percent.
+  var NONE = 'no method with two or more decisions';
+
+  // The cells after a row's file: its decisions, then its paths combined
+  // taken, / of and percent.
+  function counts(row) {
+    var taken = row.combined[0];
+    var possible = row.combined[1];
+    var percent = row.percent === null
+      ? td('', '-', NONE, 'percent')
+      : td(row.percent, row.percent + '%', null, 'percent');
+    return td(row.decisions, row.decisions) +
+      td(taken, taken, null, 'taken') +
+      td(possible, '/ ' + possible, null, 'of') + percent;
+  }
+
+  // The heading row of a files table, every column sortable.
+  function headRow() {
+    var heading = function (attrs, column, type, label) {
+      return '<th' + attrs + ' aria-sort="none"><button type="button"' +
+        ' data-column="' + column + '" data-type="' + type + '">' +
+        label + '</button></th>';
+    };
+    var parts = [['taken', 'taken'], ['of', '/ of'], ['percent', '%']];
+    var cells = [heading('', 0, 'text', 'File'),
+      heading(' class="num"', 1, 'number', 'Decisions')].concat(
+      parts.map(function (part, i) {
+        return heading(' class="' + part[0] + '"', 2 + i, 'number', part[1]);
+      }));
+    return '<tr>\n' + cells.join('\n') + '\n</tr>';
+  }
+
+  // The index-th tab's table; any but the first hidden, only the
+  // first giving its rows ids, as the others repeat its rows.
+  function table(index, shown) {
+    var anchored = index === 0;
+    var body = shown.rows.map(function (row) {
+      var path = esc(row.path);
+      var link = '<a href="files/' + path + '.html">' + path + '</a>';
+      var id = anchored ? ' id="row-' + path + '"' : '';
+      return '<tr' + id + '>' + td(row.path, link) + counts(row) + '</tr>';
+    }).join('\n');
+    var hidden = anchored ? '' : ' hidden="hidden"';
+    return [
+      '<table class="files" id="files-' + index + '" role="tabpanel"' +
+        hidden + '>',
+      '<thead>\n' + headRow() + '\n</thead>',
+      '<tbody>\n' + body + '\n</tbody>',
+      '<tfoot>\n<tr>' + td('Total', 'Total') + counts(shown.total) +
+        '</tr>\n</tfoot>',
+      '</table>'
+    ].join('\n');
+  }
+
+  // The tab bar, a tab per table, the first selected; none for one
+  // table.
+  function tabs(tables) {
+    if (tables.length < 2) { return ''; }
+    var buttons = tables.map(function (shown, i) {
+      return '<button type="button" role="tab" aria-selected="' +
+        (i === 0) + '" aria-controls="files-' + i + '">' +
+        esc(shown.name) + '</button>';
+    });
+    return '<nav class="tabs" role="tablist" aria-label="Groups">' +
+      buttons.join('') + '</nav>';
+  }
+
+  // The paragraph naming the operators ignored; none when none are.
+  function ignored(names) {
+    if (names.length === 0) { return ''; }
+    return '<p class="ignored" data-ignored="">' +
+      esc('Ignored: ' + names.join(', ')) + '</p>';
+  }
+
+  // The index page's <main>.
+  function indexPage(page) {
+    var tables = page.tables.map(function (shown, i) {
+      return table(i, shown);
+    }).join('\n');
+    return '\n<header class="head" data-head="">\n' +
+      '<div class="top"><h1 class="title">Path coverage</h1>' +
+      '<button type="button" class="theme" aria-label="Light or dark">' +
+      '</button></div>\n</header>\n' + tabs(page.tables) +
+      '\n<div class="box">\n' + tables + '\n</div>' +
+      ignored(page.ignored) + '\n';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's cards' folds.
+
+  // The cell drawing a branch, one kind per letter.
+  function branchCell(branch) {
+    var cells = Array.from(branch).map(function (kind) {
+      return '<span class="bx" data-bx="' + kind + '"></span>';
+    });
+    return '<span class="branch" data-branch="" aria-hidden="true">' +
+      cells.join('') + '</span>';
+  }
+
+  // Example: 1284 gives 1,284 times.
+  function times(count) {
+    var digits = String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return digits + (count === 1 ? ' time' : ' times');
+  }
+
+  // A decision row's count cells, 0 for a path never taken, else *.
+  function countCells(counts) {
+    return counts.map(function (count) {
+      var never = count === 0;
+      return '<span class="' + (never ? 'count never' : 'count') +
+        '" data-count="" data-hover="' + times(count) + '">' +
+        (never ? '0' : '*') + '</span>';
+    }).join('');
+  }
+
+  // A fold row's cells, each [text, mark, hover].
+  function valueCells(cells) {
+    return cells.map(function (cell) {
+      var attrs = 'class="cell" data-cell=""';
+      if (cell[1] !== null) { attrs += ' data-mark="' + esc(cell[1]) + '"'; }
+      if (cell[2] !== null) { attrs += ' data-hover="' + esc(cell[2]) + '"'; }
+      return '<span ' + attrs + '>' + esc(cell[0]) + '</span>';
+    }).join('');
+  }
+
+  // The attribute marking each kind of fold row, and the class and
+  // attribute of its label's span.
+  var KINDS = {
+    decision: ['', 'operator" data-operator="'],
+    subtree: [' data-subtree=""', 'operator" data-operator="'],
+    operand: [' data-operand=""', 'text" data-text="'],
+    arm: [' data-arm=""', 'arm" data-label="'],
+    leaves: [' data-leaves=""', 'arm" data-label="']
+  };
+
+  // The attribute name="line,column,line,column" of at; none for null.
+  function atAttr(at, name) {
+    return at ? ' ' + name + '="' + at.join(',') + '"' : '';
+  }
+
+  // One fold row.
+  function foldRow(row) {
+    var kind = KINDS[row.kind];
+    var lead = row.branch === '' ? '' : branchCell(row.branch);
+    var cells = row.counts ? countCells(row.counts) : valueCells(row.cells);
+    var attrs = kind[0] + atAttr(row.at, 'data-at') +
+      atAttr(row.else, 'data-else');
+    return '<div class="row"' + attrs + '>' + lead + '<span class="' +
+      kind[1] + '">' + painted(row.label) + '</span>' + cells + '</div>';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's cards.
+
+  // The class each of a card row's cells adds after pcell.
+  var CELLS = ['', ' not-taken', ' was-taken'];
+
+  // A card row: attrs, lead, its label, then a span per cell.
+  function cardRow(attrs, label, cells, lead) {
+    var spans = cells.map(function (cell, i) {
+      var none = CELLS[i] === ' not-taken' && cell === '0' ? ' none' : '';
+      return '<span class="pcell' + CELLS[i] + none + '">' + cell + '</span>';
+    });
+    return '<div ' + attrs + '>' + (lead || '') +
+      '<span class="plabel">' + label + '</span>' + spans.join('') + '</div>';
+  }
+
+  // How many times a method was called, after its name; none when not
+  // known.
+  function callCount(calls) {
+    if (calls === null) { return ''; }
+    var css = calls === 0 ? 'call-count never' : 'call-count';
+    return '<span class="' + css + '">&times;' + calls + '</span>';
+  }
+
+  // One row of a card, then its fold, if it has one.
+  function statementRow(row) {
+    var count = row.taken;
+    var counts = count === null ? ['?', '?'] :
+      [String(row.paths - count), String(count)];
+    var cells = [painted(row.top)].concat(counts);
+    var css = row.decision ? 'prow decision' : 'prow';
+    var attrs = 'class="' + css + '" data-line="' +
+      parseInt(row.at.match(/\d+/)[0], 10) + '"';
+    var fold = row.fold ? row.fold.map(foldRow).join('') : null;
+    var lead = fold === null ? '' :
+      '<button type="button" class="fold-arrow" aria-expanded="false"' +
+      ' aria-label="Paths of ' + row.at + '"></button>';
+    var folded = fold === null ? '' :
+      '<div class="fold" data-decision="' + row.decision + '" hidden="hidden">' +
+      '<div class="decision" data-decision="">' + fold + '</div></div>';
+    return cardRow(attrs, row.at, cells, lead) + folded;
+  }
+
+  // A card's HTML: its title row, its columns row, then its rows.
+  function cardHtml(card) {
+    var title = card.title;
+    var label = esc(title.name) + callCount(title.calls);
+    var head = cardRow('class="prow calls" data-line="' + card.first + '"',
+      label, ['*' + title.ways, String(title.notTaken), String(title.taken)]) +
+      cardRow('class="prow columns"', 'line:col',
+        ['', 'not taken', 'taken']);
+    var grid = card.top ? 'pathgrid statements top-level' : 'pathgrid statements';
+    var attrs = 'id="paths-' + card.first + '" data-first="' + card.first +
+      '" data-col="' + card.column + '" data-last="' + card.last +
+      '" data-status="' + card.status + '" hidden="hidden"';
+    return '<div class="' + grid + '" ' + attrs + '>' + head +
+      card.rows.map(statementRow).join('') + '</div>';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's listing and nav.
+
+  // The first lines of the cards of status, in line order.
+  function firsts(cards, status) {
+    return cards.filter(function (card) { return card.status === status; })
+      .map(function (card) { return card.first; })
+      .sort(function (a, b) { return a - b; });
+  }
+
+  // Each status's arrows, gaps first, and how a label names it.
+  var STATUSES = [['gaps', 'with gaps'], ['covered', 'covered']];
+
+  // The header's row of jumps, to each card with gaps.
+  function jumps(cards) {
+    var links = firsts(cards, 'gaps').map(function (first) {
+      return '<a class="jump" data-status="gaps" href="#L' + first + '">' +
+        first + '</a>';
+    });
+    var empty = links.length === 0 ? ' data-empty=""' : '';
+    return '<nav class="jumps" aria-label="Cards"><div class="jump-list"' +
+      empty + '><span class="jump-label">Gaps</span>' + links.join('') +
+      '</div></nav>';
+  }
+
+  // The gutter of a row of numbers: by each card's first line, an
+  // arrow to the card of its status before it, and one after.
+  function navCell(numbers, cards) {
+    var links = [];
+    STATUSES.forEach(function (named) {
+      var status = named[0];
+      var lines = firsts(cards, status);
+      lines.filter(function (first) { return numbers.indexOf(first) >= 0; })
+        .forEach(function (first) {
+          var i = lines.indexOf(first);
+          var arrow = function (way, word, line) {
+            return '<a data-' + way + '="" data-status="' + status +
+              '" href="#L' + line + '" aria-label="' + word + ' card ' +
+              named[1] + ', line ' + line + '"></a>';
+          };
+          links.push(arrow('prev', 'Previous',
+            lines[(i - 1 + lines.length) % lines.length]));
+          links.push(arrow('next', 'Next', lines[(i + 1) % lines.length]));
+        });
+    });
+    return '<span class="nav" data-nav="">' + links.join('') + '</span>';
+  }
+
+  // True when card holds line.
+  function holds(card, line) { return card.first <= line && line <= card.last; }
+
+  // The attributes of a line's code: in a method, its innermost one's
+  // status and def's column, marked as its def line or last line.
+  function srcAttributes(methods, number, text) {
+    var holders = methods.filter(function (card) { return holds(card, number); });
+    if (holders.length === 0) { return 'class="src"'; }
+    var inner = holders.reduce(function (best, card) {
+      return card.first > best.first ? card : best;
+    });
+    var css = ['src', 'in-method'];
+    if (methods.some(function (card) { return card.first === number; })) {
+      css.push('def-line');
+    }
+    if (methods.some(function (card) { return card.last === number; })) {
+      css.push('method-end');
+    }
+    var style = '--def-col: ' + inner.column;
+    if (inner.first === number) {
+      style += '; --def-end: ' + Array.from(text).length;
+    }
+    return 'class="' + css.join(' ') + '" data-method-status="' +
+      inner.status + '" style="' + style + '"';
+  }
+
+  // One line's number, a def's marked to open its method's card.
+  function lineNumber(number, methods) {
+    var card = methods.filter(function (each) { return each.first === number; })[0];
+    var css = card
+      ? 'class="lineno mdef" data-status="' + card.status + '" aria-expanded="false"'
+      : 'class="lineno"';
+    return '<span ' + css + ' id="L' + number + '" data-line="' + number +
+      '">' + number + '</span>';
+  }
+
+  // One line's code, coloured.
+  function code(line, number, methods) {
+    return '<span ' + srcAttributes(methods, number, line.text) +
+      ' data-src="">' + painted(line) + '</span>';
+  }
+
+  // The source listing: a row per line, but one row over all the
+  // lines of a decision outside every method.
+  function listing(lines, cards) {
+    var methods = cards.filter(function (card) { return !card.top; });
+    var tops = {};
+    cards.forEach(function (card) { if (card.top) { tops[card.first] = card; } });
+    var loose = function (line) {
+      return !methods.some(function (card) { return holds(card, line); });
+    };
+    var rows = [];
+    lines.forEach(function (line, index) {
+      var number = index + 1;
+      var span = line.span;
+      var key = span && loose(span[0]) ? 'span ' + span[0] + '-' + span[1] : number;
+      var last = rows[rows.length - 1];
+      if (last && last.key === key) {
+        last.numbers.push(number);
+      } else {
+        rows.push({ key: key, span: typeof key === 'string', numbers: [number] });
+      }
+    });
+    var body = rows.map(function (row) {
+      if (!row.span) {
+        var number = row.numbers[0];
+        var line = lines[number - 1];
+        var folded = methods.some(function (card) {
+          return card.first + 1 <= number && number <= card.last;
+        });
+        return '<div class="' + (folded ? 'line method-folded' : 'line') + '">' +
+          navCell([number], cards) + lineNumber(number, methods) +
+          code(line, number, methods) + '</div>';
+      }
+      var first = row.numbers[0];
+      var top = tops[first];
+      var decisions = top ? top.decisions : 0;
+      var count = decisions < 2 ? '' :
+        '<span class="decision-count" data-decision-count="">' + decisions + '</span>';
+      var spans = row.numbers.map(function (n) { return lineNumber(n, []); }).join('');
+      var status = top ? top.status : (lines[first - 1].status || '');
+      var button = '<button type="button" class="lnum loose" data-status="' +
+        status + '" aria-expanded="false" aria-controls="paths-' + first +
+        '">' + count + spans + '</button>';
+      var srcs = row.numbers.map(function (n) {
+        return code(lines[n - 1], n, []);
+      }).join('');
+      return '<div class="block">' + navCell(row.numbers, cards) + button +
+        '<div class="srcs">' + srcs + '</div></div>';
+    });
+    return '<div class="code">\n' + body.join('\n') + '\n</div>';
+  }
+
+  // A file page's <main>.
+  function filePage(page) {
+    var path = esc(page.path);
+    var index = '../'.repeat(page.path.split('/').length) + 'index.html';
+    var rail = page.cards.map(cardHtml).join('\n');
+    return '\n<header class="head" data-head="">\n' +
+      '<div class="top"><p class="title"><a data-index="" href="' + index +
+      '">Path coverage</a></p><h1 class="path"><a data-row="" href="' +
+      index + '#row-' + path + '">' + path + '</a></h1>' +
+      '<button type="button" class="theme" aria-label="Light or dark">' +
+      '</button></div>\n' + jumps(page.cards) + '\n</header>\n' +
+      '<div class="box">\n<div class="rail">\n' + rail + '\n</div>\n' +
+      listing(page.lines, page.cards) + '\n' +
+      '<div class="divider" role="separator" aria-orientation="vertical"' +
+      ' title="Drag to share the width between paths and code"></div>\n' +
+      '</div>\n';
+  }
+
+  var main = document.querySelector('main.page');
+  if (data.page === 'index') {
+    document.title = 'Path coverage';
+    main.innerHTML = indexPage(data);
+  } else {
+    document.title = data.path + ' · Path coverage';
+    main.innerHTML = filePage(data);
+  }
+}());
 // The behaviour of a file's page: its cards sit in the rail left
 // of the code, one open at a time, level with its first line. A
 // method's def number opens its card, unfolding its body; a loose
-// site's button, outside every method, opens its lines' top card.
+// decision's button, outside every method, opens its lines' top card.
 // The page's markup, from the Ruby, already marks every method's
 // lines, numbers and rows; this only opens, closes and places.
 (function () {
@@ -543,7 +939,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   var divider = document.querySelector('.divider');
   var grids = Array.prototype.slice.call(document.querySelectorAll('.pathgrid'));
 
-  // True for a top card, of sites outside every method.
+  // True for a top card, of decisions outside every method.
   function isTop(grid) {
     return grid.classList.contains('top-level');
   }
@@ -557,13 +953,13 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
     return document.getElementById('L' + n);
   }
 
-  // The row, a line or a loose site's block, holding line n.
+  // The row, a line or a loose decision's block, holding line n.
   function rowOf(n) {
     return lineno(n).closest('.line, .block');
   }
 
   // The code span of line n, whether a line's own or one of a
-  // loose site's lines.
+  // loose decision's lines.
   function srcOf(n) {
     var number = lineno(n);
     if (!number) { return null; }
@@ -598,7 +994,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   });
 
   // The def number of each method's card, which opens it; null for
-  // a top card, which its site's button opens.
+  // a top card, which its decision's button opens.
   var defs = grids.map(function (grid) {
     return isTop(grid) ? null : lineno(firstOf(grid));
   });
@@ -617,7 +1013,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 
   // Opens grid alone, null closing all: a method's card opens its
   // body, every other method's folded; its def number, or its
-  // site's button, says it is open.
+  // decision's button, says it is open.
   function openOnly(open) {
     clear();
     grids.forEach(function (grid, i) {
@@ -889,20 +1285,20 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   });
   rail.addEventListener('mouseleave', function () { litRow = null; });
 
-  // A click on a site's row in a card unfolds that site's tree in
+  // A click on a decision's row in a card unfolds that decision's tree in
   // the row's place, folding up any other open; a click on the row
   // of the one open, or on its fold's first row, which stands in
   // the row's place, folds it back.
   rail.addEventListener('click', function (event) {
-    if (event.target.closest('.fold .site > .row:first-child')) { unfold(null); return; }
-    var row = event.target.closest('.statements .prow.site');
+    if (event.target.closest('.fold .decision > .row:first-child')) { unfold(null); return; }
+    var row = event.target.closest('.statements .prow.decision');
     var fold = row && row.nextElementSibling;
     if (!fold || !fold.classList.contains('fold')) { return; }
     unfold(fold.hidden ? fold : null);
   });
 
   // Shows fold alone, null folding them all up, the arrow of each
-  // site's row pointing up while its fold shows; then places the
+  // decision's row pointing up while its fold shows; then places the
   // open card again, as its height has changed.
   function unfold(fold) {
     rail.querySelectorAll('.fold').forEach(function (each) {
@@ -995,7 +1391,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   }
 
   // The number of the line whose code is src, a line's own or one of
-  // a loose site's lines.
+  // a loose decision's lines.
   function lineOf(src) {
     var block = src.closest('.block');
     if (!block) { return Number(src.parentElement.querySelector('.lineno').id.slice(1)); }
@@ -1044,7 +1440,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 
   // Opening one card closes the others, and a click never closes
   // the one open, so the rail always shows one. A click on a def
-  // line opens its method's card; one on a loose site's lines opens
+  // line opens its method's card; one on a loose decision's lines opens
   // their top card; a gutter arrow or a header jump opens the card
   // at the line it jumps to.
   document.addEventListener('click', function (event) {

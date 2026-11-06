@@ -38,12 +38,12 @@
       "maxItems": 4
     },
     "totals": {
-      "description": "A row of the index: its sites, its [taken, possible] paths combined, and their percent, rounded, null when possible is 0.",
+      "description": "A row of the index: its decisions, its [taken, possible] paths combined, and their percent, rounded, null when possible is 0.",
       "type": "object",
-      "required": ["sites", "combined", "percent"],
+      "required": ["decisions", "combined", "percent"],
       "additionalProperties": false,
       "properties": {
-        "sites": { "type": "integer", "minimum": 0 },
+        "decisions": { "type": "integer", "minimum": 0 },
         "combined": {
           "type": "array",
           "items": { "type": "integer", "minimum": 0 },
@@ -78,7 +78,7 @@
                   "required": ["path"],
                   "properties": {
                     "path": { "type": "string" },
-                    "sites": true, "combined": true, "percent": true
+                    "decisions": true, "combined": true, "percent": true
                   },
                   "additionalProperties": false
                 }
@@ -112,11 +112,11 @@
               "text": { "type": "string" },
               "tokens": { "$ref": "#/$defs/code/properties/tokens" },
               "status": {
-                "description": "The status of the sites on the line, null for a line with none.",
+                "description": "The status of the decisions on the line, null for a line with none.",
                 "oneOf": [{ "$ref": "#/$defs/status" }, { "type": "null" }]
               },
               "span": {
-                "description": "[first, last] lines of the merged span of sites the line is in, null for a line in none.",
+                "description": "[first, last] lines of the merged span of decisions the line is in, null for a line in none.",
                 "oneOf": [
                   { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
                   { "type": "null" }
@@ -126,7 +126,7 @@
           }
         },
         "cards": {
-          "description": "The methods' cards, then the top cards, of sites outside every method.",
+          "description": "The methods' cards, then the top cards, of decisions outside every method.",
           "type": "array",
           "items": { "$ref": "#/$defs/card" }
         }
@@ -134,7 +134,7 @@
     },
     "card": {
       "type": "object",
-      "required": ["first", "last", "column", "status", "top", "sites", "title", "rows"],
+      "required": ["first", "last", "column", "status", "top", "decisions", "title", "rows"],
       "additionalProperties": false,
       "properties": {
         "first": { "type": "integer" },
@@ -142,7 +142,7 @@
         "column": { "type": "integer" },
         "status": { "$ref": "#/$defs/status" },
         "top": { "description": "True for a top card.", "type": "boolean" },
-        "sites": { "description": "A top card's count of sites, null for a method's.", "type": ["integer", "null"] },
+        "decisions": { "description": "A top card's count of decisions, null for a method's.", "type": ["integer", "null"] },
         "title": {
           "type": "object",
           "required": ["name", "calls", "ways", "notTaken", "taken"],
@@ -160,16 +160,16 @@
     },
     "cardRow": {
       "type": "object",
-      "required": ["at", "site", "top", "paths", "taken", "fold"],
+      "required": ["at", "decision", "top", "paths", "taken", "fold"],
       "additionalProperties": false,
       "properties": {
         "at": { "description": "line:column, the column two digits, eg 19:04.", "type": "string" },
-        "site": { "description": "The site's name, path:line:column, null for a row that is no site.", "type": ["string", "null"] },
+        "decision": { "description": "The decision's name, path:line:column, null for a row that is no decision.", "type": ["string", "null"] },
         "top": { "$ref": "#/$defs/code" },
         "paths": { "type": "integer" },
         "taken": { "description": "How many of its paths were taken, null when not known.", "type": ["integer", "null"] },
         "fold": {
-          "description": "The rows of the site's tree, folded under the card row; null for a row with no tree.",
+          "description": "The rows of the decision's tree, folded under the card row; null for a row with no tree.",
           "oneOf": [
             { "type": "array", "items": { "$ref": "#/$defs/foldRow" } },
             { "type": "null" }
@@ -188,21 +188,21 @@
       "items": false
     },
     "foldRow": {
-      "description": "One row of a fold, laid out by the port: its kind, the branch joining it to the row it hangs from (one letter per cell: t tee, l ell, v bar, h dash, s space), its label, and a cell per path. The first row, of kind site, has counts instead of cells.",
+      "description": "One row of a fold, laid out by the port: its kind, the branch joining it to the row it hangs from (one letter per cell: t tee, l ell, v bar, h dash, s space), its label, and a cell per path. The first row, of kind decision, has counts instead of cells.",
       "type": "object",
       "required": ["kind", "branch", "label", "at"],
       "additionalProperties": false,
       "properties": {
-        "kind": { "enum": ["site", "subtree", "operand", "arm", "leaves"] },
+        "kind": { "enum": ["decision", "subtree", "operand", "arm", "leaves"] },
         "branch": { "type": "string", "pattern": "^[tlvhs]*$" },
         "label": { "$ref": "#/$defs/code" },
         "at": { "oneOf": [{ "$ref": "#/$defs/at" }, { "type": "null" }] },
         "else": {
-          "description": "A site row's: where its else keyword is, so hovering it opens the fold; null for none.",
+          "description": "A decision row's: where its else keyword is, so hovering it opens the fold; null for none.",
           "oneOf": [{ "$ref": "#/$defs/at" }, { "type": "null" }]
         },
         "counts": {
-          "description": "A site row's: how many times each path was taken.",
+          "description": "A decision row's: how many times each path was taken.",
           "type": "array",
           "items": { "type": "integer", "minimum": 0 }
         },

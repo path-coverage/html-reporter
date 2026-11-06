@@ -34,7 +34,7 @@
   --syn-k: #7E3BA0; --syn-s: #3B7550; --syn-c: #77808F;
   --syn-n: #9E4A78; --syn-t: #4B52A0; --syn-v: #2A7570; --syn-o: #7A6600;
 }
-/* The same colours in the code and in a site's tree, its fold, and
+/* The same colours in the code and in a decision's tree, its fold, and
    a card's rows, which quote the code. */
 :is(.src, .fold, .statements .prow) .k { color: var(--syn-k); }
 :is(.src, .fold, .statements .prow) .s { color: var(--syn-s); }
@@ -43,7 +43,7 @@
 :is(.src, .fold, .statements .prow) .t { color: var(--syn-t); }
 :is(.src, .fold, .statements .prow) .v { color: var(--syn-v); }
 :is(.src, .fold, .statements .prow) .o { color: var(--syn-o); font-weight: 700; }
-/* Everything a site's tree or a method's grid draws has this one
+/* Everything a decision's tree or a method's grid draws has this one
    tint, in either mode; status is only ever the orange or blue of
    an edge. A lit line, on a path being shown, is yellow. */
 :root { --cond-tint: #E2F2D3; --lit: #FFE98A; }
@@ -110,7 +110,7 @@ th button:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
    line numbers are one button. Every number has the same box, so
    digits stay aligned whether or not they are on a button. */
 h1.path { font-family: var(--font-code); font-size: 18px; }
-/* The top line, and on a file's page its path and site lists,
+/* The top line, and on a file's page its path and decision lists,
    stick together as one header. */
 .head {
   position: sticky; top: 0; z-index: 5;
@@ -134,7 +134,7 @@ a.jump {
   font: 600 12px/22px var(--font-code); padding: 0 9px; border-radius: 999px;
   text-decoration: none; border: 1px solid; font-variant-numeric: tabular-nums;
 }
-/* A site's jump wears the condition tint, edged in its status
+/* A decision's jump wears the condition tint, edged in its status
    colour on the top and left only, as its line's button is. */
 a.jump[data-status] { background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 a.jump[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
@@ -176,7 +176,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   display: grid; grid-template-columns: minmax(max-content, 1fr); align-content: start;
 }
 .line, .block { display: flex; align-items: flex-start; }
-/* A loose site's whole block, its lines' code included, opens its
+/* A loose decision's whole block, its lines' code included, opens its
    top card. */
 .block { cursor: pointer; border-radius: 6px; }
 .block:hover { filter: brightness(0.97); }
@@ -197,7 +197,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0;
   scroll-margin-top: 190px;
 }
-/* A loose site's button, its 9px right margin included, takes the
+/* A loose decision's button, its 9px right margin included, takes the
    72px a plain number takes, so its lines' code starts where every
    other line's does. Its 63px includes its borders, so at any zoom,
    where a border is rounded to whole screen pixels, its width
@@ -209,7 +209,7 @@ button.lnum {
   border: 1px solid transparent; border-radius: 6px; cursor: pointer;
   font: 600 13px/24px var(--font-code); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
-/* A loose site's top card opens in the left rail: a closed button
+/* A loose decision's top card opens in the left rail: a closed button
    points left, where its card will open; an open one has no arrow,
    as a click leaves it open. */
 button.lnum::before {
@@ -217,25 +217,25 @@ button.lnum::before {
   font-size: 11px; line-height: 24px;
 }
 button.lnum[aria-expanded="true"]::before { content: none; }
-/* With a site count the count and the triangle share the
+/* With a decision count the count and the triangle share the
    button's height, one 11px line each. */
-button.lnum:has(.site-count)::before { top: 12px; line-height: 11px; }
+button.lnum:has(.decision-count)::before { top: 12px; line-height: 11px; }
 /* On a button over two or more lines the triangle sits at the
    very bottom. */
 button.lnum:has(.lineno + .lineno)::before { top: auto; bottom: 2px; line-height: 11px; }
-.site-count {
+.decision-count {
   position: absolute; left: 7px; top: 1px;
   font-size: 9px; line-height: 11px; font-weight: 700;
 }
 button.lnum .lineno { width: 50px; padding-right: 11px; color: inherit; line-height: 32px; margin: -4px 0; }
-/* A site's button wears the condition tint, edged in its
+/* A decision's button wears the condition tint, edged in its
    status colour on the top and left only. */
 button.lnum[data-status] { box-shadow: none; background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 button.lnum[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
 button.lnum[data-status="gaps"] { color: var(--bad); border-top-color: var(--bad); border-left-color: var(--bad); }
 button.lnum:hover { filter: brightness(1.1); }
 button.lnum:focus-visible { outline: 3px solid var(--link); outline-offset: 1px; }
-/* An open loose site has its button's status edges, top and left,
+/* An open loose decision has its button's status edges, top and left,
    doubled to 2px. A jump to it opens its card, so its button has
    no outline of the jump to it. */
 button.lnum[aria-expanded="true"][data-status="gaps"] { box-shadow: inset 1px 1px 0 var(--bad); }
@@ -245,16 +245,16 @@ button.lnum:has(.lineno:target) { outline: none; }
 body[data-open] button.lnum:focus-visible { outline: none; }
 .rail { position: relative; min-width: 0; }
 /* Each row lays its branch and label out at their own width, the
-   label pushing its cells to the row's right edge, so a site's
+   label pushing its cells to the row's right edge, so a decision's
    cells line up in columns however long or deep its labels. */
 .row { display: flex; align-items: center; gap: 8px; }
 .row > :is(.text, .arm, .operator) { margin-right: auto; padding-right: 8px; }
 /* An explicit width, not just a flex basis, so a row's natural
    width counts each cell as 26px, not as its one letter. */
 .row > :is(.cell, .count) { flex: none; width: 26px; }
-/* A thin rule under each site's counts row, across the tree's
+/* A thin rule under each decision's counts row, across the tree's
    full width through its 16px side padding. */
-.site > .row:first-child {
+.decision > .row:first-child {
   border-bottom: 1px solid var(--rule); margin: 0 -16px 6px; padding: 0 16px 4px;
 }
 .operator { font-weight: 600; }
@@ -375,11 +375,11 @@ body.dragging { cursor: col-resize; user-select: none; }
    it down. */
 .statements { padding: 10px 0; }
 .statements .prow { position: static; padding: 0 16px; margin-bottom: 2px; }
-/* A site's fold draws the site's tree in the code's font, its
+/* A decision's fold draws the decision's tree in the code's font, its
    rows as tall as the card's. Open, it takes its row's
    place right of the row's arrow and line:col, 88px in (the card's
    16px padding, the arrow's 16px, the label's 52px and two 2px
-   gaps): its first row, the site's operator and its count on each
+   gaps): its first row, the decision's operator and its count on each
    path, stands where the row's top and counts were, which hide,
    and its other rows are indented as far, so they stay aligned
    with the operator. The rows it reveals, below its first row
@@ -397,13 +397,13 @@ body.dragging { cursor: col-resize; user-select: none; }
     color-mix(in srgb, var(--cond-tint), var(--fg) 6%) 26px);
 }
 .fold:last-child { margin-bottom: 0; }
-.fold .site { pointer-events: auto; }
+.fold .decision { pointer-events: auto; }
 .fold .bx { height: 24px; }
-.fold .site > .row:first-child {
+.fold .decision > .row:first-child {
   border-bottom: 0; margin: 0 0 4px; padding: 0 0 2px; cursor: pointer;
 }
-.statements .prow.site:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
-/* A site row's arrow, left of its line:col, points down while its
+.statements .prow.decision:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
+/* A decision row's arrow, left of its line:col, points down while its
    fold is shut and up while it is open; every other row's label
    is indented by the arrow's width and the gap after it, so the
    labels line up. */
@@ -413,7 +413,7 @@ body.dragging { cursor: col-resize; user-select: none; }
 }
 .fold-arrow::before { content: "\25BC"; }
 .fold-arrow[aria-expanded="true"]::before { content: "\25B2"; }
-.prow.site:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
+.prow.decision:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
 .fold-arrow:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
 .statements .prow > .plabel:first-child { margin-left: 18px; }
 /* A grid's line labels sit at its left padding, as a tree's labels
@@ -428,8 +428,8 @@ body.dragging { cursor: col-resize; user-select: none; }
 .statements .plabel { width: 44px; padding-right: 8px; overflow: visible; }
 .statements .prow.calls .plabel { width: auto; }
 .statements .plabel + .pcell { flex: 1; min-width: 56px; text-align: left; }
-.statements .prow.site, .statements .prow.site .pcell { cursor: pointer; }
-.statements .prow.site:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.site:hover .plabel { color: var(--link); }
+.statements .prow.decision, .statements .prow.decision .pcell { cursor: pointer; }
+.statements .prow.decision:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.decision:hover .plabel { color: var(--link); }
 .statements .prow.columns .plabel, .statements .prow.columns .pcell { color: var(--muted); }
 /* A card's paths not taken are orange and those taken blue, as a
    status always is; its column titles are too, as their key. None
@@ -456,12 +456,12 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 /* A row of jumps with none keeps its height, though hidden, so the
    sticky header, and the code below it, never move. */
 .jump-list[data-empty] { visibility: hidden; }
-/* The number of each method's def line wears a loose site's
+/* The number of each method's def line wears a loose decision's
    button's look: the one tint, edged on the top and left in its
    status colour, orange for gaps and blue for covered, with an
    arrow pointing left while its card is closed, and none while it
    is open. Its 63px and its 9px right margin take the 72px a plain
-   number takes, as a loose site's button does, so its line's code
+   number takes, as a loose decision's button does, so its line's code
    starts where every other line's does and its digits end where
    theirs do. */
 .lineno.mdef {

@@ -1,5 +1,5 @@
 {
-  "sites": {
+  "decisions": {
     "source/archive.rb:5:24": [
       {
         "truthy": 0,
@@ -1774,7 +1774,7 @@
           "top": "&&",
           "paths": 3,
           "taken": 0,
-          "site": "source/archive.rb:5:24"
+          "decision": "source/archive.rb:5:24"
         }
       ]
     },
@@ -1790,21 +1790,21 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/fee.rb:5:2"
+          "decision": "source/fee.rb:5:2"
         },
         {
           "at": "5:05",
           "top": "&&",
           "paths": 3,
           "taken": 2,
-          "site": "source/fee.rb:5:5"
+          "decision": "source/fee.rb:5:5"
         },
         {
           "at": "8:02",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/fee.rb:8:2"
+          "decision": "source/fee.rb:8:2"
         }
       ]
     },
@@ -1820,7 +1820,7 @@
           "top": "&&",
           "paths": 3,
           "taken": 3,
-          "site": "source/group.rb:4:26"
+          "decision": "source/group.rb:4:26"
         }
       ]
     },
@@ -1836,7 +1836,7 @@
           "top": "&&",
           "paths": 3,
           "taken": 3,
-          "site": "source/kata.rb:4:21"
+          "decision": "source/kata.rb:4:21"
         }
       ]
     },
@@ -1852,7 +1852,7 @@
           "top": "&&",
           "paths": 3,
           "taken": 2,
-          "site": "source/kata.rb:8:4"
+          "decision": "source/kata.rb:8:4"
         }
       ]
     },
@@ -1868,14 +1868,14 @@
           "top": "&&",
           "paths": 3,
           "taken": 1,
-          "site": "source/kata.rb:14:5"
+          "decision": "source/kata.rb:14:5"
         },
         {
           "at": "14:29",
           "top": "&&",
           "paths": 3,
           "taken": 1,
-          "site": "source/kata.rb:14:29"
+          "decision": "source/kata.rb:14:29"
         }
       ]
     },
@@ -1891,7 +1891,7 @@
           "top": "&&",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.rb:17:27"
+          "decision": "source/shop.rb:17:27"
         }
       ]
     },
@@ -1907,7 +1907,7 @@
           "top": "&&",
           "paths": 4,
           "taken": 2,
-          "site": "source/shop.rb:18:24"
+          "decision": "source/shop.rb:18:24"
         }
       ]
     },
@@ -1923,91 +1923,91 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:23:38"
+          "decision": "source/shop.rb:23:38"
         },
         {
           "at": "27:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:27:4"
+          "decision": "source/shop.rb:27:4"
         },
         {
           "at": "27:07",
           "top": "&&",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.rb:27:7"
+          "decision": "source/shop.rb:27:7"
         },
         {
           "at": "31:04",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:31:4"
+          "decision": "source/shop.rb:31:4"
         },
         {
           "at": "33:04",
           "top": "elsif",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:33:4"
+          "decision": "source/shop.rb:33:4"
         },
         {
           "at": "33:10",
           "top": "||",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.rb:33:10"
+          "decision": "source/shop.rb:33:10"
         },
         {
           "at": "37:15",
           "top": "||",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.rb:37:15"
+          "decision": "source/shop.rb:37:15"
         },
         {
           "at": "37:45",
           "top": "?:",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:37:45"
+          "decision": "source/shop.rb:37:45"
         },
         {
           "at": "39:04",
           "top": "unless",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:39:4"
+          "decision": "source/shop.rb:39:4"
         },
         {
           "at": "43:04",
           "top": "if/else",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:43:4"
+          "decision": "source/shop.rb:43:4"
         },
         {
           "at": "43:07",
           "top": "&&",
           "paths": 4,
           "taken": 2,
-          "site": "source/shop.rb:43:7"
+          "decision": "source/shop.rb:43:7"
         },
         {
           "at": "47:17",
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:47:17"
+          "decision": "source/shop.rb:47:17"
         },
         {
           "at": "50:17",
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:50:17"
+          "decision": "source/shop.rb:50:17"
         }
       ]
     },
@@ -2023,28 +2023,28 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:57:4"
+          "decision": "source/shop.rb:57:4"
         },
         {
           "at": "58:06",
           "top": "return",
           "paths": 1,
           "taken": 1,
-          "site": null
+          "decision": null
         },
         {
           "at": "72:04",
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:72:4"
+          "decision": "source/shop.rb:72:4"
         },
         {
           "at": "72:07",
           "top": "||",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.rb:72:7"
+          "decision": "source/shop.rb:72:7"
         }
       ]
     },
@@ -2060,21 +2060,21 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:63:6"
+          "decision": "source/shop.rb:63:6"
         },
         {
           "at": "63:09",
           "top": "&&",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.rb:63:9"
+          "decision": "source/shop.rb:63:9"
         },
         {
           "at": "66:06",
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:66:6"
+          "decision": "source/shop.rb:66:6"
         }
       ]
     },
@@ -2090,21 +2090,21 @@
           "top": "if",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:80:6"
+          "decision": "source/shop.rb:80:6"
         },
         {
           "at": "80:09",
           "top": "&&",
           "paths": 3,
           "taken": 2,
-          "site": "source/shop.rb:80:9"
+          "decision": "source/shop.rb:80:9"
         },
         {
           "at": "82:06",
           "top": "elsif",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:82:6"
+          "decision": "source/shop.rb:82:6"
         }
       ]
     },
@@ -2120,14 +2120,14 @@
           "top": "if/else",
           "paths": 2,
           "taken": 2,
-          "site": "source/shop.rb:92:4"
+          "decision": "source/shop.rb:92:4"
         },
         {
           "at": "92:07",
           "top": "&&",
           "paths": 3,
           "taken": 3,
-          "site": "source/shop.rb:92:7"
+          "decision": "source/shop.rb:92:7"
         }
       ]
     },
@@ -2143,7 +2143,7 @@
           "top": "||",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.rb:5:10"
+          "decision": "source/shop.rb:5:10"
         }
       ]
     },
@@ -2159,14 +2159,14 @@
           "top": "if",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:8:0"
+          "decision": "source/shop.rb:8:0"
         },
         {
           "at": "8:03",
           "top": "&&",
           "paths": 3,
           "taken": 1,
-          "site": "source/shop.rb:8:3"
+          "decision": "source/shop.rb:8:3"
         }
       ]
     },
@@ -2182,7 +2182,7 @@
           "top": "?:",
           "paths": 2,
           "taken": 1,
-          "site": "source/shop.rb:14:28"
+          "decision": "source/shop.rb:14:28"
         }
       ]
     },
@@ -2198,7 +2198,7 @@
           "top": "&&",
           "paths": 4,
           "taken": 3,
-          "site": "source/team.rb:5:4"
+          "decision": "source/team.rb:5:4"
         }
       ]
     },
@@ -2214,7 +2214,7 @@
           "top": "||",
           "paths": 4,
           "taken": 2,
-          "site": "source/team.rb:12:4"
+          "decision": "source/team.rb:12:4"
         }
       ]
     },
@@ -2230,21 +2230,21 @@
           "top": "||",
           "paths": 3,
           "taken": 2,
-          "site": "source/team.rb:17:4"
+          "decision": "source/team.rb:17:4"
         },
         {
           "at": "17:12",
           "top": "any?",
           "paths": 5,
           "taken": 2,
-          "site": "source/team.rb:17:12"
+          "decision": "source/team.rb:17:12"
         },
         {
           "at": "17:23",
           "top": "&&",
           "paths": 3,
           "taken": 1,
-          "site": "source/team.rb:17:23"
+          "decision": "source/team.rb:17:23"
         }
       ]
     }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>lib/path_coverage/kinds/choice.rb · Path coverage</title>
+<title>Path coverage</title>
 <style>
 /*<![CDATA[*/
 /* Blue (seen both ways) and orange (missing) stay distinct for
@@ -42,7 +42,7 @@
   --syn-k: #7E3BA0; --syn-s: #3B7550; --syn-c: #77808F;
   --syn-n: #9E4A78; --syn-t: #4B52A0; --syn-v: #2A7570; --syn-o: #7A6600;
 }
-/* The same colours in the code and in a site's tree, its fold, and
+/* The same colours in the code and in a decision's tree, its fold, and
    a card's rows, which quote the code. */
 :is(.src, .fold, .statements .prow) .k { color: var(--syn-k); }
 :is(.src, .fold, .statements .prow) .s { color: var(--syn-s); }
@@ -51,7 +51,7 @@
 :is(.src, .fold, .statements .prow) .t { color: var(--syn-t); }
 :is(.src, .fold, .statements .prow) .v { color: var(--syn-v); }
 :is(.src, .fold, .statements .prow) .o { color: var(--syn-o); font-weight: 700; }
-/* Everything a site's tree or a method's grid draws has this one
+/* Everything a decision's tree or a method's grid draws has this one
    tint, in either mode; status is only ever the orange or blue of
    an edge. A lit line, on a path being shown, is yellow. */
 :root { --cond-tint: #E2F2D3; --lit: #FFE98A; }
@@ -118,7 +118,7 @@ th button:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
    line numbers are one button. Every number has the same box, so
    digits stay aligned whether or not they are on a button. */
 h1.path { font-family: var(--font-code); font-size: 18px; }
-/* The top line, and on a file's page its path and site lists,
+/* The top line, and on a file's page its path and decision lists,
    stick together as one header. */
 .head {
   position: sticky; top: 0; z-index: 5;
@@ -142,7 +142,7 @@ a.jump {
   font: 600 12px/22px var(--font-code); padding: 0 9px; border-radius: 999px;
   text-decoration: none; border: 1px solid; font-variant-numeric: tabular-nums;
 }
-/* A site's jump wears the condition tint, edged in its status
+/* A decision's jump wears the condition tint, edged in its status
    colour on the top and left only, as its line's button is. */
 a.jump[data-status] { background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 a.jump[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
@@ -184,7 +184,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   display: grid; grid-template-columns: minmax(max-content, 1fr); align-content: start;
 }
 .line, .block { display: flex; align-items: flex-start; }
-/* A loose site's whole block, its lines' code included, opens its
+/* A loose decision's whole block, its lines' code included, opens its
    top card. */
 .block { cursor: pointer; border-radius: 6px; }
 .block:hover { filter: brightness(0.97); }
@@ -205,7 +205,7 @@ a.jump:focus-visible, .nav a:focus-visible { outline: 3px solid var(--link); out
   color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0;
   scroll-margin-top: 190px;
 }
-/* A loose site's button, its 9px right margin included, takes the
+/* A loose decision's button, its 9px right margin included, takes the
    72px a plain number takes, so its lines' code starts where every
    other line's does. Its 63px includes its borders, so at any zoom,
    where a border is rounded to whole screen pixels, its width
@@ -217,7 +217,7 @@ button.lnum {
   border: 1px solid transparent; border-radius: 6px; cursor: pointer;
   font: 600 13px/24px var(--font-code); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
-/* A loose site's top card opens in the left rail: a closed button
+/* A loose decision's top card opens in the left rail: a closed button
    points left, where its card will open; an open one has no arrow,
    as a click leaves it open. */
 button.lnum::before {
@@ -225,25 +225,25 @@ button.lnum::before {
   font-size: 11px; line-height: 24px;
 }
 button.lnum[aria-expanded="true"]::before { content: none; }
-/* With a site count the count and the triangle share the
+/* With a decision count the count and the triangle share the
    button's height, one 11px line each. */
-button.lnum:has(.site-count)::before { top: 12px; line-height: 11px; }
+button.lnum:has(.decision-count)::before { top: 12px; line-height: 11px; }
 /* On a button over two or more lines the triangle sits at the
    very bottom. */
 button.lnum:has(.lineno + .lineno)::before { top: auto; bottom: 2px; line-height: 11px; }
-.site-count {
+.decision-count {
   position: absolute; left: 7px; top: 1px;
   font-size: 9px; line-height: 11px; font-weight: 700;
 }
 button.lnum .lineno { width: 50px; padding-right: 11px; color: inherit; line-height: 32px; margin: -4px 0; }
-/* A site's button wears the condition tint, edged in its
+/* A decision's button wears the condition tint, edged in its
    status colour on the top and left only. */
 button.lnum[data-status] { box-shadow: none; background: var(--cond-tint); border-right-color: transparent; border-bottom-color: transparent; }
 button.lnum[data-status="covered"] { color: var(--ok); border-top-color: var(--ok); border-left-color: var(--ok); }
 button.lnum[data-status="gaps"] { color: var(--bad); border-top-color: var(--bad); border-left-color: var(--bad); }
 button.lnum:hover { filter: brightness(1.1); }
 button.lnum:focus-visible { outline: 3px solid var(--link); outline-offset: 1px; }
-/* An open loose site has its button's status edges, top and left,
+/* An open loose decision has its button's status edges, top and left,
    doubled to 2px. A jump to it opens its card, so its button has
    no outline of the jump to it. */
 button.lnum[aria-expanded="true"][data-status="gaps"] { box-shadow: inset 1px 1px 0 var(--bad); }
@@ -253,16 +253,16 @@ button.lnum:has(.lineno:target) { outline: none; }
 body[data-open] button.lnum:focus-visible { outline: none; }
 .rail { position: relative; min-width: 0; }
 /* Each row lays its branch and label out at their own width, the
-   label pushing its cells to the row's right edge, so a site's
+   label pushing its cells to the row's right edge, so a decision's
    cells line up in columns however long or deep its labels. */
 .row { display: flex; align-items: center; gap: 8px; }
 .row > :is(.text, .arm, .operator) { margin-right: auto; padding-right: 8px; }
 /* An explicit width, not just a flex basis, so a row's natural
    width counts each cell as 26px, not as its one letter. */
 .row > :is(.cell, .count) { flex: none; width: 26px; }
-/* A thin rule under each site's counts row, across the tree's
+/* A thin rule under each decision's counts row, across the tree's
    full width through its 16px side padding. */
-.site > .row:first-child {
+.decision > .row:first-child {
   border-bottom: 1px solid var(--rule); margin: 0 -16px 6px; padding: 0 16px 4px;
 }
 .operator { font-weight: 600; }
@@ -383,11 +383,11 @@ body.dragging { cursor: col-resize; user-select: none; }
    it down. */
 .statements { padding: 10px 0; }
 .statements .prow { position: static; padding: 0 16px; margin-bottom: 2px; }
-/* A site's fold draws the site's tree in the code's font, its
+/* A decision's fold draws the decision's tree in the code's font, its
    rows as tall as the card's. Open, it takes its row's
    place right of the row's arrow and line:col, 88px in (the card's
    16px padding, the arrow's 16px, the label's 52px and two 2px
-   gaps): its first row, the site's operator and its count on each
+   gaps): its first row, the decision's operator and its count on each
    path, stands where the row's top and counts were, which hide,
    and its other rows are indented as far, so they stay aligned
    with the operator. The rows it reveals, below its first row
@@ -405,13 +405,13 @@ body.dragging { cursor: col-resize; user-select: none; }
     color-mix(in srgb, var(--cond-tint), var(--fg) 6%) 26px);
 }
 .fold:last-child { margin-bottom: 0; }
-.fold .site { pointer-events: auto; }
+.fold .decision { pointer-events: auto; }
 .fold .bx { height: 24px; }
-.fold .site > .row:first-child {
+.fold .decision > .row:first-child {
   border-bottom: 0; margin: 0 0 4px; padding: 0 0 2px; cursor: pointer;
 }
-.statements .prow.site:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
-/* A site row's arrow, left of its line:col, points down while its
+.statements .prow.decision:has(> .fold-arrow[aria-expanded="true"]) > .pcell { visibility: hidden; }
+/* A decision row's arrow, left of its line:col, points down while its
    fold is shut and up while it is open; every other row's label
    is indented by the arrow's width and the gap after it, so the
    labels line up. */
@@ -421,7 +421,7 @@ body.dragging { cursor: col-resize; user-select: none; }
 }
 .fold-arrow::before { content: "\25BC"; }
 .fold-arrow[aria-expanded="true"]::before { content: "\25B2"; }
-.prow.site:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
+.prow.decision:hover .fold-arrow, .fold-arrow[aria-expanded="true"] { color: var(--link); }
 .fold-arrow:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
 .statements .prow > .plabel:first-child { margin-left: 18px; }
 /* A grid's line labels sit at its left padding, as a tree's labels
@@ -436,8 +436,8 @@ body.dragging { cursor: col-resize; user-select: none; }
 .statements .plabel { width: 44px; padding-right: 8px; overflow: visible; }
 .statements .prow.calls .plabel { width: auto; }
 .statements .plabel + .pcell { flex: 1; min-width: 56px; text-align: left; }
-.statements .prow.site, .statements .prow.site .pcell { cursor: pointer; }
-.statements .prow.site:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.site:hover .plabel { color: var(--link); }
+.statements .prow.decision, .statements .prow.decision .pcell { cursor: pointer; }
+.statements .prow.decision:hover .pcell:not(.not-taken):not(.was-taken), .statements .prow.decision:hover .plabel { color: var(--link); }
 .statements .prow.columns .plabel, .statements .prow.columns .pcell { color: var(--muted); }
 /* A card's paths not taken are orange and those taken blue, as a
    status always is; its column titles are too, as their key. None
@@ -464,12 +464,12 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 /* A row of jumps with none keeps its height, though hidden, so the
    sticky header, and the code below it, never move. */
 .jump-list[data-empty] { visibility: hidden; }
-/* The number of each method's def line wears a loose site's
+/* The number of each method's def line wears a loose decision's
    button's look: the one tint, edged on the top and left in its
    status colour, orange for gaps and blue for covered, with an
    arrow pointing left while its card is closed, and none while it
    is open. Its 63px and its 9px right margin take the 72px a plain
-   number takes, as a loose site's button does, so its line's code
+   number takes, as a loose decision's button does, so its line's code
    starts where every other line's does and its digits end where
    theirs do. */
 .lineno.mdef {
@@ -495,93 +495,440 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 </style>
 </head>
 <body>
-<main class="page">
-<header class="head" data-head="">
-<div class="top"><p class="title"><a data-index="" href="../../../../index.html">Path coverage</a></p><h1 class="path"><a data-row="" href="../../../../index.html#row-lib/path_coverage/kinds/choice.rb">lib/path_coverage/kinds/choice.rb</a></h1><button type="button" class="theme" aria-label="Light or dark"></button></div>
-<nav class="jumps" aria-label="Cards"><div class="jump-list" data-empty=""><span class="jump-label">Gaps</span></div></nav>
-</header>
-<div class="box">
-<div class="rail">
-<div class="pathgrid statements" id="paths-12" data-first="12" data-col="6" data-last="23" data-status="covered" hidden="hidden"><div class="prow calls" data-line="12"><span class="plabel">ways<span class="call-count">&times;3211</span></span><span class="pcell">*8</span><span class="pcell not-taken none">0</span><span class="pcell was-taken">6</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="16"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 16:17"></button><span class="plabel">16:17</span><span class="pcell"><span class="o">&amp;.</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:16:17" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="16,17,16,63"><span class="operator" data-operator=""><span class="o">&amp;.</span></span><span class="count" data-count="" data-hover="4,752 times">*</span><span class="count" data-count="" data-hover="1,758 times">*</span></div><div class="row" data-operand="" data-at="16,17,16,57"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">(value == then_on <span class="o">?</span> then_arm <span class="o">:</span> else_arm)</span><span class="cell" data-cell="" data-mark="present" data-hover="not nil"></span><span class="cell" data-cell="" data-mark="absent" data-hover="nil"></span></div></div></div><div class="prow site" data-line="16"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 16:35"></button><span class="plabel">16:35</span><span class="pcell"><span class="o">?:</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:16:35" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="16,18,16,56"><span class="operator" data-operator=""><span class="o">?:</span></span><span class="count" data-count="" data-hover="3,235 times">*</span><span class="count" data-count="" data-hover="3,275 times">*</span></div><div class="row" data-operand="" data-at="16,18,16,34"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">value == then_on</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-arm="" data-at="16,37,16,45"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">?</span> then_arm</span><span class="cell" data-cell="" data-mark="taken"></span><span class="cell" data-cell=""></span></div><div class="row" data-arm="" data-at="16,48,16,56"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">:</span> else_arm</span><span class="cell" data-cell=""></span><span class="cell" data-cell="" data-mark="taken"></span></div></div></div><div class="prow site" data-line="17"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 17:33"></button><span class="plabel">17:33</span><span class="pcell"><span class="k">if</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:17:33" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="17,33,17,45"><span class="operator" data-operator=""><span class="k">if</span></span><span class="count" data-count="" data-hover="6,454 times">*</span><span class="count" data-count="" data-hover="56 times">*</span></div><div class="row" data-operand="" data-at="17,36,17,45"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">body.nil?</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div></div></div></div>
-<div class="pathgrid statements" id="paths-27" data-first="27" data-col="6" data-last="34" data-status="covered" hidden="hidden"><div class="prow calls" data-line="27"><span class="plabel">value<span class="call-count">&times;700</span></span><span class="pcell">*8</span><span class="pcell not-taken none">0</span><span class="pcell was-taken">6</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="29"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 29:34"></button><span class="plabel">29:34</span><span class="pcell"><span class="o">&amp;.</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:29:34" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="29,34,29,59"><span class="operator" data-operator=""><span class="o">&amp;.</span></span><span class="count" data-count="" data-hover="11 times">*</span><span class="count" data-count="" data-hover="1,001 times">*</span></div><div class="row" data-operand="" data-at="29,34,29,44"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">arm[<span class="s">:body</span>]</span><span class="cell" data-cell="" data-mark="present" data-hover="not nil"></span><span class="cell" data-cell="" data-mark="absent" data-hover="nil"></span></div></div></div><div class="prow site" data-line="32"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 32:10"></button><span class="plabel">32:10</span><span class="pcell"><span class="o">&amp;&amp;</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">4</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:32:10" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="32,10,32,47"><span class="operator" data-operator=""><span class="o">&amp;&amp;</span></span><span class="count" data-count="" data-hover="11 times">*</span><span class="count" data-count="" data-hover="12 times">*</span><span class="count" data-count="" data-hover="1,011 times">*</span><span class="count" data-count="" data-hover="391 times">*</span></div><div class="row" data-operand="" data-at="32,10,32,15"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">taken</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-subtree="" data-at="32,19,32,47"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="operator" data-operator=""><span class="o">&amp;.</span></span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span><span class="cell" data-cell="">F</span><span class="cell" data-cell=""></span></div><div class="row" data-operand="" data-at="32,19,32,32"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">bodies[taken]</span><span class="cell" data-cell="" data-mark="present" data-hover="not nil"></span><span class="cell" data-cell="" data-mark="present" data-hover="not nil"></span><span class="cell" data-cell="" data-mark="absent" data-hover="nil"></span><span class="cell" data-cell=""></span></div><div class="row" data-operand="" data-at="32,19,32,47"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="s"></span><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">fetch(column)</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span><span class="cell" data-cell=""></span><span class="cell" data-cell=""></span></div></div></div></div>
-<div class="pathgrid statements" id="paths-49" data-first="49" data-col="6" data-last="53" data-status="covered" hidden="hidden"><div class="prow calls" data-line="49"><span class="plabel">trailed<span class="call-count">&times;122</span></span><span class="pcell">*2</span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="50"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 50:25"></button><span class="plabel">50:25</span><span class="pcell"><span class="k">if</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:50:25" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="50,25,50,54"><span class="operator" data-operator=""><span class="k">if</span></span><span class="count" data-count="" data-hover="72 times">*</span><span class="count" data-count="" data-hover="50 times">*</span></div><div class="row" data-operand="" data-at="50,28,50,54"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">condition.operator == <span class="s">&#39;?:&#39;</span></span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-leaves="" data-at="50,8,50,24"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="k">return</span></span><span class="cell" data-cell="" data-mark="leaves"></span><span class="cell" data-cell=""></span></div></div></div></div>
-<div class="pathgrid statements" id="paths-57" data-first="57" data-col="6" data-last="61" data-status="covered" hidden="hidden"><div class="prow calls" data-line="57"><span class="plabel">arm_label<span class="call-count">&times;32</span></span><span class="pcell">*4</span><span class="pcell not-taken none">0</span><span class="pcell was-taken">4</span></div><div class="prow columns"><span class="plabel">line:col</span><span class="pcell"></span><span class="pcell not-taken">not taken</span><span class="pcell was-taken">taken</span></div><div class="prow site" data-line="58"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 58:34"></button><span class="plabel">58:34</span><span class="pcell"><span class="o">?:</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:58:34" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="58,15,58,45"><span class="operator" data-operator=""><span class="o">?:</span></span><span class="count" data-count="" data-hover="16 times">*</span><span class="count" data-count="" data-hover="16 times">*</span></div><div class="row" data-operand="" data-at="58,15,58,33"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">arm[<span class="s">:arm</span>] == <span class="s">:then</span></span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-arm="" data-at="58,36,58,39"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">?</span> <span class="s">&#39;?&#39;</span></span><span class="cell" data-cell="" data-mark="taken"></span><span class="cell" data-cell=""></span></div><div class="row" data-arm="" data-at="58,42,58,45"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">:</span> <span class="s">&#39;:&#39;</span></span><span class="cell" data-cell=""></span><span class="cell" data-cell="" data-mark="taken"></span></div></div></div><div class="prow site" data-line="60"><button type="button" class="fold-arrow" aria-expanded="false" aria-label="Paths of 60:24"></button><span class="plabel">60:24</span><span class="pcell"><span class="o">?:</span></span><span class="pcell not-taken none">0</span><span class="pcell was-taken">2</span></div><div class="fold" data-site="lib/path_coverage/kinds/choice.rb:60:24" hidden="hidden"><div class="site" data-site=""><div class="row" data-at="60,19,60,54"><span class="operator" data-operator=""><span class="o">?:</span></span><span class="count" data-count="" data-hover="2 times">*</span><span class="count" data-count="" data-hover="30 times">*</span></div><div class="row" data-operand="" data-at="60,19,60,23"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="text" data-text="">body</span><span class="cell" data-cell="">T</span><span class="cell" data-cell="">F</span></div><div class="row" data-arm="" data-at="60,26,60,41"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="t"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">?</span> body[<span class="s">:operator</span>]</span><span class="cell" data-cell="" data-mark="taken"></span><span class="cell" data-cell=""></span></div><div class="row" data-arm="" data-at="60,44,60,54"><span class="branch" data-branch="" aria-hidden="true"><span class="bx" data-bx="l"></span><span class="bx" data-bx="h"></span><span class="bx" data-bx="s"></span></span><span class="arm" data-label=""><span class="o">:</span> arm[<span class="s">:text</span>]</span><span class="cell" data-cell=""></span><span class="cell" data-cell="" data-mark="taken"></span></div></div></div></div>
-</div>
-<div class="code">
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L1" data-line="1">1</span><span class="src" data-src="">require_relative <span class="s">&#39;base&#39;</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L2" data-line="2">2</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L3" data-line="3">3</span><span class="src" data-src=""><span class="k">module</span> <span class="t">PathCoverage</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L4" data-line="4">4</span><span class="src" data-src="">  <span class="k">module</span> <span class="t">Kinds</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L5" data-line="5">5</span><span class="src" data-src="">    <span class="c"># The ways and value of a condition whose predicate picks an</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L6" data-line="6">6</span><span class="src" data-src="">    <span class="c"># arm, which Choice and Write share.</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L7" data-line="7">7</span><span class="src" data-src="">    <span class="k">module</span> <span class="t">Arms</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L8" data-line="8">8</span><span class="src" data-src="">      <span class="c"># The ways node can be evaluated: each way of its predicate,</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L9" data-line="9">9</span><span class="src" data-src="">      <span class="c"># then each way of the condition the arm it picks is, if</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L10" data-line="10">10</span><span class="src" data-src="">      <span class="c"># that arm is one; one with no else arm picks none. Its</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L11" data-line="11">11</span><span class="src" data-src="">      <span class="c"># value is that of no choice, so is nil.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="covered" href="#L57" aria-label="Previous card covered, line 57"></a><a data-next="" data-status="covered" href="#L27" aria-label="Next card covered, line 27"></a></span><span class="lineno mdef" data-status="covered" aria-expanded="false" id="L12" data-line="12">12</span><span class="src in-method def-line" data-method-status="covered" style="--def-col: 6; --def-end: 27" data-src="">      <span class="k">def</span> ways(node, fixed)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L13" data-line="13">13</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        predicate, then_arm, else_arm = node.operands</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L14" data-line="14">14</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        then_on = <span class="t">THEN_ON</span>[node.operator]</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L15" data-line="15">15</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        <span class="t">SitePaths</span>.walk(predicate, fixed).flat_map <span class="k">do</span> |outcomes, value|</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L16" data-line="16">16</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          body = (value == then_on <span class="o">?</span> then_arm <span class="o">:</span> else_arm)<span class="o">&amp;.</span>body</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L17" data-line="17">17</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          <span class="k">next</span> [[outcomes, <span class="k">nil</span>]] <span class="k">if</span> body.nil?</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L18" data-line="18">18</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src=""></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L19" data-line="19">19</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          <span class="t">SitePaths</span>.walk(body, fixed).map <span class="k">do</span> |more, _|</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L20" data-line="20">20</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">            [outcomes.merge(more), <span class="k">nil</span>]</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L21" data-line="21">21</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          <span class="k">end</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L22" data-line="22">22</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        <span class="k">end</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L23" data-line="23">23</span><span class="src in-method method-end" data-method-status="covered" style="--def-col: 6" data-src="">      <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L24" data-line="24">24</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L25" data-line="25">25</span><span class="src" data-src="">      <span class="c"># Its value in each column: its taken arm&#39;s body&#39;s, nil for</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L26" data-line="26">26</span><span class="src" data-src="">      <span class="c"># a plain arm.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="covered" href="#L12" aria-label="Previous card covered, line 12"></a><a data-next="" data-status="covered" href="#L49" aria-label="Next card covered, line 49"></a></span><span class="lineno mdef" data-status="covered" aria-expanded="false" id="L27" data-line="27">27</span><span class="src in-method def-line" data-method-status="covered" style="--def-col: 6; --def-end: 36" data-src="">      <span class="k">def</span> value(_operator, operands)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L28" data-line="28">28</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        _, *arms = operands</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L29" data-line="29">29</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        bodies = arms.map { |arm| arm[<span class="s">:body</span>]<span class="o">&amp;.</span>fetch(<span class="s">:cells</span>) }</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L30" data-line="30">30</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        arms.first[<span class="s">:cells</span>].each_index.map <span class="k">do</span> |column|</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L31" data-line="31">31</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          taken = arms.index { |arm| arm[<span class="s">:cells</span>][column] }</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L32" data-line="32">32</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">          taken <span class="o">&amp;&amp;</span> bodies[taken]<span class="o">&amp;.</span>fetch(column)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L33" data-line="33">33</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        <span class="k">end</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L34" data-line="34">34</span><span class="src in-method method-end" data-method-status="covered" style="--def-col: 6" data-src="">      <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L35" data-line="35">35</span><span class="src" data-src="">    <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L36" data-line="36">36</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L37" data-line="37">37</span><span class="src" data-src="">    <span class="c"># A condition whose predicate picks an arm: a ternary, an if</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L38" data-line="38">38</span><span class="src" data-src="">    <span class="c"># or an unless.</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L39" data-line="39">39</span><span class="src" data-src="">    <span class="k">module</span> <span class="t">Choice</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L40" data-line="40">40</span><span class="src" data-src="">      extend <span class="t">Base</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L41" data-line="41">41</span><span class="src" data-src="">      extend <span class="t">Arms</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L42" data-line="42">42</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L43" data-line="43">43</span><span class="src" data-src="">      <span class="t">OPERATORS</span> = <span class="t">CHOICES</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L44" data-line="44">44</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L45" data-line="45">45</span><span class="src" data-src="">      <span class="c"># What its site&#39;s leave call wraps: an if&#39;s or an unless&#39;s</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L46" data-line="46">46</span><span class="src" data-src="">      <span class="c"># predicate, a leaf&#39;s byte range or a nested Condition, as</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L47" data-line="47">47</span><span class="src" data-src="">      <span class="c"># its path is decided there and its arms are statements that</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L48" data-line="48">48</span><span class="src" data-src="">      <span class="c"># may return or raise; a ternary as a whole.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="covered" href="#L27" aria-label="Previous card covered, line 27"></a><a data-next="" data-status="covered" href="#L57" aria-label="Next card covered, line 57"></a></span><span class="lineno mdef" data-status="covered" aria-expanded="false" id="L49" data-line="49">49</span><span class="src in-method def-line" data-method-status="covered" style="--def-col: 6; --def-end: 33" data-src="">      <span class="k">def</span> <span class="k">self</span>.trailed(condition)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L50" data-line="50">50</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        <span class="k">return</span> condition <span class="k">if</span> condition.operator == <span class="s">&#39;?:&#39;</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L51" data-line="51">51</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src=""></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L52" data-line="52">52</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        condition.operands.first</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L53" data-line="53">53</span><span class="src in-method method-end" data-method-status="covered" style="--def-col: 6" data-src="">      <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L54" data-line="54">54</span><span class="src" data-src=""></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L55" data-line="55">55</span><span class="src" data-src="">      <span class="c"># The name of one of a ternary&#39;s arms: ? or :, then its</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L56" data-line="56">56</span><span class="src" data-src="">      <span class="c"># condition&#39;s operator, or its text for a plain arm.</span></span></div>
-<div class="line"><span class="nav" data-nav=""><a data-prev="" data-status="covered" href="#L49" aria-label="Previous card covered, line 49"></a><a data-next="" data-status="covered" href="#L12" aria-label="Next card covered, line 12"></a></span><span class="lineno mdef" data-status="covered" aria-expanded="false" id="L57" data-line="57">57</span><span class="src in-method def-line" data-method-status="covered" style="--def-col: 6; --def-end: 29" data-src="">      <span class="k">def</span> <span class="k">self</span>.arm_label(arm)</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L58" data-line="58">58</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        mark = arm[<span class="s">:arm</span>] == <span class="s">:then</span> <span class="o">?</span> <span class="s">&#39;?&#39;</span> <span class="o">:</span> <span class="s">&#39;:&#39;</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L59" data-line="59">59</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        body = arm[<span class="s">:body</span>]</span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L60" data-line="60">60</span><span class="src in-method" data-method-status="covered" style="--def-col: 6" data-src="">        <span class="s">&quot;</span>#{mark}<span class="s"> </span>#{body <span class="o">?</span> body[<span class="s">:operator</span>] <span class="o">:</span> arm[<span class="s">:text</span>]}<span class="s">&quot;</span></span></div>
-<div class="line method-folded"><span class="nav" data-nav=""></span><span class="lineno" id="L61" data-line="61">61</span><span class="src in-method method-end" data-method-status="covered" style="--def-col: 6" data-src="">      <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L62" data-line="62">62</span><span class="src" data-src="">    <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L63" data-line="63">63</span><span class="src" data-src="">  <span class="k">end</span></span></div>
-<div class="line"><span class="nav" data-nav=""></span><span class="lineno" id="L64" data-line="64">64</span><span class="src" data-src=""><span class="k">end</span></span></div>
-</div>
-<div class="divider" role="separator" aria-orientation="vertical" title="Drag to share the width between paths and code"></div>
-</div>
-</main>
+<main class="page"></main>
 <script>
 //<![CDATA[
+window.pathCoverage = {"schema":1,"page":"file","path":"lib/path_coverage/kinds/choice.rb","lines":[{"text":"require_relative 'base'","tokens":[[17,23,"s"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"module PathCoverage","tokens":[[0,6,"k"],[7,19,"t"]],"status":null,"span":null},{"text":"  module Kinds","tokens":[[2,8,"k"],[9,14,"t"]],"status":null,"span":null},{"text":"    # The ways and value of a condition whose predicate picks an","tokens":[[4,64,"c"]],"status":null,"span":null},{"text":"    # arm, which Choice and Write share.","tokens":[[4,40,"c"]],"status":null,"span":null},{"text":"    module Arms","tokens":[[4,10,"k"],[11,15,"t"]],"status":null,"span":null},{"text":"      # The ways node can be evaluated: each way of its predicate,","tokens":[[6,66,"c"]],"status":null,"span":null},{"text":"      # then each way of the condition the arm it picks is, if","tokens":[[6,62,"c"]],"status":null,"span":null},{"text":"      # that arm is one; one with no else arm picks none. Its","tokens":[[6,61,"c"]],"status":null,"span":null},{"text":"      # value is that of no choice, so is nil.","tokens":[[6,46,"c"]],"status":null,"span":null},{"text":"      def ways(node, fixed)","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"        predicate, then_arm, else_arm = node.operands","tokens":[],"status":null,"span":null},{"text":"        then_on = THEN_ON[node.operator]","tokens":[[18,25,"t"]],"status":null,"span":null},{"text":"        DecisionPaths.walk(predicate, fixed).flat_map do |outcomes, value|","tokens":[[8,17,"t"],[50,52,"k"]],"status":null,"span":null},{"text":"          body = (value == then_on ? then_arm : else_arm)&.body","tokens":[[35,36,"o"],[46,47,"o"],[57,59,"o"]],"status":"covered","span":[16,16]},{"text":"          next [[outcomes, nil]] if body.nil?","tokens":[[10,14,"k"],[27,30,"k"],[33,35,"k"]],"status":"covered","span":[17,17]},{"text":"","tokens":[],"status":null,"span":null},{"text":"          DecisionPaths.walk(body, fixed).map do |more, _|","tokens":[[10,19,"t"],[42,44,"k"]],"status":null,"span":null},{"text":"            [outcomes.merge(more), nil]","tokens":[[35,38,"k"]],"status":null,"span":null},{"text":"          end","tokens":[[10,13,"k"]],"status":null,"span":null},{"text":"        end","tokens":[[8,11,"k"]],"status":null,"span":null},{"text":"      end","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"      # Its value in each column: its taken arm's body's, nil for","tokens":[[6,65,"c"]],"status":null,"span":null},{"text":"      # a plain arm.","tokens":[[6,20,"c"]],"status":null,"span":null},{"text":"      def value(_operator, operands)","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"        _, *arms = operands","tokens":[],"status":null,"span":null},{"text":"        bodies = arms.map { |arm| arm[:body]&.fetch(:cells) }","tokens":[[38,43,"s"],[44,46,"o"],[52,58,"s"]],"status":"covered","span":[29,29]},{"text":"        arms.first[:cells].each_index.map do |column|","tokens":[[19,25,"s"],[42,44,"k"]],"status":null,"span":null},{"text":"          taken = arms.index { |arm| arm[:cells][column] }","tokens":[[41,47,"s"]],"status":null,"span":null},{"text":"          taken && bodies[taken]&.fetch(column)","tokens":[[16,18,"o"],[32,34,"o"]],"status":"covered","span":[32,32]},{"text":"        end","tokens":[[8,11,"k"]],"status":null,"span":null},{"text":"      end","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"    end","tokens":[[4,7,"k"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"    # A condition whose predicate picks an arm: a ternary, an if","tokens":[[4,64,"c"]],"status":null,"span":null},{"text":"    # or an unless.","tokens":[[4,19,"c"]],"status":null,"span":null},{"text":"    module Choice","tokens":[[4,10,"k"],[11,17,"t"]],"status":null,"span":null},{"text":"      extend Base","tokens":[[13,17,"t"]],"status":null,"span":null},{"text":"      extend Arms","tokens":[[13,17,"t"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"      OPERATORS = CHOICES","tokens":[[6,15,"t"],[18,25,"t"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"      # What its decision's leave call wraps: an if's or an unless's","tokens":[[6,64,"c"]],"status":null,"span":null},{"text":"      # predicate, a leaf's byte range or a nested Condition, as","tokens":[[6,64,"c"]],"status":null,"span":null},{"text":"      # its path is decided there and its arms are statements that","tokens":[[6,66,"c"]],"status":null,"span":null},{"text":"      # may return or raise; a ternary as a whole.","tokens":[[6,50,"c"]],"status":null,"span":null},{"text":"      def self.trailed(condition)","tokens":[[6,9,"k"],[10,14,"k"]],"status":null,"span":null},{"text":"        return condition if condition.operator == '?:'","tokens":[[8,14,"k"],[25,27,"k"],[50,54,"s"]],"status":"covered","span":[50,50]},{"text":"","tokens":[],"status":null,"span":null},{"text":"        condition.operands.first","tokens":[],"status":null,"span":null},{"text":"      end","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"","tokens":[],"status":null,"span":null},{"text":"      # The name of one of a ternary's arms: ? or :, then its","tokens":[[6,61,"c"]],"status":null,"span":null},{"text":"      # condition's operator, or its text for a plain arm.","tokens":[[6,58,"c"]],"status":null,"span":null},{"text":"      def self.arm_label(arm)","tokens":[[6,9,"k"],[10,14,"k"]],"status":null,"span":null},{"text":"        mark = arm[:arm] == :then ? '?' : ':'","tokens":[[19,23,"s"],[28,33,"s"],[34,35,"o"],[36,39,"s"],[40,41,"o"],[42,45,"s"]],"status":"covered","span":[58,58]},{"text":"        body = arm[:body]","tokens":[[19,24,"s"]],"status":null,"span":null},{"text":"        \"#{mark} #{body ? body[:operator] : arm[:text]}\"","tokens":[[8,9,"s"],[16,17,"s"],[24,25,"o"],[31,40,"s"],[42,43,"o"],[48,53,"s"],[55,56,"s"]],"status":"covered","span":[60,60]},{"text":"      end","tokens":[[6,9,"k"]],"status":null,"span":null},{"text":"    end","tokens":[[4,7,"k"]],"status":null,"span":null},{"text":"  end","tokens":[[2,5,"k"]],"status":null,"span":null},{"text":"end","tokens":[[0,3,"k"]],"status":null,"span":null}],"cards":[{"first":12,"last":23,"column":6,"status":"covered","top":false,"decisions":null,"title":{"name":"ways","calls":3211,"ways":8,"notTaken":0,"taken":6},"rows":[{"at":"16:17","decision":"lib/path_coverage/kinds/choice.rb:16:17","top":{"text":"&.","tokens":[[0,2,"o"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"&.","tokens":[[0,2,"o"]]},"at":[16,17,16,63],"else":null,"counts":[4752,1758]},{"kind":"operand","branch":"lhs","label":{"text":"(value == then_on ? then_arm : else_arm)","tokens":[[18,19,"o"],[29,30,"o"]]},"at":[16,17,16,57],"cells":[["","present","not nil"],["","absent","nil"]]}]},{"at":"16:35","decision":"lib/path_coverage/kinds/choice.rb:16:35","top":{"text":"?:","tokens":[[0,2,"o"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"?:","tokens":[[0,2,"o"]]},"at":[16,18,16,56],"else":null,"counts":[3235,3275]},{"kind":"operand","branch":"ths","label":{"text":"value == then_on","tokens":[]},"at":[16,18,16,34],"cells":[["T",null,null],["F",null,null]]},{"kind":"arm","branch":"ths","label":{"text":"? then_arm","tokens":[[0,1,"o"]]},"at":[16,37,16,45],"cells":[["","taken",null],["",null,null]]},{"kind":"arm","branch":"lhs","label":{"text":": else_arm","tokens":[[0,1,"o"]]},"at":[16,48,16,56],"cells":[["",null,null],["","taken",null]]}]},{"at":"17:33","decision":"lib/path_coverage/kinds/choice.rb:17:33","top":{"text":"if","tokens":[[0,2,"k"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"if","tokens":[[0,2,"k"]]},"at":[17,33,17,45],"else":null,"counts":[6454,56]},{"kind":"operand","branch":"lhs","label":{"text":"body.nil?","tokens":[]},"at":[17,36,17,45],"cells":[["T",null,null],["F",null,null]]}]}]},{"first":27,"last":34,"column":6,"status":"covered","top":false,"decisions":null,"title":{"name":"value","calls":700,"ways":8,"notTaken":0,"taken":6},"rows":[{"at":"29:34","decision":"lib/path_coverage/kinds/choice.rb:29:34","top":{"text":"&.","tokens":[[0,2,"o"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"&.","tokens":[[0,2,"o"]]},"at":[29,34,29,59],"else":null,"counts":[11,1001]},{"kind":"operand","branch":"lhs","label":{"text":"arm[:body]","tokens":[[4,9,"s"]]},"at":[29,34,29,44],"cells":[["","present","not nil"],["","absent","nil"]]}]},{"at":"32:10","decision":"lib/path_coverage/kinds/choice.rb:32:10","top":{"text":"&&","tokens":[[0,2,"o"]]},"paths":4,"taken":4,"fold":[{"kind":"decision","branch":"","label":{"text":"&&","tokens":[[0,2,"o"]]},"at":[32,10,32,47],"else":null,"counts":[11,12,1011,391]},{"kind":"operand","branch":"ths","label":{"text":"taken","tokens":[]},"at":[32,10,32,15],"cells":[["T",null,null],["T",null,null],["T",null,null],["F",null,null]]},{"kind":"subtree","branch":"lhs","label":{"text":"&.","tokens":[[0,2,"o"]]},"at":[32,19,32,47],"cells":[["T",null,null],["F",null,null],["F",null,null],["",null,null]]},{"kind":"operand","branch":"ssslhs","label":{"text":"bodies[taken]","tokens":[]},"at":[32,19,32,32],"cells":[["","present","not nil"],["","present","not nil"],["","absent","nil"],["",null,null]]},{"kind":"operand","branch":"sssssslhs","label":{"text":"fetch(column)","tokens":[]},"at":[32,19,32,47],"cells":[["T",null,null],["F",null,null],["",null,null],["",null,null]]}]}]},{"first":49,"last":53,"column":6,"status":"covered","top":false,"decisions":null,"title":{"name":"trailed","calls":122,"ways":2,"notTaken":0,"taken":2},"rows":[{"at":"50:25","decision":"lib/path_coverage/kinds/choice.rb:50:25","top":{"text":"if","tokens":[[0,2,"k"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"if","tokens":[[0,2,"k"]]},"at":[50,25,50,54],"else":null,"counts":[72,50]},{"kind":"operand","branch":"ths","label":{"text":"condition.operator == '?:'","tokens":[[22,26,"s"]]},"at":[50,28,50,54],"cells":[["T",null,null],["F",null,null]]},{"kind":"leaves","branch":"lhs","label":{"text":"return","tokens":[[0,6,"k"]]},"at":[50,8,50,24],"cells":[["","leaves",null],["",null,null]]}]}]},{"first":57,"last":61,"column":6,"status":"covered","top":false,"decisions":null,"title":{"name":"arm_label","calls":32,"ways":4,"notTaken":0,"taken":4},"rows":[{"at":"58:34","decision":"lib/path_coverage/kinds/choice.rb:58:34","top":{"text":"?:","tokens":[[0,2,"o"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"?:","tokens":[[0,2,"o"]]},"at":[58,15,58,45],"else":null,"counts":[16,16]},{"kind":"operand","branch":"ths","label":{"text":"arm[:arm] == :then","tokens":[[4,8,"s"],[13,18,"s"]]},"at":[58,15,58,33],"cells":[["T",null,null],["F",null,null]]},{"kind":"arm","branch":"ths","label":{"text":"? '?'","tokens":[[0,1,"o"],[2,5,"s"]]},"at":[58,36,58,39],"cells":[["","taken",null],["",null,null]]},{"kind":"arm","branch":"lhs","label":{"text":": ':'","tokens":[[0,1,"o"],[2,5,"s"]]},"at":[58,42,58,45],"cells":[["",null,null],["","taken",null]]}]},{"at":"60:24","decision":"lib/path_coverage/kinds/choice.rb:60:24","top":{"text":"?:","tokens":[[0,2,"o"]]},"paths":2,"taken":2,"fold":[{"kind":"decision","branch":"","label":{"text":"?:","tokens":[[0,2,"o"]]},"at":[60,19,60,54],"else":null,"counts":[2,30]},{"kind":"operand","branch":"ths","label":{"text":"body","tokens":[]},"at":[60,19,60,23],"cells":[["T",null,null],["F",null,null]]},{"kind":"arm","branch":"ths","label":{"text":"? body[:operator]","tokens":[[0,1,"o"],[7,16,"s"]]},"at":[60,26,60,41],"cells":[["","taken",null],["",null,null]]},{"kind":"arm","branch":"lhs","label":{"text":": arm[:text]","tokens":[[0,1,"o"],[6,11,"s"]]},"at":[60,44,60,54],"cells":[["",null,null],["","taken",null]]}]}]}]};
+// Draws a path coverage page from its data, window.pathCoverage, as
+// schema.json has it, into the page's <main>. It runs before the
+// page's other scripts, which then find the page as they would had
+// it been written whole. A port computes; this only draws.
+(function () {
+  'use strict';
+
+  var SCHEMA = 1;
+  var data = window.pathCoverage;
+  if (!data || data.schema !== SCHEMA) {
+    throw new Error('path coverage: page data of schema ' +
+      (data && data.schema) + ', but render.js draws schema ' + SCHEMA);
+  }
+
+  // text, escaped for HTML.
+  function esc(text) {
+    return String(text)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // code, {text, tokens}, escaped, each token's range, its columns
+  // counting characters, in a span of its class.
+  function painted(code) {
+    var chars = Array.from(code.text);
+    var at = 0;
+    var out = '';
+    code.tokens.forEach(function (token) {
+      out += esc(chars.slice(at, token[0]).join('')) +
+        '<span class="' + token[2] + '">' +
+        esc(chars.slice(token[0], token[1]).join('')) + '</span>';
+      at = token[1];
+    });
+    return out + esc(chars.slice(at).join(''));
+  }
+
+  // ---------------------------------------------------------------
+  // The index page.
+
+  // A table cell, sorted by sort, showing content, with title as its
+  // hover and css as its class, each when given.
+  function td(sort, content, title, css) {
+    var klass = css ? ' class="' + css + '"' : '';
+    var hover = title ? ' title="' + title + '"' : '';
+    return '<td' + klass + ' data-sort="' + esc(sort) + '"' + hover + '>' +
+      content + '</td>';
+  }
+
+  // Why a total of no paths shows no percent.
+  var NONE = 'no method with two or more decisions';
+
+  // The cells after a row's file: its decisions, then its paths combined
+  // taken, / of and percent.
+  function counts(row) {
+    var taken = row.combined[0];
+    var possible = row.combined[1];
+    var percent = row.percent === null
+      ? td('', '-', NONE, 'percent')
+      : td(row.percent, row.percent + '%', null, 'percent');
+    return td(row.decisions, row.decisions) +
+      td(taken, taken, null, 'taken') +
+      td(possible, '/ ' + possible, null, 'of') + percent;
+  }
+
+  // The heading row of a files table, every column sortable.
+  function headRow() {
+    var heading = function (attrs, column, type, label) {
+      return '<th' + attrs + ' aria-sort="none"><button type="button"' +
+        ' data-column="' + column + '" data-type="' + type + '">' +
+        label + '</button></th>';
+    };
+    var parts = [['taken', 'taken'], ['of', '/ of'], ['percent', '%']];
+    var cells = [heading('', 0, 'text', 'File'),
+      heading(' class="num"', 1, 'number', 'Decisions')].concat(
+      parts.map(function (part, i) {
+        return heading(' class="' + part[0] + '"', 2 + i, 'number', part[1]);
+      }));
+    return '<tr>\n' + cells.join('\n') + '\n</tr>';
+  }
+
+  // The index-th tab's table; any but the first hidden, only the
+  // first giving its rows ids, as the others repeat its rows.
+  function table(index, shown) {
+    var anchored = index === 0;
+    var body = shown.rows.map(function (row) {
+      var path = esc(row.path);
+      var link = '<a href="files/' + path + '.html">' + path + '</a>';
+      var id = anchored ? ' id="row-' + path + '"' : '';
+      return '<tr' + id + '>' + td(row.path, link) + counts(row) + '</tr>';
+    }).join('\n');
+    var hidden = anchored ? '' : ' hidden="hidden"';
+    return [
+      '<table class="files" id="files-' + index + '" role="tabpanel"' +
+        hidden + '>',
+      '<thead>\n' + headRow() + '\n</thead>',
+      '<tbody>\n' + body + '\n</tbody>',
+      '<tfoot>\n<tr>' + td('Total', 'Total') + counts(shown.total) +
+        '</tr>\n</tfoot>',
+      '</table>'
+    ].join('\n');
+  }
+
+  // The tab bar, a tab per table, the first selected; none for one
+  // table.
+  function tabs(tables) {
+    if (tables.length < 2) { return ''; }
+    var buttons = tables.map(function (shown, i) {
+      return '<button type="button" role="tab" aria-selected="' +
+        (i === 0) + '" aria-controls="files-' + i + '">' +
+        esc(shown.name) + '</button>';
+    });
+    return '<nav class="tabs" role="tablist" aria-label="Groups">' +
+      buttons.join('') + '</nav>';
+  }
+
+  // The paragraph naming the operators ignored; none when none are.
+  function ignored(names) {
+    if (names.length === 0) { return ''; }
+    return '<p class="ignored" data-ignored="">' +
+      esc('Ignored: ' + names.join(', ')) + '</p>';
+  }
+
+  // The index page's <main>.
+  function indexPage(page) {
+    var tables = page.tables.map(function (shown, i) {
+      return table(i, shown);
+    }).join('\n');
+    return '\n<header class="head" data-head="">\n' +
+      '<div class="top"><h1 class="title">Path coverage</h1>' +
+      '<button type="button" class="theme" aria-label="Light or dark">' +
+      '</button></div>\n</header>\n' + tabs(page.tables) +
+      '\n<div class="box">\n' + tables + '\n</div>' +
+      ignored(page.ignored) + '\n';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's cards' folds.
+
+  // The cell drawing a branch, one kind per letter.
+  function branchCell(branch) {
+    var cells = Array.from(branch).map(function (kind) {
+      return '<span class="bx" data-bx="' + kind + '"></span>';
+    });
+    return '<span class="branch" data-branch="" aria-hidden="true">' +
+      cells.join('') + '</span>';
+  }
+
+  // Example: 1284 gives 1,284 times.
+  function times(count) {
+    var digits = String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return digits + (count === 1 ? ' time' : ' times');
+  }
+
+  // A decision row's count cells, 0 for a path never taken, else *.
+  function countCells(counts) {
+    return counts.map(function (count) {
+      var never = count === 0;
+      return '<span class="' + (never ? 'count never' : 'count') +
+        '" data-count="" data-hover="' + times(count) + '">' +
+        (never ? '0' : '*') + '</span>';
+    }).join('');
+  }
+
+  // A fold row's cells, each [text, mark, hover].
+  function valueCells(cells) {
+    return cells.map(function (cell) {
+      var attrs = 'class="cell" data-cell=""';
+      if (cell[1] !== null) { attrs += ' data-mark="' + esc(cell[1]) + '"'; }
+      if (cell[2] !== null) { attrs += ' data-hover="' + esc(cell[2]) + '"'; }
+      return '<span ' + attrs + '>' + esc(cell[0]) + '</span>';
+    }).join('');
+  }
+
+  // The attribute marking each kind of fold row, and the class and
+  // attribute of its label's span.
+  var KINDS = {
+    decision: ['', 'operator" data-operator="'],
+    subtree: [' data-subtree=""', 'operator" data-operator="'],
+    operand: [' data-operand=""', 'text" data-text="'],
+    arm: [' data-arm=""', 'arm" data-label="'],
+    leaves: [' data-leaves=""', 'arm" data-label="']
+  };
+
+  // The attribute name="line,column,line,column" of at; none for null.
+  function atAttr(at, name) {
+    return at ? ' ' + name + '="' + at.join(',') + '"' : '';
+  }
+
+  // One fold row.
+  function foldRow(row) {
+    var kind = KINDS[row.kind];
+    var lead = row.branch === '' ? '' : branchCell(row.branch);
+    var cells = row.counts ? countCells(row.counts) : valueCells(row.cells);
+    var attrs = kind[0] + atAttr(row.at, 'data-at') +
+      atAttr(row.else, 'data-else');
+    return '<div class="row"' + attrs + '>' + lead + '<span class="' +
+      kind[1] + '">' + painted(row.label) + '</span>' + cells + '</div>';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's cards.
+
+  // The class each of a card row's cells adds after pcell.
+  var CELLS = ['', ' not-taken', ' was-taken'];
+
+  // A card row: attrs, lead, its label, then a span per cell.
+  function cardRow(attrs, label, cells, lead) {
+    var spans = cells.map(function (cell, i) {
+      var none = CELLS[i] === ' not-taken' && cell === '0' ? ' none' : '';
+      return '<span class="pcell' + CELLS[i] + none + '">' + cell + '</span>';
+    });
+    return '<div ' + attrs + '>' + (lead || '') +
+      '<span class="plabel">' + label + '</span>' + spans.join('') + '</div>';
+  }
+
+  // How many times a method was called, after its name; none when not
+  // known.
+  function callCount(calls) {
+    if (calls === null) { return ''; }
+    var css = calls === 0 ? 'call-count never' : 'call-count';
+    return '<span class="' + css + '">&times;' + calls + '</span>';
+  }
+
+  // One row of a card, then its fold, if it has one.
+  function statementRow(row) {
+    var count = row.taken;
+    var counts = count === null ? ['?', '?'] :
+      [String(row.paths - count), String(count)];
+    var cells = [painted(row.top)].concat(counts);
+    var css = row.decision ? 'prow decision' : 'prow';
+    var attrs = 'class="' + css + '" data-line="' +
+      parseInt(row.at.match(/\d+/)[0], 10) + '"';
+    var fold = row.fold ? row.fold.map(foldRow).join('') : null;
+    var lead = fold === null ? '' :
+      '<button type="button" class="fold-arrow" aria-expanded="false"' +
+      ' aria-label="Paths of ' + row.at + '"></button>';
+    var folded = fold === null ? '' :
+      '<div class="fold" data-decision="' + row.decision + '" hidden="hidden">' +
+      '<div class="decision" data-decision="">' + fold + '</div></div>';
+    return cardRow(attrs, row.at, cells, lead) + folded;
+  }
+
+  // A card's HTML: its title row, its columns row, then its rows.
+  function cardHtml(card) {
+    var title = card.title;
+    var label = esc(title.name) + callCount(title.calls);
+    var head = cardRow('class="prow calls" data-line="' + card.first + '"',
+      label, ['*' + title.ways, String(title.notTaken), String(title.taken)]) +
+      cardRow('class="prow columns"', 'line:col',
+        ['', 'not taken', 'taken']);
+    var grid = card.top ? 'pathgrid statements top-level' : 'pathgrid statements';
+    var attrs = 'id="paths-' + card.first + '" data-first="' + card.first +
+      '" data-col="' + card.column + '" data-last="' + card.last +
+      '" data-status="' + card.status + '" hidden="hidden"';
+    return '<div class="' + grid + '" ' + attrs + '>' + head +
+      card.rows.map(statementRow).join('') + '</div>';
+  }
+
+  // ---------------------------------------------------------------
+  // A file page's listing and nav.
+
+  // The first lines of the cards of status, in line order.
+  function firsts(cards, status) {
+    return cards.filter(function (card) { return card.status === status; })
+      .map(function (card) { return card.first; })
+      .sort(function (a, b) { return a - b; });
+  }
+
+  // Each status's arrows, gaps first, and how a label names it.
+  var STATUSES = [['gaps', 'with gaps'], ['covered', 'covered']];
+
+  // The header's row of jumps, to each card with gaps.
+  function jumps(cards) {
+    var links = firsts(cards, 'gaps').map(function (first) {
+      return '<a class="jump" data-status="gaps" href="#L' + first + '">' +
+        first + '</a>';
+    });
+    var empty = links.length === 0 ? ' data-empty=""' : '';
+    return '<nav class="jumps" aria-label="Cards"><div class="jump-list"' +
+      empty + '><span class="jump-label">Gaps</span>' + links.join('') +
+      '</div></nav>';
+  }
+
+  // The gutter of a row of numbers: by each card's first line, an
+  // arrow to the card of its status before it, and one after.
+  function navCell(numbers, cards) {
+    var links = [];
+    STATUSES.forEach(function (named) {
+      var status = named[0];
+      var lines = firsts(cards, status);
+      lines.filter(function (first) { return numbers.indexOf(first) >= 0; })
+        .forEach(function (first) {
+          var i = lines.indexOf(first);
+          var arrow = function (way, word, line) {
+            return '<a data-' + way + '="" data-status="' + status +
+              '" href="#L' + line + '" aria-label="' + word + ' card ' +
+              named[1] + ', line ' + line + '"></a>';
+          };
+          links.push(arrow('prev', 'Previous',
+            lines[(i - 1 + lines.length) % lines.length]));
+          links.push(arrow('next', 'Next', lines[(i + 1) % lines.length]));
+        });
+    });
+    return '<span class="nav" data-nav="">' + links.join('') + '</span>';
+  }
+
+  // True when card holds line.
+  function holds(card, line) { return card.first <= line && line <= card.last; }
+
+  // The attributes of a line's code: in a method, its innermost one's
+  // status and def's column, marked as its def line or last line.
+  function srcAttributes(methods, number, text) {
+    var holders = methods.filter(function (card) { return holds(card, number); });
+    if (holders.length === 0) { return 'class="src"'; }
+    var inner = holders.reduce(function (best, card) {
+      return card.first > best.first ? card : best;
+    });
+    var css = ['src', 'in-method'];
+    if (methods.some(function (card) { return card.first === number; })) {
+      css.push('def-line');
+    }
+    if (methods.some(function (card) { return card.last === number; })) {
+      css.push('method-end');
+    }
+    var style = '--def-col: ' + inner.column;
+    if (inner.first === number) {
+      style += '; --def-end: ' + Array.from(text).length;
+    }
+    return 'class="' + css.join(' ') + '" data-method-status="' +
+      inner.status + '" style="' + style + '"';
+  }
+
+  // One line's number, a def's marked to open its method's card.
+  function lineNumber(number, methods) {
+    var card = methods.filter(function (each) { return each.first === number; })[0];
+    var css = card
+      ? 'class="lineno mdef" data-status="' + card.status + '" aria-expanded="false"'
+      : 'class="lineno"';
+    return '<span ' + css + ' id="L' + number + '" data-line="' + number +
+      '">' + number + '</span>';
+  }
+
+  // One line's code, coloured.
+  function code(line, number, methods) {
+    return '<span ' + srcAttributes(methods, number, line.text) +
+      ' data-src="">' + painted(line) + '</span>';
+  }
+
+  // The source listing: a row per line, but one row over all the
+  // lines of a decision outside every method.
+  function listing(lines, cards) {
+    var methods = cards.filter(function (card) { return !card.top; });
+    var tops = {};
+    cards.forEach(function (card) { if (card.top) { tops[card.first] = card; } });
+    var loose = function (line) {
+      return !methods.some(function (card) { return holds(card, line); });
+    };
+    var rows = [];
+    lines.forEach(function (line, index) {
+      var number = index + 1;
+      var span = line.span;
+      var key = span && loose(span[0]) ? 'span ' + span[0] + '-' + span[1] : number;
+      var last = rows[rows.length - 1];
+      if (last && last.key === key) {
+        last.numbers.push(number);
+      } else {
+        rows.push({ key: key, span: typeof key === 'string', numbers: [number] });
+      }
+    });
+    var body = rows.map(function (row) {
+      if (!row.span) {
+        var number = row.numbers[0];
+        var line = lines[number - 1];
+        var folded = methods.some(function (card) {
+          return card.first + 1 <= number && number <= card.last;
+        });
+        return '<div class="' + (folded ? 'line method-folded' : 'line') + '">' +
+          navCell([number], cards) + lineNumber(number, methods) +
+          code(line, number, methods) + '</div>';
+      }
+      var first = row.numbers[0];
+      var top = tops[first];
+      var decisions = top ? top.decisions : 0;
+      var count = decisions < 2 ? '' :
+        '<span class="decision-count" data-decision-count="">' + decisions + '</span>';
+      var spans = row.numbers.map(function (n) { return lineNumber(n, []); }).join('');
+      var status = top ? top.status : (lines[first - 1].status || '');
+      var button = '<button type="button" class="lnum loose" data-status="' +
+        status + '" aria-expanded="false" aria-controls="paths-' + first +
+        '">' + count + spans + '</button>';
+      var srcs = row.numbers.map(function (n) {
+        return code(lines[n - 1], n, []);
+      }).join('');
+      return '<div class="block">' + navCell(row.numbers, cards) + button +
+        '<div class="srcs">' + srcs + '</div></div>';
+    });
+    return '<div class="code">\n' + body.join('\n') + '\n</div>';
+  }
+
+  // A file page's <main>.
+  function filePage(page) {
+    var path = esc(page.path);
+    var index = '../'.repeat(page.path.split('/').length) + 'index.html';
+    var rail = page.cards.map(cardHtml).join('\n');
+    return '\n<header class="head" data-head="">\n' +
+      '<div class="top"><p class="title"><a data-index="" href="' + index +
+      '">Path coverage</a></p><h1 class="path"><a data-row="" href="' +
+      index + '#row-' + path + '">' + path + '</a></h1>' +
+      '<button type="button" class="theme" aria-label="Light or dark">' +
+      '</button></div>\n' + jumps(page.cards) + '\n</header>\n' +
+      '<div class="box">\n<div class="rail">\n' + rail + '\n</div>\n' +
+      listing(page.lines, page.cards) + '\n' +
+      '<div class="divider" role="separator" aria-orientation="vertical"' +
+      ' title="Drag to share the width between paths and code"></div>\n' +
+      '</div>\n';
+  }
+
+  var main = document.querySelector('main.page');
+  if (data.page === 'index') {
+    document.title = 'Path coverage';
+    main.innerHTML = indexPage(data);
+  } else {
+    document.title = data.path + ' · Path coverage';
+    main.innerHTML = filePage(data);
+  }
+}());
 // The behaviour of a file's page: its cards sit in the rail left
 // of the code, one open at a time, level with its first line. A
 // method's def number opens its card, unfolding its body; a loose
-// site's button, outside every method, opens its lines' top card.
+// decision's button, outside every method, opens its lines' top card.
 // The page's markup, from the Ruby, already marks every method's
 // lines, numbers and rows; this only opens, closes and places.
 (function () {
@@ -592,7 +939,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   var divider = document.querySelector('.divider');
   var grids = Array.prototype.slice.call(document.querySelectorAll('.pathgrid'));
 
-  // True for a top card, of sites outside every method.
+  // True for a top card, of decisions outside every method.
   function isTop(grid) {
     return grid.classList.contains('top-level');
   }
@@ -606,13 +953,13 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
     return document.getElementById('L' + n);
   }
 
-  // The row, a line or a loose site's block, holding line n.
+  // The row, a line or a loose decision's block, holding line n.
   function rowOf(n) {
     return lineno(n).closest('.line, .block');
   }
 
   // The code span of line n, whether a line's own or one of a
-  // loose site's lines.
+  // loose decision's lines.
   function srcOf(n) {
     var number = lineno(n);
     if (!number) { return null; }
@@ -647,7 +994,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   });
 
   // The def number of each method's card, which opens it; null for
-  // a top card, which its site's button opens.
+  // a top card, which its decision's button opens.
   var defs = grids.map(function (grid) {
     return isTop(grid) ? null : lineno(firstOf(grid));
   });
@@ -666,7 +1013,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 
   // Opens grid alone, null closing all: a method's card opens its
   // body, every other method's folded; its def number, or its
-  // site's button, says it is open.
+  // decision's button, says it is open.
   function openOnly(open) {
     clear();
     grids.forEach(function (grid, i) {
@@ -938,20 +1285,20 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   });
   rail.addEventListener('mouseleave', function () { litRow = null; });
 
-  // A click on a site's row in a card unfolds that site's tree in
+  // A click on a decision's row in a card unfolds that decision's tree in
   // the row's place, folding up any other open; a click on the row
   // of the one open, or on its fold's first row, which stands in
   // the row's place, folds it back.
   rail.addEventListener('click', function (event) {
-    if (event.target.closest('.fold .site > .row:first-child')) { unfold(null); return; }
-    var row = event.target.closest('.statements .prow.site');
+    if (event.target.closest('.fold .decision > .row:first-child')) { unfold(null); return; }
+    var row = event.target.closest('.statements .prow.decision');
     var fold = row && row.nextElementSibling;
     if (!fold || !fold.classList.contains('fold')) { return; }
     unfold(fold.hidden ? fold : null);
   });
 
   // Shows fold alone, null folding them all up, the arrow of each
-  // site's row pointing up while its fold shows; then places the
+  // decision's row pointing up while its fold shows; then places the
   // open card again, as its height has changed.
   function unfold(fold) {
     rail.querySelectorAll('.fold').forEach(function (each) {
@@ -1044,7 +1391,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
   }
 
   // The number of the line whose code is src, a line's own or one of
-  // a loose site's lines.
+  // a loose decision's lines.
   function lineOf(src) {
     var block = src.closest('.block');
     if (!block) { return Number(src.parentElement.querySelector('.lineno').id.slice(1)); }
@@ -1093,7 +1440,7 @@ mark.chars { background: var(--lit); color: inherit; border-radius: 3px; box-sha
 
   // Opening one card closes the others, and a click never closes
   // the one open, so the rail always shows one. A click on a def
-  // line opens its method's card; one on a loose site's lines opens
+  // line opens its method's card; one on a loose decision's lines opens
   // their top card; a gutter arrow or a header jump opens the card
   // at the line it jumps to.
   document.addEventListener('click', function (event) {

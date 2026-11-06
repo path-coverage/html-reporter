@@ -8,7 +8,7 @@ A port writes two JSON files and no HTML:
 - `path_coverage.json`: the counts, as AIs and other tools read them.
 - `path_coverage.source.json`: what drawing each file's code needs and
   only a parser of its language can work out: each line's text and
-  coloured tokens, where each site is, its fold's rows, and each card
+  coloured tokens, where each decision is, its fold's rows, and each card
   row's top coloured.
 
 `report.js` reads the two and writes the report: `index.html`, and
