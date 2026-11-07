@@ -91,6 +91,11 @@
           "description": "The operators the configuration ignores, eg &&=.",
           "type": "array",
           "items": { "type": "string" }
+        },
+        "measured_by": {
+          "description": "Each tool that parsed or measured the run, by name, and its version; absent for a run that names none.",
+          "type": "object",
+          "additionalProperties": { "type": "string" }
         }
       }
     },

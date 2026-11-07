@@ -120,6 +120,18 @@
       esc('Ignored: ' + names.join(', ')) + '</p>';
   }
 
+  // The paragraph naming each tool that measured the run and its
+  // version, eg ruby 4.0.5; none for a run that names none.
+  function measuredBy(tools) {
+    var names = Object.keys(tools || {});
+    if (names.length === 0) { return ''; }
+    var each = names.map(function (name) {
+      return name + ' ' + tools[name];
+    });
+    return '<p class="measured-by" data-measured-by="">' +
+      esc('Measured by: ' + each.join(', ')) + '</p>';
+  }
+
   // The index page's <main>.
   function indexPage(page) {
     var tables = page.tables.map(function (shown, i) {
@@ -130,7 +142,7 @@
       '<button type="button" class="theme" aria-label="Light or dark">' +
       '</button></div>\n</header>\n' + tabs(page.tables) +
       '\n<div class="box">\n' + tables + '\n</div>' +
-      ignored(page.ignored) + '\n';
+      ignored(page.ignored) + measuredBy(page.measured_by) + '\n';
   }
 
   // ---------------------------------------------------------------

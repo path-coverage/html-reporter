@@ -2715,6 +2715,11 @@
       }
     }
   },
+  "measured_by": {
+    "ruby": "4.0.5",
+    "prism": "1.8.1",
+    "path_coverage": "0.4.0"
+  },
   "kinds": [
     "block",
     "case",

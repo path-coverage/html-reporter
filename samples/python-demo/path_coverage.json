@@ -1779,6 +1779,10 @@
       ]
     }
   },
+  "measured_by": {
+    "python": "3.14.8",
+    "path_coverage": "0.0.1"
+  },
   "kinds": [
     "block",
     "case",

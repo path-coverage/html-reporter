@@ -120,7 +120,10 @@ function indexData(report, source) {
     const rest = rows.filter((row) => !grouped.has(row.path))
     if (rest.length > 0) tables.push(table('Ungrouped', rest))
   }
-  return { schema: SCHEMA, page: 'index', tables, ignored: source.ignored }
+  return {
+    schema: SCHEMA, page: 'index', tables, ignored: source.ignored,
+    measured_by: report.measured_by
+  }
 }
 
 // A row's decisions, its [taken, possible] paths combined, and their
